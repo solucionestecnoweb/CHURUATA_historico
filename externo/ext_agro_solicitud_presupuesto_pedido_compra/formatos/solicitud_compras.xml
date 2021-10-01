@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data> 
+  <record id="paperformat_solicitud" model="report.paperformat">
+
+      <field name="default" eval="True"/>
+        <field name="name">A4 Solicitud Presupuesto</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">279</field>
+        <field name="page_width">216</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">52</field>
+        <field name="margin_bottom">75</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <template id="report_invoice_with_payments_copy3">
+            <t t-call="web.html_container">
+              <t t-call="web.basic_layout" >
+                <div class="header">
+                  <table width="100%">
+
+                    <tr>
+                      <td style="width:30%;text-align:center;">
+                        <t t-if="docs.company_id.logo">  
+                            <img t-attf-src="data:image/*;base64,{{docs.company_id.logo}}" style="width:auto; height:80px;"/>
+                        </t>
+                      </td>
+                      <td style="font-size:13px;"><t t-esc="docs.company_id.street"/>
+                      <br/>
+                      CÓDIGO POSTAL: <t t-esc="docs.company_id.zip"/>
+                     <br/>
+                     RIF: <t t-esc="docs.doc_cedula(docs.company_id.partner_id.id)"/>
+                    </td>
+                    </tr>
+                  </table>
+                </div>
+                <div style="background-image:url(https://venngage-wordpress.s3.amazonaws.com/uploads/2018/11/15-Presentation-Background-Examples37.png); width:100%;">
+                <div class="page">
+                  <table width="100%"  class="table table-condensed"><!--table table-bordered-->
+                    <tr style="color: #968F78;">
+                      <td colspan="1"></td>
+                      <td colspan="2" align="right">
+                        <h5>SOLICITUD DE PRESUPUESTO</h5>
+                      </td>
+                      <td colspan="3" align="right">Nro de Cotización: <t t-esc="docs.name"/></td>
+                    </tr>
+                    <tr style="font-size:13px;">
+                      <td width="50" style="font-size:13px; color: #253a0f;">CLIENTE:</td>
+                      <td colspan="2"><t t-esc="docs.partner_id.name"/></td>
+                      <td align="right" style="font-size:13px; color: #253a0f;">RIF:</td>
+                      <td colspan="2"><t t-esc="docs.doc_cedula(docs.partner_id.id)"/></td>
+                    </tr>
+                    <tr style="font-size:13px;">
+                      <td style="font-size:13px; color: #253a0f;">DIRECCIÓN:</td>
+                      <td colspan="5"><t t-esc="docs.partner_id.street"/></td>
+                    </tr>
+                    <tr style="font-size:13px;">
+                      <td style="font-size:13px; color: #253a0f;">TELÉFONOS:</td>
+                      <td colspan="2"><t t-esc="docs.partner_id.phone"/>/<t t-esc="docs.partner_id.mobile"/>
+                      </td>
+                      <td align="right" style="font-size:13px; color: #253a0f;">EMAIL:</td>
+                      <td colspan="2"><t t-esc="docs.partner_id.email"/></td>
+                    </tr>
+                    <tr style="font-size:13px;">
+                      <td colspan="3" style="color: #253a0f;">PERSONA DE CONTACTO: <t t-esc="docs.partner_ref"/></td>
+                      <td colspan="3" style="font-size:12px;" align="right"><span style="color: #253a0f;">FECHA DE EMISIÓN:</span> <t t-esc="docs.formato_fecha(docs.date_actual)"/></td>
+                    </tr>
+                    <tbody class="table table-bordered">
+                      <tr align="center" style="font-size:12px; background-color:#EEEBEC; color: #253a0f;">
+                        <td>ITEM/COD</td>
+                        <td>DESCRIPCIÓN</td>
+                        <td>CANT.</td>
+                        <td>P.U</td>
+                        <td>IMPUESTO</td>
+                        <td>TOTAL</td>
+                      </tr>
+                    </tbody>
+
+                    <t t-set="acum_subtotal" t-value="0"/>
+                    <t t-set="acum_alicuota_general" t-value="0"/>
+                    <t t-set="acum_alicuota_reducida" t-value="0"/>
+                    <t t-set="acum_alicuota_adicional" t-value="0"/>
+                    <t t-set="total_factura" t-value="0"/>
+
+                    <t t-foreach="docs.order_line" t-as="o">
+                    <tr style="font-size:12px;">
+                      <td><t t-esc="o.product_id.default_code"/></td>
+                      <td><t t-esc="o.product_id.name"/></td>
+                      <td><div align="center"><t t-esc="o.product_qty"/></div></td>
+                      <td><div align="right"><t t-esc="o.float_format(o.price_unit)"/></div></td>
+                      <td><div align="center"><t t-esc="o.taxes_id.amount"/>%</div></td>
+                      <td><div align="right"><t t-esc="o.float_format(o.price_subtotal)"/>
+
+                          <t t-set="acum_subtotal" t-value="acum_subtotal+o.price_subtotal"/></div></td>
+                      <t t-if="o.taxes_id.aliquot== 'general' ">
+                        <t t-set="acum_alicuota_general" t-value="acum_alicuota_general+(o.price_total-o.price_subtotal)"/>
+                      </t>
+                      <t t-if="o.taxes_id.aliquot== 'reduced' ">
+                        <t t-set="acum_alicuota_reducida" t-value="acum_alicuota_reducida+(o.price_total-o.price_subtotal)"/>
+                      </t>
+                      <t t-if="o.taxes_id.aliquot== 'additional' ">
+                        <t t-set="acum_alicuota_adicional" t-value="acum_alicuota_adicional+(o.price_total-o.price_subtotal)"/>
+                      </t>
+
+                    </tr>
+                    </t>
+
+                    <tr style="font-size:14px;">
+                      <td colspan="5"><div align="right" style="color: #968F78;">TOTAL(<t t-esc="docs.currency_id.symbol"/>):</div></td>
+                      <td colspan="1"><div align="right"><t t-esc="docs.float_format(acum_subtotal)"/></div></td>
+                      <t t-set="total_factura" t-value="total_factura+acum_subtotal"/>
+                    </tr>
+
+                    <!--t t-if="acum_alicuota_general!= 0 ">
+                    <tr style="font-size:12px;">
+                      <td colspan="5"><div align="right">I.V.A(16%):</div></td>
+                      <td><div align="right"><t t-esc="docs.float_format(acum_alicuota_general)"/></div></td>
+                      <t t-set="total_factura" t-value="total_factura+acum_alicuota_general"/>
+                    </tr>
+                    </t>
+
+                    <t t-if="acum_alicuota_reducida!= 0 ">
+                    <tr style="font-size:12px;">
+                      <td colspan="5"><div align="right">I.V.A(8%):</div></td>
+                      <td><div align="right"><t t-esc="docs.float_format(acum_alicuota_reducida)"/></div></td>
+                      <t t-set="total_factura" t-value="total_factura+acum_alicuota_reducida"/>
+                    </tr>
+                    </t>
+
+                    <t t-if="acum_alicuota_adicional!= 0 ">
+                    <tr style="font-size:12px;">
+                      <td colspan="5"><div align="right">I.V.A(31%):</div></td>
+                      <td><div align="right"><t t-esc="docs.float_format(acum_alicuota_adicional)"/></div></td>
+                      <t t-set="total_factura" t-value="total_factura+acum_alicuota_adicional"/>
+                    </tr>
+                    </t>
+
+                    <tr style="font-size:12px;">
+                      <td colspan="5"><div align="right">TOTAL A PAGAR:</div></td>
+                      <td><div align="right"><t t-esc="docs.float_format(total_factura)"/></div></td>
+                    </tr-->
+
+                    <tr>
+                      <td colspan="6" height="100">.</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><t t-esc="docs.nota_proveedor"/></td>
+                      <td colspan="4"></td>
+                    </tr>
+                  </table>
+    
+                </div>
+                </div>
+                
+              </t>
+            </t>
+    </template>
+
+    <!--t t-set="lang" t-value="o.invoice_user_id.sudo().lang if o.type in ('in_invoice', 'in_refund') else o.partner_id.lang"/>
+                    <t t-call="account.report_invoice_document_with_payments" t-lang="lang"/-->
+
+    <report
+            id="account_solicitud_presupuesto"
+            model="purchase.order"
+            string="Solicitud de Presupuesto Agro"
+            report_type="qweb-pdf"
+            name="ext_agro_solicitud_presupuesto_pedido_compra.report_invoice_with_payments_copy3"
+            file="ext_agro_solicitud_presupuesto_pedido_compra.report_invoice_with_payments_copy3"
+            paperformat="ext_agro_solicitud_presupuesto_pedido_compra.paperformat_solicitud"
+        />
+
+        <!--
+          attachment="(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')"
+            print_report_name="(object._get_report_base_filename())"
+            groups="account.group_account_invoice"
+          -->
+  
+  </data>
+</odoo>

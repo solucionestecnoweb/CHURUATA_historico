@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+    <report 
+            string="Bom Cost Report" 
+            id="action_report_bom_cost" 
+            model="mrp.bom" 
+            name="odoo_process_costing_manufacturing.report_bom_structure_cost"
+            file="odoo_process_costing_manufacturing.report.report_bom_structure_cost" 
+            report_type="qweb-pdf"
+        />
+
+    <template id="report_bom_structure_cost">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <p>
+                         <h3 class="text-center">
+                             Bill of Materials 
+                         </h3>
+                    </p>
+                    <table class="table table-condensed" width="100%">
+                        <tr>
+                            <td>
+                                <strong>Product:</strong>
+                            </td>
+                            <td>
+                                <span t-field="o.product_tmpl_id"/>
+                            </td>
+                            <td>
+                                <strong>Reference:</strong>
+                            </td>
+                            <td>
+                                <span t-field="o.code"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Product Variant:</strong>
+                            </td>
+                            <td>
+                                <span t-field="o.product_id"/>
+                            </td>
+                            <td>
+                                <strong>Bom Type:</strong>
+                            </td>
+                            <td>
+                                <span t-field="o.type"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Quantity:</strong>
+                            </td>
+                            <td>
+                                <span t-field="o.product_qty"/><span t-field="o.product_uom_id.name" groups="product.group_uom"/>
+                            </td>
+                            <td>
+                                <strong>Routing:</strong>
+                            </td>
+                            <td>
+                                <span t-field="o.routing_id"/>
+                            </td>
+                        </tr>
+                    </table>
+                <h3 t-if="o.bom_line_ids">Components</h3>
+                <table class="table table-condensed" t-if="o.bom_line_ids" width="100%">
+                    <tr>
+                        <td><strong>Product</strong></td>
+                        <td><strong>Product Quantity</strong></td>
+                        <td><strong>Product Unit of Measure</strong></td>
+                        <td><strong>Variants</strong></td>
+                        <td><strong>Consumed in Operation</strong></td>
+                    </tr>
+                    <tbody>
+                        <t t-if="o.bom_line_ids">
+                            <tr t-foreach="o.bom_line_ids" t-as="bom">
+                                <td>
+                                    <span t-field="bom.product_id"/>
+                                </td>
+                                <td>
+                                    <span t-field="bom.product_qty"/>
+                                </td>
+                                <td>
+                                    <span t-field="bom.product_uom_id"/>
+                                </td>
+                                <td>
+                                    <t t-foreach="bom.bom_product_template_attribute_value_ids" t-as="attribute">
+                                        <span t-field="attribute.attribute_id"/>
+                                    </t>
+                                </td>
+                                <td>
+                                    <span t-field="bom.operation_id"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                <h3 t-if="o.direct_material_ids">Direct Materials Cost</h3>
+                <table class="table table-condensed" t-if="o.direct_material_ids" width="100%">
+                    <tr>
+                        <td><strong>Operation</strong></td>
+                        <td><strong>Product</strong></td>
+                        <td class="text-right"><strong>Planned Qty</strong></td>
+                        <td class="text-right"><strong>Cost / Unit</strong></td>
+                        <td class="text-right"><strong>Total Cost</strong></td>
+                    </tr>
+                    <tbody>
+                        <t t-if="o.direct_material_ids">
+                            <tr t-foreach="o.direct_material_ids" t-as="material">
+                                <td>
+                                    <span t-field="material.routing_workcenter_id.name"/>
+                                </td>
+                                <td>
+                                    <span t-field="material.product_id.name"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="material.product_qty"/>
+                                    <span t-field="material.uom_id.name"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="material.cost_price" t-options='{"widget": "monetary", "display_currency": material.custom_currency_id}'/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="material.total_cost" t-options='{"widget": "monetary", "display_currency": material.custom_currency_id}'/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                    <tr>
+                        <td></td><td></td><td></td>
+                        <td><strong>Total Material Cost:</strong></td>
+                        <td><span t-field="o.material_total" t-options='{"widget": "monetary", "display_currency": o.custom_currency_id}'/></td>
+                    </tr>
+                </table>
+                <div class="oe_structure"/>
+                    <h3 t-if="o.labour_cost_ids">Direct Labour Cost</h3>
+                    <table class="table table-condensed" t-if="o.labour_cost_ids" width="100%">
+                        <tr>
+                                <td><strong>Operation</strong></td>
+                                <td><strong>Product</strong></td>
+                                <td class="text-right"><strong>Planned Qty</strong></td>
+                                <td class="text-right"><strong>Cost / Unit</strong></td>
+                                <td class="text-right"><strong>Total Cost</strong></td>
+                            </tr>
+                        <tbody>
+                            <t t-if="o.labour_cost_ids">
+                                <tr t-foreach="o.labour_cost_ids" t-as="labour">
+                                    <td>
+                                        <span t-field="labour.routing_workcenter_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="labour.product_id.name"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="labour.product_qty"/>
+                                        <span t-field="labour.uom_id.name"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="labour.cost_price" t-options='{"widget": "monetary", "display_currency": labour.custom_currency_id}'/>
+<!--                                        <span t-field="labour.cost_price"/>-->
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="labour.total_cost" t-options='{"widget": "monetary", "display_currency": labour.custom_currency_id}'/>
+<!--                                        <span t-field="labour.total_cost"/>-->
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tr>
+                            <td></td><td></td><td></td>
+                            <td><strong>Total Labour Cost:</strong></td>
+                            <td><span t-field="o.labor_total" t-options='{"widget": "monetary", "display_currency": o.custom_currency_id}'/></td>
+                        </tr>
+                    </table>
+                    <div class="oe_structure"/>
+                    <h3 t-if="o.overhead_cost_ids">Overhead Cost</h3>
+                        <table class="table table-condensed" t-if="o.overhead_cost_ids" width="100%">
+                            <tr>
+                                <td><strong>Operation</strong></td>
+                                <td><strong>Product</strong></td>
+                                <td class="text-right"><strong>Planned Qty</strong></td>
+                                <td class="text-right"><strong>Cost / Unit</strong></td>
+                                <td class="text-right"><strong>Total Cost</strong></td>
+                            </tr>
+                            <tbody>
+                                <t t-if="o.overhead_cost_ids">
+                                    <tr t-foreach="o.overhead_cost_ids" t-as="overhead">
+                                        <td>
+                                            <span t-field="overhead.routing_workcenter_id.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="overhead.product_id.name"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="overhead.product_qty"/>
+                                            <span t-field="overhead.uom_id.name"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="overhead.cost_price" t-options='{"widget": "monetary", "display_currency": overhead.custom_currency_id}'/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="overhead.total_cost" t-options='{"widget": "monetary", "display_currency": overhead.custom_currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tr>
+                                <td></td><td></td><td></td>
+                                <td><strong>Total Overhead Cost:</strong></td>
+                                <td><span t-field="o.overhead_total" t-options='{"widget": "monetary", "display_currency": o.custom_currency_id}'/></td>
+                            </tr>
+                            <tr>
+                                <td></td><td></td><td></td>
+                                <td><strong>Total Cost:</strong></td>
+                                <td><span t-field="o.final_total_cost" t-options='{"widget": "monetary", "display_currency": o.custom_currency_id}'/></td>
+                            </tr>
+                        </table>
+                        <!--odoo11-->
+                        
+<!--                        <h3 t-if="o.sub_products">By Products</h3>-->
+<!--                        <table class="table table-condensed" t-if="o.sub_products" width="100%">-->
+<!--                            <tr>-->
+<!--                                <td><strong>Product</strong></td>-->
+<!--                                <td><strong>Product Qty</strong></td>-->
+<!--                                <td><strong>Unit of Measure</strong></td>-->
+<!--                            </tr>-->
+<!--                            <tbody>-->
+<!--                                <t t-if="o.sub_products">-->
+<!--                                    <tr t-foreach="o.sub_products" t-as="sub">-->
+<!--                                        <td>-->
+<!--                                            <span t-field="sub.product_id"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <span t-field="sub.product_qty"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <span t-field="sub.product_uom_id"/>-->
+<!--                                        </td>-->
+<!--                                    </tr>-->
+<!--                                </t>-->
+<!--                            </tbody>-->
+<!--                        </table>-->
+                    </div>
+                </t>
+                </t>
+        </t>
+    </template>
+</odoo>

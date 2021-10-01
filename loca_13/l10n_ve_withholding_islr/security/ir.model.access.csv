@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_islr_rates_ve,islr.rates,model_islr_rates,account.group_account_user,1,0,0,0
+access_islr_rates_ve,islr.rates,model_islr_rates,account.group_account_manager,1,1,1,1
+access_islr_rates_ve,islr.rates,model_islr_rates,base.group_user,1,0,0,0
+access_islr_rates_ve,islr.rates,model_islr_rates,base.group_partner_manager,1,0,0,0
+access_islr_rates_ve,islr.rates,model_islr_rates,account.group_account_invoice,1,1,1,1
+access_islr_concept_ve,islr.concept,model_islr_concept,account.group_account_user,1,0,0,0
+access_islr_concept_ve,islr.concept,model_islr_concept,account.group_account_manager,1,1,1,1
+access_islr_concept_ve,islr.concept,model_islr_concept,base.group_user,1,0,0,0
+access_islr_concept_ve,islr.concept,model_islr_concept,base.group_partner_manager,1,0,0,0
+access_islr_concept_ve,islr.concept,model_islr_concept,account.group_account_invoice,1,1,1,1
+access_islr_wh_doc,isrl.wh.doc,model_islr_wh_doc,account.group_account_user,1,0,0,0
+access_islr_wh_doc,isrl.wh.doc,model_islr_wh_doc,base.group_partner_manager,1,0,0,0
+access_islr_wh_doc,isrl.wh.doc,model_islr_wh_doc,account.group_account_user,1,0,0,0
+access_islr_wh_doc,isrl.wh.doc,model_islr_wh_doc,account.group_account_invoice,1,1,1,1

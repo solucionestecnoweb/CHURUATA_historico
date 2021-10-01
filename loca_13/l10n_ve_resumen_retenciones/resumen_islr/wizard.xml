@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <!-- Wizard para imprimir resumen retenciones iva-->
+      <record id="view_retenciones_islr" model="ir.ui.view">
+       	    <field name="name">Resumen Retencion ISLR</field>
+            <field name="model">wizard.resumen.islr</field>
+    	    <field name="arch" type="xml">
+
+    	    	<form string="Reporte Resumen Retenciones ISLR">
+                     <group colspan="8" col="4">
+                         
+                         <field name="date_from" string="Fecha Desde" required="1"/>
+                         <field name="date_to"  string="Fecha Hasta" required="1"/>
+                                                                          
+                     </group>                   
+                     
+	                <footer>
+	                   <button name="print_resumen_islr" string="Resumen Retenciones ISLR" type="object" class="oe_highlight" />                  
+	                   <button special="cancel" string="Cancel" class="oe_highlight" />
+	                </footer>
+                </form>
+
+    	    </field>
+      </record>
+
+      <record id="action_report_wizards_3" model="ir.actions.act_window">
+        	<field name="name">wizard Resumen Retenciones ISLR</field>
+        	<field name="res_model">wizard.resumen.islr</field>
+        	<field name="view_mode">form</field>
+        	<field name="view_id" ref="view_retenciones_islr"/>
+        	<field name="target">new</field>
+      </record>
+
+      <!--menuitem
+             id="menu_retenciones"
+             parent="account.menu_finance_reports"
+             name="Resumenes de Retenciones"
+             sequence="13"
+        /-->
+
+      <menuitem
+        id="menu_resumen_islr"
+        parent="menu_retenciones"
+        name="Resumen Retenciones ISLR"
+		    sequence="15"
+        action="action_report_wizards_3"/>
+
+    </data>
+</odoo>

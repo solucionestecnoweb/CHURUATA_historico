@@ -1,0 +1,37 @@
+<odoo>
+  <data>
+     <!--record id="herencia_vista_pos_order" model="ir.ui.view">
+        <field name="name">vista.pos.order</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">  
+                      
+                <field name="nro_fact_seniat_aux" string="nro_fact_seniat_aux" invisible="0"/>
+                <field name="nro_fact_seniat" string="nro_fact_seniat" invisible="0"/>
+                <field name="nb_caja_comp" string="Nombre Caja" invisible="1"/>
+                <field name="nb_caja" string="Nombre Caja" invisible="0" readonly="1"/>
+              
+            </xpath>
+            
+        </field>
+     </record-->   
+
+     <record id="herencia_vista_pos_order_tree" model="ir.ui.view">
+        <field name="name">vista.pos.order.tree</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="after">  
+                      
+                <field name="url_nota_credito" string="Imprimir Nota Credito" invisible="1" widget="url"/>
+                <field name="link" string="Imprimir Nota Credito" widget="url" invisible="0" attrs="{'invisible': [('amount_total','>',0)]}"/>
+              
+            </xpath>
+            
+        </field>
+     </record>   
+    	 
+
+  </data>
+</odoo>

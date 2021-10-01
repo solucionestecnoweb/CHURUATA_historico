@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="pos_wizard_libro_ventas" model="ir.ui.view">
+            <field name="name">Asistente para factura de Proveedores</field>
+            <field name="model">pos.wizard.libro.ventas</field>
+            <field name="arch" type="xml">
+                 <form string="Libro Ventas Pos">
+                    <field invisible="1" name="state"/>
+                    <div states="choose">
+                        <group >
+                            <field name="date_from" string="Fecha Inicio" required="1"/>
+                            <field name="date_to"  string="Fecha Fin" required="1"/>
+                        </group>
+                    </div>
+                    <div states="get">
+                        <group>
+                            <field name="name" colspan="4" invisible="1"/>
+                            <field name="report" filename="name" colspan="4"/>
+                        </group>
+                    </div>
+                    <footer states="choose">
+                        <button name="generate_xls_report" string="Exportar Excel" type="object" class="oe_highlight" />
+                        <button name="print_libro_pos" string="Exportar PDF" type="object" class="oe_highlight" />
+                        <button special="cancel" string="Cancel" class="oe_highlight" />
+                    </footer>
+                    <footer states="get">
+                        <button special="cancel" string="Cancel" class="oe_highlight" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_account_common_menu_libro_ventas_pos" model="ir.actions.act_window">
+            <field name="name">Libro Ventas Pos</field>
+            <field name="res_model">pos.wizard.libro.ventas</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="pos_wizard_libro_ventas"/>
+            <field name="target">new</field>
+        </record>
+        <menuitem 
+            name="Libro Ventas Pos" 
+            parent="account.menu_finance_reports"
+            id="account.libro_ventas_pos"
+            sequence="8"
+            action="action_account_common_menu_libro_ventas_pos"/>
+    </data>
+</odoo>

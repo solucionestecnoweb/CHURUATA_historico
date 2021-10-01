@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_xml_detalle_line,account.xml.detalle.line,model_account_xml_detalle_line,account.group_account_invoice,1,1,1,1
+access_account_xml_detalle,account.xml.detalle,model_account_xml_detalle,account.group_account_invoice,1,1,1,1

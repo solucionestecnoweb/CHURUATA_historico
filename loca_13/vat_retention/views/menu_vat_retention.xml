@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Menu root for all VAT Retention-->
+    <!-- <menuitem
+       id="menu_retention"
+       name="VAT Retentions"
+       parent="account_accountant.menu_accounting"
+    /> -->
+    <!-- Menu for all retention -->
+    <!-- <menuitem
+        id="menu_vat_retention"
+        name="VAT Retention"
+        action="action_vat_retention"
+        parent="menu_retention"
+    /> -->
+    
+    <!-- Menu for all vendor retention -->
+    <menuitem 
+        id="menu_vendor_vat_retention"
+        name="Vendors VAT retention"
+        action="action_vat_vendors_retention"
+        parent="account.menu_finance_payables"
+    />
+
+    <!-- Menu for all customer retention -->
+    <menuitem 
+        id="menu_customer_vat_retention"
+        name="Customer VAT retention"
+        action="action_vat_customers_retention"
+        parent="account.menu_finance_receivables"
+    />
+</odoo>

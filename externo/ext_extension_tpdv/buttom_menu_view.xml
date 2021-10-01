@@ -1,0 +1,31 @@
+<odoo>
+  <data>
+      <record id="teste_google" model="ir.actions.act_url">
+            <field name="name">Google 1</field>
+            <field name="type">ir.actions.act_url</field>
+            <field name="target">self</field>
+            <!--field name="url">http://localhost/a/odoo_lista_pedidos_pg.php</field--><!--www.google.com.au/?teste2=teste2-->
+            <field name="url">http://localhost/fiscal_13/reporte_diario.php</field>
+      </record>
+
+      <menuitem
+             id="history_pedidos"
+             parent="point_of_sale.menu_point_root"
+             name="Informes Diarios" 
+             action="teste_google"
+             sequence="999"
+        /><!-- Historico de pedidos-->
+
+
+      <record id="view_pos_session_form_inherit" model="ir.ui.view">
+        <field name="name">view.pos.session.form.inherit</field>
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+        <field name="arch" type="xml">
+          <xpath expr="//header//button[@name='action_pos_session_closing_control']" position="after">
+                      <button name="ejecuta_resumen" type="object" string="Ejecutar resumen total"/>
+          </xpath>
+        </field>
+      </record>
+  </data>
+</odoo>

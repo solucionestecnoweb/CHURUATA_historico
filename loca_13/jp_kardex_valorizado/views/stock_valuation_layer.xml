@@ -1,0 +1,32 @@
+<odoo>
+  <data>
+
+        <record id="view_stock_valuation_layer_form" model="ir.ui.view">
+            <field name="name">stock.valuation.layer.form</field>
+            <field name="model">stock.valuation.layer</field>
+            <field name="arch" type="xml">
+			    <tree string="Stock Valuation Layer" editable="top">
+                    <field name="description"/>
+                    <field name="quantity"/>
+                    <field name="unit_cost"/>
+                    <field name="value"/>
+                    <field name="remaining_value"/>
+                    <field name="remaining_qty"/>
+                    <field name="date"/>
+                    <field name="account_move_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_stock_valuation_layer" model="ir.actions.act_window">
+            <field name="name">Stock Valuation Layer</field>
+            <field name="res_model">stock.valuation.layer</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem id="menu_account_bank_disbursements" name="Stock Valuation Layer"
+                parent="stock.menu_stock_config_settings"
+                action="action_stock_valuation_layer" sequence="100"/>
+
+  </data>
+</odoo>

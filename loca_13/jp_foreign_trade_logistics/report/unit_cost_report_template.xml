@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_unit_cost_document">
+    <t t-call="web.internal_layout">
+        <t t-set="doc" t-value="doc.with_context(lang=doc.company_id.partner_id.lang)" />
+        <div class="page">
+            <div class="oe_structure"/>
+
+            <h2 class="mt16">
+                <t>
+                    <span>Landed Cost # </span>
+                </t>
+                <span t-field="doc.name"/>
+            </h2>
+
+            <div class="row mt32 mb32" id="informations">
+                <div t-if="doc.date and doc.state in ['draft','done']" class="col-auto mw-100 mb-2">
+                    <strong>Date:</strong>
+                    <p class="m-0" t-field="doc.date"/>
+                </div>
+                <div t-if="doc.account_journal_id" class="col-auto mw-100 mb-2">
+                    <strong>Journal:</strong>
+                    <p class="m-0" t-field="doc.account_journal_id"/>
+                </div>
+                <div t-if="doc.foreign_currency_id" class="col-auto mw-100 mb-2">
+                    <strong>Foreign Currency:</strong>
+                    <p class="m-0" t-field="doc.foreign_currency_id"/>
+                </div>
+                <div t-if="doc.foreign_currency_id" class="col-auto mw-100 mb-2">
+                    <strong>Quantity:</strong>
+                    <p class="m-0" t-field="doc.total_quantity"/>
+                </div>
+            </div>
+            <!-- <div class="row mt32 mb32" id="pickings">
+                <div t-if="doc.picking_ids and doc.state in ['draft','done']" class="col-auto mw-100 mb-2">
+                    <strong>Pickings:</strong>
+                    <p class="m-0" t-field="doc.picking_ids"/>
+                </div>
+            </div>
+            <div class="row mt32 mb32" id="bills">
+                <div t-if="doc.vendor_bill_ids and doc.state in ['draft','done']" class="col-auto mw-100 mb-2">
+                    <strong>Vendor bills:</strong>
+                    <p class="m-0" t-field="doc.vendor_bill_ids"/>
+                </div>
+            </div>
+            <div class="row mt32 mb32" id="bills">
+                <div t-if="doc.expenses_bill_ids and doc.state in ['draft','done']" class="col-auto mw-100 mb-2">
+                    <strong>Expenses bills:</strong>
+                    <p class="m-0" t-field="doc.expenses_bill_ids"/>
+                </div>
+            </div> -->
+
+            <table table-class="table table-sm table-striped o_main_table">
+                <thead>
+                    <tr>
+                        <th name="th_invoice_date">Invoice Date</th>
+                        <!-- <th name="th_invoice_date">Invoice Due Date</th> -->
+                        <th name="th_partner_id">Partner</th>
+                        <th name="th_type_document">Type Document</th>
+                        <th name="th_ref">Document Number</th>
+                        <th name="th_currency_id">Currency</th>
+                        <th name="th_currency_rate" class="text-right">Rate</th>
+                        <th name="th_amount_untaxed" class="text-right">Amount</th>
+                        <th name="th_amount_untaxed_signed" class="text-right">Amount Signed</th>
+                    </tr>
+                </thead>
+                <tbody class="vendor_bills_tbody">
+                    <t t-foreach="doc.vendor_bill_ids" t-as="bill">
+                        <tr>
+                            <t>
+                                <td name="td_invoice_date" class="text-center"><span t-field="bill.invoice_date"/></td>
+                                <!-- <td name="td_invoice_date_due" class="text-center"><span t-field="bill.invoice_date_due"/></td> -->
+                                <td name="td_partner_id"><span t-field="bill.partner_id"/></td>
+                                <td name="td_type_document_id"><span t-field="bill.type_document_id"/></td>
+                                <td name="td_ref"><span t-field="bill.ref"/></td>
+                                <td name="td_currency_id" class="text-center"><span t-field="bill.currency_id"/></td>
+                                <!-- <t t-if="bill.tc_per == True"> -->
+                                    <t t-set="bill_rate" t-value="bill.currency_rate"/>
+                                <!-- </t>
+                                <t t-if="bill.tc_per == False">
+                                    <t t-set="bill_rate" t-value="doc.env['res.currency']._get_conversion_rate(doc.foreign_currency_id, bill.company_id.currency_id, doc.company_id, bill.invoice_date or datetime.date.today())"/>
+                                </t> -->
+                                <td name="td_currency_rate" class="text-right"><span t-esc="'%.4f'% bill_rate"/></td>
+                                <!-- <td name="td_amount_untaxed" class="text-right"><span t-field="bill.amount_untaxed"/></td>
+                                <td name="td_amount_untaxed_signed" class="text-right"><span t-field="bill.amount_untaxed"/></td> -->
+                                <td name="td_amount_untaxed" class="text-right" t-if="bill.currency_id != bill.company_currency_id">
+                                    <span t-esc="bill.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.foreign_currency_id}"/>
+                                    <td class="text-right"><span t-esc="(bill.amount_untaxed * bill.currency_rate)" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: bill.company_currency_id}"/></td>
+                                </td>
+                                <td name="td_amount_untaxed" class="text-right" t-if="bill.currency_id == bill.company_currency_id">
+                                    <span t-esc="(bill.amount_untaxed * bill_rate)" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.foreign_currency_id}"/>
+                                    <td class="text-right">
+                                        <span t-esc="bill.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: bill.currency_id}"/>
+                                    </td>
+                                </td>
+                            </t>
+                        </tr>
+                    </t>
+                    <t t-foreach="doc.expenses_bill_ids" t-as="expense">
+                        <tr>
+                            <t>
+                                <td name="td_invoice_date" class="text-center"><span t-field="expense.invoice_date"/></td>
+                                <!-- <td name="td_invoice_date_due" class="text-center"><span t-field="expense.invoice_date_due"/></td> -->
+                                <td name="td_partner_id"><span t-field="expense.partner_id"/></td>
+                                <td name="td_type_document_id"><span t-field="expense.type_document_id"/></td>
+                                <td name="td_ref"><span t-field="expense.ref"/></td>
+                                <td name="td_currency_id" class="text-center"><span t-field="expense.currency_id"/></td>
+                                <!-- <t t-if="expense.tc_per == True"> -->
+                                    <t t-set="expense_rate" t-value="expense.currency_rate"/>
+                                <!-- </t>
+                                <t t-if="expense.tc_per == False">
+                                    <t t-set="expense_rate" t-value="doc.env['res.currency']._get_conversion_rate(doc.foreign_currency_id, expense.company_id.currency_id, doc.company_id, expense.invoice_date or datetime.date.today())"/>
+                                </t> -->
+                                <td name="td_currency_rate" class="text-right"><span t-esc="'%.4f'% expense_rate"/></td>
+                                <!-- <td name="td_amount_untaxed" class="text-right"><span t-field="expense.amount_untaxed"/></td>
+                                <td name="td_amount_untaxed" class="text-right"><span t-field="expense.amount_untaxed_signed"/></td> -->
+                                <td name="td_amount_untaxed" class="text-right" t-if="expense.currency_id != expense.company_currency_id">
+                                    <span t-esc="expense.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.foreign_currency_id}"/>
+                                    <td  class="text-right"><span t-esc="(expense.amount_untaxed * expense.currency_rate)" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: expense.company_currency_id}"/></td>
+                                </td>
+                                <td name="td_amount_untaxed" class="text-right" t-if="expense.currency_id == expense.company_currency_id">
+                                    <span t-esc="(expense.amount_untaxed / expense_rate)" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.foreign_currency_id}"/>
+                                    <td class="text-right">
+                                        <span t-esc="expense.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: expense.currency_id}"/>
+                                    </td>
+                                </td>
+                            </t>
+                        </tr>
+                    </t>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5" class="text-right">Total Amount</td>
+                        <td></td>
+                        <td class="text-right"><t t-esc="doc.amount_total_landed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.foreign_currency_id}"/></td>
+                        <td class="text-right"><t t-esc="doc.amount_total_landed_signed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.company_currency_id}"/></td>
+                    </tr>
+                    <t t-if="not doc.many_products">
+                        <tr>
+                            <td colspan="5" class="text-right">Unit Cost</td>
+                            <td></td>
+                            <td class="text-right"><t t-esc="'%.8f'% doc.unit_cost"/> <!-- t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.foreign_currency_id}"/>--></td>
+                            <td class="text-right"><t t-esc="'%.8f'% doc.unit_cost_signed"/> <!-- t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.company_currency_id}"/>--></td>
+                        </tr>
+                    </t>
+                </tfoot>
+            </table>
+            <t t-if="doc.many_products">
+                <t t-foreach="doc.data_for_report_ids" t-as="valuation">
+                    <tr>
+                        <div class="row mt32 mb32" id="informations">
+                            <div t-if="doc.date and doc.state in ['draft','done']" class="col-auto mw-100 mb-2">
+                                <strong>Product:</strong>
+                                <p class="m-0" t-esc="valuation.product_id.name"/>
+                            </div>
+                            <div t-if="doc.date and doc.state in ['draft','done']" class="col-auto mw-100 mb-2">
+                                <strong>Quantity:</strong>
+                                <p class="m-0" t-esc="valuation.product_qty"/>
+                            </div>
+                        </div>
+                        <!-- <h3 class="mt16">
+                            <t><span>Product: </span></t>
+                            <span t-esc="valuation.product_id.name"/>
+                        </h3> -->
+                    </tr>
+                    <table cellspacing="300px" table-class="table table-sm table-striped o_main_table">
+                        <thead>
+                            <tr>
+                                <th name="th_invoice_date">Invoice Date</th>
+                                <!-- <th name="th_invoice_date">Invoice Due Date</th> -->
+                                <th name="th_partner_id">Partner</th>
+                                <th name="th_type_document">Type Document</th>
+                                <th name="th_ref">Document Number</th>
+                                <th name="th_currency_id">Currency</th>
+                                <th name="th_currency_rate" class="text-right">Rate</th>
+                                <th name="th_amount_untaxed" class="text-right">Amount</th>
+                                <th name="th_amount_untaxed_signed" class="text-right">Amount Signed</th>
+                            </tr>
+                        </thead>
+                        <tbody class="vendor_bills_tbody">
+                            <t t-set="total_landed" t-value="0"/>
+                            <t t-set="total_landed_signed" t-value="0"/>
+                            <t t-foreach="valuation.line_ids" t-as="line">
+                                <tr>
+                                    <t>
+                                        <!-- <t t-esc="line.expense_bill_id.id == False"/>
+                                        <t t-esc="line.vendor_bill_id.id == False"/> -->
+                                        <t t-if="line.vendor_bill_id.id == False">
+                                            <td name="td_invoice_date" class="text-center"><span t-field="line.expense_bill_id.invoice_date"/></td>
+                                            <!-- <td name="td_invoice_date_due" class="text-center"><span t-field="line.expense_bill_id.invoice_date_due"/></td> -->
+                                            <td name="td_partner_id"><span t-field="line.expense_bill_id.partner_id"/></td>
+                                            <td name="td_type_document_id"><span t-field="line.expense_bill_id.type_document_id"/></td>
+                                            <td name="td_ref"><span t-field="line.expense_bill_id.ref"/></td>
+                                            <td name="td_currency_id" class="text-center"><span t-field="line.expense_bill_id.currency_id"/></td>
+                                            <!-- <t t-if="line.expense_bill_id.tc_per == True"> -->
+                                                <t t-set="expense_rate" t-value="line.expense_bill_id.currency_rate"/>
+                                            <!-- </t>
+                                            <t t-if="line.expense_bill_id.tc_per == False">
+                                                <t t-set="expense_rate" t-value="doc.env['res.currency']._get_conversion_rate(doc.foreign_currency_id, line.expense_bill_id.company_id.currency_id, doc.company_id, line.expense_bill_id.invoice_date or datetime.date.today())"/>
+                                            </t> -->
+                                        </t>
+                                        <t t-if="line.expense_bill_id.id == False">
+                                            <td name="td_invoice_date" class="text-center"><span t-field="line.vendor_bill_id.invoice_date"/></td>
+                                            <!-- <td name="td_invoice_date_due" class="text-center"><span t-field="line.vendor_bill_id.invoice_date_due"/></td> -->
+                                            <td name="td_partner_id"><span t-field="line.vendor_bill_id.partner_id"/></td>
+                                            <td name="td_type_document_id"><span t-field="line.vendor_bill_id.type_document_id"/></td>
+                                            <td name="td_ref"><span t-field="line.vendor_bill_id.ref"/></td>
+                                            <td name="td_currency_id" class="text-center"><span t-field="line.vendor_bill_id.currency_id"/></td>
+                                            <!-- <t t-if="line.vendor_bill_id.tc_per == True"> -->
+                                                <t t-set="expense_rate" t-value="line.vendor_bill_id.currency_rate"/>
+                                            <!-- </t>
+                                            <t t-if="line.vendor_bill_id.tc_per == False">
+                                                <t t-set="expense_rate" t-value="doc.env['res.currency']._get_conversion_rate(doc.foreign_currency_id, line.vendor_bill_id.company_id.currency_id, doc.company_id, line.vendor_bill_id.invoice_date or datetime.date.today())"/>
+                                            </t> -->
+                                        </t>
+                                        <td name="td_currency_rate" class="text-right"><span t-esc="'%.4f'% expense_rate"/></td>
+                                        <t t-if="line.vendor_bill_id.id == False">
+                                            <!-- <td name="td_amount_untaxed" class="text-right" t-if="line.expense_bill_id.currency_id != line.expense_bill_id.company_currency_id"> -->
+                                            <td name="td_amount_untaxed" class="text-right">
+                                                <span t-field="line.additional_landed_cost" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.foreign_currency_id}"/>
+                                                <td  class="text-right">
+                                                    <span t-field="line.additional_landed_cost_signed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: line.expense_bill_id.company_currency_id}"/>
+                                                </td>
+                                            </td>
+                                            <!-- <td name="td_amount_untaxed" class="text-right" t-if="line.expense_bill_id.currency_id == line.expense_bill_id.company_currency_id">
+                                                <span t-field="line.additional_landed_cost" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.foreign_currency_id}"/>
+                                                <td  class="text-right">
+                                                    <span t-field="line.additional_landed_cost_signed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: line.expense_bill_id.currency_id}"/>
+                                                </td>
+                                            </td> -->
+                                        </t>
+                                        <t t-if="line.expense_bill_id.id == False">
+                                            <!-- <td name="td_amount_untaxed" class="text-right" t-if="line.vendor_bill_id.currency_id == line.vendor_bill_id.company_currency_id"> -->
+                                            <td name="td_amount_untaxed" class="text-right">
+                                                <span t-field="line.additional_landed_cost" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.foreign_currency_id}"/>
+                                                <td class="text-right">
+                                                    <span t-field="line.additional_landed_cost_signed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: line.vendor_bill_id.company_currency_id}"/>
+                                                </td>
+                                            </td>
+                                            <!-- <td name="td_amount_untaxed" class="text-right" t-if="line.vendor_bill_id.currency_id == line.vendor_bill_id.company_currency_id">
+                                                <span t-field="line.additional_landed_cost" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.foreign_currency_id}"/>
+                                                <td class="text-right">
+                                                    <span t-field="line.additional_landed_cost_signed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: line.vendor_bill_id.currency_id}"/>
+                                                </td>
+                                            </td> -->
+                                        </t>
+                                        <t t-if="line.additional_landed_cost > 0">
+                                            <t t-set="total_landed" t-value="total_landed + line.additional_landed_cost"/>
+                                            <t t-set="total_landed_signed" t-value="total_landed_signed + line.additional_landed_cost_signed"/> 
+                                        </t>
+                                    </t>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5" class="text-right">Total Amount</td>
+                                <td></td>
+                                <td class="text-right"><t t-esc="total_landed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.foreign_currency_id}"/></td>
+                                <td class="text-right"><t t-esc="total_landed_signed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.company_currency_id}"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="text-right">Unit Cost</td>
+                                <td></td>
+                                <td class="text-right"><t t-esc="'%.8f'% (total_landed / valuation.product_qty)"/></td> <!-- t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.foreign_currency_id}"/></td> -->
+                                <td class="text-right"><t t-esc="'%.8f'% (total_landed_signed / valuation.product_qty)"/></td> <!-- t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.company_currency_id}"/></td> -->
+                            </tr>
+                        </tfoot>
+                    </table>
+                </t>
+            </t>
+        </div>
+    </t>
+</template>
+
+
+<template id="report_unit_cost">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="jp_foreign_trade_logistics.report_unit_cost_document" t-lang="doc.company_id.partner_id.lang"/>
+        </t>
+    </t>
+</template>
+
+</odoo>

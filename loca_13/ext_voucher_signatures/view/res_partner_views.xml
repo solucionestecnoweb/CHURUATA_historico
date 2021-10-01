@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--record id="firma_digitalizada" model="ir.ui.view">
+        <field name="name">firma.digitalizada</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page string="Firma Digitalizada" name="firma_digitalizada">
+                    <group string="Firma de la Persona">
+                        <field name="firma" widget='image'/>
+                    </group>    
+                </page>
+            </xpath>
+            
+        </field>
+    </record-->
+
+    <record id="firma_digitalizada" model="ir.ui.view">
+        <field name="name">firma.digitalizada</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='access_rights']" position="after">
+                <page string="Firma Digitalizada" name="firma_digitalizada">
+                    <group string="Firma de la Persona">
+                        <field name="firma" widget='image'/>
+                    </group>    
+                </page>
+            </xpath>
+            
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="snc_wizard_retencioniva_form_view">
+			<field name="name">snc.wizard.retencioniva.form</field>
+			<field name="model">snc.wizard.retencioniva</field>
+			<field name="arch" type="xml">
+				<form string="Retenciones de IVA">
+					<group>
+						<field name="date_from"/>
+						<field name="date_to"/>
+						<field name = "file_data" filename = "file_name" readonly = "1"/>
+						<field name = "file_name" invisible="1"/>
+					</group>
+					<footer>
+						<div class="oe_left">
+			
+							<button string="Generar TXT" name="action_generate_txt"
+								type="object"  class="oe_highlight"/>
+							<button string="Cerrar" special="cancel" type="object"
+								class="oe_link" />
+						</div>
+					</footer>
+				</form>
+			</field>
+		</record>
+
+        <!-- ACCIONES -->
+
+	    <record id="action_declaracion_retiva_form" model="ir.actions.act_window">
+	        <field name="name">Declaración Retención IVA</field>
+	        <field name="type">ir.actions.act_window</field>
+	        <field name="res_model">snc.wizard.retencioniva</field>
+	        <field name="view_mode">form</field>
+	        <field name="view_id" ref="snc_wizard_retencioniva_form_view"/>
+	        <field name="target">new</field>
+	    </record>
+
+
+        <!-- MENUS -->
+
+        <!-- SUB-MENU-->
+
+        <menuitem
+            id="menu_snc_declaracion_retiva"
+            name="Declaración Retención IVA"
+            parent="account.menu_finance_reports"
+            action="action_declaracion_retiva_form"
+            sequence="12"
+        />
+
+	</data>
+</odoo>

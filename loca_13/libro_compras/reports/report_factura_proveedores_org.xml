@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+       <record id="paperformat_libro_compras" model="report.paperformat">
+
+      <field name="default" eval="True"/>
+        <field name="name">A4 Landscape Account</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">497</field>
+        <field name="page_width">500</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">12</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">9</field>
+        <field name="dpi">110</field>
+    </record>
+
+        <report
+          id="report_factura_proveedores"
+          model="account.wizard.libro.compras"
+          string="Libro compras"
+          report_type="qweb-pdf"
+          name="libro_compras.libro_factura_proveedores"
+          paperformat="libro_compras.paperformat_libro_compras"/>
+
+
+
+        <template id="libro_factura_proveedores" name="">
+            <t t-call="web.html_container">
+
+              <t t-foreach="docs" t-as="o">
+              		<t t-call="web.basic_layout">
+                    	<div class="page">
+                        <br/>
+                        <br/>
+                        <div>
+                          <h1>Libro de Compras</h1>
+                          <h9>
+                            <div>
+                                <p>Razón Social: <span t-field="o.company_id.name"></span></p>
+                            </div>
+                            <div>
+                                <p>RIF: <!--span t-field="o.company_id.vat"></span-->
+                                <span t-esc="o.doc_cedula2(o.company_id.id)"></span>
+
+                              </p>
+                            </div>
+                            <div>
+                                <p>Direccion Fiscal: <span t-field="o.company_id.street"> </span> <t t-esc="o.company_id.city" /> <t t-esc="o.company_id.state_id.name"/> <t t-esc="o.company_id.zip" /> <t t-esc="o.company_id.country_id.name" /></p>
+                            </div>
+                            <div>
+                            <p>Período: Desde:<span t-field="o.date_from"></span> &amp;nbsp;Hasta:<span t-field="o.date_to"></span></p>
+                            </div>
+                          </h9>
+                        </div>
+                        <table class="table table-condensed  o_main_table ">
+                          <tr class="text-center">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th colspan="5"><p>Compras Internas o Exportacion Gravada</p></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr class="text-center">
+                              <th>#</th>
+                              <th>Fecha de Documento</th>
+                              <th style="width:60px">       RIF       </th>
+                              <th>Nombre Razón Social</th>
+                              <th>Tipo de <br/>Persona.</th>
+                              <th>Nro Factura / Entrega</th>
+                              <th>Nro. de Control</th>
+                              <th>Número Nota de debito</th>
+                              <th>Número de Nota de Crédito</th>
+                              <th>Nro. Factura Afectada</th>
+                              <th>Tipo de <br/>Transacc.</th>
+                              
+                              <th>Número de Planilla de Importaciones</th>
+                              <th>Número Expediente Importaciones</th>
+                              <th>Fecha de Importaciones</th>
+                              <th>Compras Incluyendo IVA</th>
+                              <th>Compras Internas o Importaciones No Gravadas</th>
+                              <th>Compras Internas o Importaciones Exentas o Exoneradas</th>
+                              <th>Base Imponible</th>
+                              <th>% Alicuota</th>
+                              <th>Impuesto IVA</th>
+                              <th>IVA Retenido (Vendedor)</th>
+                              <th>Nro. Comprobante de Retención</th>
+                              <th>Fecha comp</th>
+                          </tr>
+                          <tbody class="table table-bordered">
+
+                            <t t-set="contador" t-value="1"/>
+                            <t t-set="base_imponible" t-value="0"/>
+                            <t t-set="no_grabada" t-value="0"/>
+                            <t t-set="exenta" t-value="0"/>
+                            <t t-set="base_iva" t-value="0"/>
+                            <t t-set="otro" t-value="0"/>
+                            <t t-set="iva" t-value="0"/>
+                            <t t-set="iva_retenido" t-value="0"/>
+                            <t t-set="Compras_exportacion_base" t-value="0"/>
+
+                            <t t-set="Compras_incluyendo_iva" t-value="0"/>
+
+                            <t t-set="Compras_exportacion_debito" t-value="0"/>
+                            <t t-set="Compras_exportacion_retenticion" t-value="0"/>
+
+                            <t t-set="Compras_general_base" t-value="0"/>
+                            <t t-set="Compras_general_debito" t-value="0"/>
+                            <t t-set="Compras_general_retenticion" t-value="0"/>
+                            
+                              <tr t-foreach="o.line.sorted(key=lambda x: (x.name,str(x.retenido) ),reverse=False)" t-as="factura">
+                               
+
+                                <t t-set="base_iva" t-value="base_iva + factura.sale_total"/>
+                               
+                                
+
+                                <td><t t-esc="contador"/></td>
+                                <td><t t-esc="factura.formato_fecha2(factura.name)"/></td>
+                                <td>
+
+                                  <!--t t-esc="factura.partner.doc_type"/-->
+                                  <!--t t-esc="factura.partner.vat"/-->
+                                  <t t-esc="factura.doc_cedula(factura.partner.id)"/>
+
+                                </td>
+                                <td><t t-esc="factura.partner.name"/></td>
+                                
+                                <t t-if="factura.partner.people_type == 'resident_nat_people' ">
+                                  <td>PNRE</td>
+                                </t>
+                                <t t-elif="factura.partner.people_type == 'non_resit_nat_people'">
+                                 <td>PNNR</td>
+                                </t>
+                                <t t-elif="factura.partner.people_type == 'domi_ledal_entity'">
+                                 <td>PJDO</td>
+                                </t>
+                                <t t-elif="factura.partner.people_type == 'legal_ent_not_domicilied'">
+                                 <td>PJND</td>
+                                </t>
+                                <t t-else="">
+                                  <td></td>
+                                </t>
+                                
+                                
+                                <t t-if="factura.tipo_doc == 'fc' ">
+                                  <td><t t-esc="factura.invoice_number"/></td>
+                                </t>
+                                <t t-else="">
+                                  <td></td>
+                                </t>
+                                
+                                <td><t t-esc="factura.invoice_ctrl_number"/></td>
+                                <t t-if="factura.tipo_doc == 'nb' ">
+                                  <td><t t-esc="factura.reversed_entry_id.invoice_number"/></td>
+                                </t>
+                                <t t-else="">
+                                  <td></td>
+                                </t>
+                                <t t-if="factura.tipo_doc == 'nc' ">
+                                  <td><t t-esc="factura.reversed_entry_id.invoice_number"/></td>
+                                </t>
+                                <t t-else="">
+                                  <td></td>
+                                </t>
+
+                                <t t-if="factura.tipo_doc == 'nc' or  factura.tipo_doc == 'nb' ">
+                                  <td><t t-esc="factura.ref"/></td>
+                                </t>
+                                <t t-else="">
+                                  <td></td>
+                                </t>
+                                <t t-if="factura.state == 'cancel' ">
+                                  <td>03-Reg</td>
+                                </t>
+                                <t t-elif="factura.tipo_doc == 'nc' or  factura.tipo_doc == 'nb'">
+                                 <td>02-Reg</td>
+                                </t>
+                                <t t-else="">
+                                  <td>01-Reg</td>
+                                </t>
+                                
+                                <td><t t-esc="factura.import_form_num"/></td>
+                                <td><t t-esc="factura.import_dossier"/></td>
+                                <td><t t-esc="factura.import_date"/></td>
+                                <td style="text-align: right;"><t t-esc="factura.sale_total" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}' />
+                                    <t t-if="factura.tipo_doc == 'nc' ">
+                                      <t t-set="Compras_incluyendo_iva" t-value="Compras_incluyendo_iva - factura.sale_total"/>
+                                    </t>
+                                     <t t-else="">
+                                      <t t-set="Compras_incluyendo_iva" t-value="Compras_incluyendo_iva + factura.sale_total"/>
+                                    </t>
+                                    
+                                </td>
+
+                                <t t-if="factura.alicuota_type == 'exempt' ">
+                                  <td style="text-align: right;"><t t-esc="otro" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                  <td  style="text-align: right;"><t t-esc="factura.base_imponible" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                  <td  style="text-align: right;"><t t-esc="otro" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                  <t t-set="exenta" t-value="exenta +  factura.base_imponible  "/>
+                                </t>
+                                <t t-elif="factura.alicuota_type == 'no_tax_credit' ">
+                                  <td  style="text-align: right;"><t t-esc="factura.base_imponible" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                  <td style="text-align: right;"><t t-esc="otro" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                  <td  style="text-align: right;"><t t-esc="otro" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                  <t t-set="no_grabada" t-value="no_grabada +  factura.base_imponible  "/>
+                                </t>
+
+                                <t t-else="">
+                                  <td style="text-align: right;"><t t-esc="otro" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                  <td style="text-align: right;"><t t-esc="otro" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                  <td style="text-align: right;"><t t-esc="factura.base_imponible" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                 
+                                 <t t-if="factura.tipo_doc == 'nc' ">
+                                    <t t-set="base_imponible" t-value="base_imponible - factura.base_imponible "/>
+                                  </t>
+                                  <t t-else="">
+                                    <t t-set="base_imponible" t-value="base_imponible + factura.base_imponible "/>
+                                  </t>
+                                </t>
+                                <td style="text-align: right;" >
+                                  <t t-esc="factura.alicuota"/>
+                                </td>
+                                <td style="text-align: right;">
+                                  <t t-esc="factura.iva" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/>
+                                  <t t-if="factura.tipo_doc == 'nc' ">
+                                    <t t-set="iva" t-value="iva - factura.iva"/>
+                                  </t>
+                                  <t t-else="">
+                                    <t t-set="iva" t-value="iva + factura.iva"/>
+                                  </t>
+
+                                  
+                                </td>
+                                <t t-if="factura.alicuota_type == 'exempt'">
+                                  <td style="text-align: right;"><t t-value="0"  t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                  <td style="text-align: right;"><t t-esc="factura.retenido" /></td>  
+                                  <td> <span t-field="factura.retenido_date"/></td>
+                                </t>
+                                <t t-elif="factura.alicuota_type == 'no_tax_credit' ">
+                                  <td style="text-align: right;"><t t-value="0"  t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                  <td style="text-align: right;"><t t-esc="factura.retenido" /></td>  
+                                  <td> <span t-field="factura.retenido_date"/></td>
+                                </t>
+                                <t t-else="">
+                                  <t t-if="factura.state_retantion == 'posted'">
+                                    
+                                    <t t-if="factura.tipo_doc == 'nc' ">
+                                      <t t-set="iva_retenido" t-value="iva_retenido  - factura.iva_retenido "/>
+                                    </t>
+                                    <t t-else="">
+                                      <t t-set="iva_retenido" t-value="iva_retenido  + factura.iva_retenido "/>
+                                    </t>
+
+                                    <td style="text-align: right;"><t t-esc="factura.iva_retenido"  t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                    <td style="text-align: right;"><t t-esc="factura.retenido" /></td>  
+                                    <td> <span t-field="factura.retenido_date"/></td>
+                                  </t>
+                                  <t t-else="">
+                                    <td></td>
+                                    <td></td>  
+                                    <td></td>
+                                  </t>
+                                </t>
+                               
+                                
+                                <t t-set="contador" t-value=" contador + 1"/>
+                              </tr>
+                              <tr>
+                                <td colspan="14" align="right" >Total </td>
+                                <td style="text-align: right;"><t t-esc="Compras_incluyendo_iva" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}' /></td>
+                                <td style="text-align: right;"><t t-esc="no_grabada" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                <td style="text-align: right;"><t t-esc="exenta" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                <td style="text-align: right;"><t t-esc="base_imponible" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}' /></td>
+                                <td>-</td>
+                                <td style="text-align: right;"><t t-esc="iva" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                <td style="text-align: right;"><t t-esc="iva_retenido" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                                
+                                  
+                                 <td>-</td>
+                                <td></td>
+                              </tr>
+
+                          </tbody>
+                          </table>
+                        <table class="table table-condensed">
+                          <t t-set="contador" t-value="1"/>
+                          <t t-set="base_imponible" t-value="0"/>
+                          <t t-set="base_iva" t-value="0"/>
+                          <t t-set="iva" t-value="0"/>
+                          <t t-set="iva_retenido" t-value="0"/>
+                          
+                          <thead>
+                            <tr class="text-center">
+                              <th>Resumen de Compras </th>
+                              <th>Base Imponible</th>
+                              <th>Crédito Fiscal</th>
+                              <th>Iva Retenido por Comp.</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+
+                            <tr>
+                              <td><p>Compras de Importaciones</p></td>
+                              <t t-set="base_imponible" t-value="0"/>
+                              <t t-set="iva" t-value="0"/>
+                              <t t-set="iva_retenido" t-value="0"/>
+                          
+                              <t t-foreach="o.line" t-as="factura">
+                                <t t-if="factura.import_form_num">
+                                  <t t-set="base_imponible" t-value="base_imponible + factura.base_imponible"/>
+                                  <t t-set="iva" t-value="iva + factura.iva"/>
+                                  <t t-set="iva_retenido" t-value="iva_retenido + factura.iva_retenido"/>
+                                </t>
+                              </t>
+                              <td style="text-align: right;"><t t-esc="base_imponible" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                              <td style="text-align: right;"><t t-esc="iva" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                              <td style="text-align: right;"><t t-esc="iva_retenido" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                            </tr>
+                            <tr>
+                              <td><p>Compras Internas Afectadas sólo Alícuota General</p></td>
+                              <t t-set="base_imponible" t-value="0"/>
+                              <t t-set="iva" t-value="0"/>
+                              <t t-set="iva_retenido" t-value="0"/>
+                          
+                              <t t-foreach="o.line" t-as="factura">
+                                <t t-if="factura.alicuota_type == 'general' and factura.import_form_num == False">
+                                  <t t-if="factura.tipo_doc == 'nc' ">
+                                    <t t-set="base_imponible" t-value="base_imponible - factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva - factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido - factura.iva_retenido"/>
+                                    </t>
+                                  </t>
+                                  <t t-else="">
+                                    <t t-set="base_imponible" t-value="base_imponible + factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva + factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido + factura.iva_retenido"/>
+                                    </t>
+                                  </t>
+                                </t>
+
+                              </t>
+                             <td style="text-align: right;"><t t-esc="base_imponible" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                              <td style="text-align: right;"><t t-esc="iva" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                              <td style="text-align: right;"><t t-esc="iva_retenido" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                            </tr>
+                            <tr>
+                              <td><p>Compras Internas Afectadas sólo Alícuota General + Adicional</p></td>
+                              <t t-set="base_imponible" t-value="0"/>
+                              <t t-set="iva" t-value="0"/>
+                              <t t-set="iva_retenido" t-value="0"/>
+                          
+                              <t t-foreach="o.line" t-as="factura">
+                                <t t-if="factura.alicuota_type == 'additional' and factura.import_form_num == False ">
+                                  <t t-if="factura.tipo_doc == 'nc' ">
+                                    <t t-set="base_imponible" t-value="base_imponible - factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva - factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido - factura.iva_retenido"/>
+                                    </t>
+                                  </t>
+                                  <t t-else="">
+                                    <t t-set="base_imponible" t-value="base_imponible + factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva + factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido + factura.iva_retenido"/>
+                                    </t>
+                                  </t>
+                                </t>
+
+                              </t>
+                            <td style="text-align: right;"><t t-esc="base_imponible" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                              <td style="text-align: right;"><t t-esc="iva" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                              <td style="text-align: right;"><t t-esc="iva_retenido" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                            </tr>
+                            <tr>
+                              <td><p>Compras Internas Afectadas sólo Alícuota Reducida</p></td>
+                              <t t-set="base_imponible" t-value="0"/>
+                              <t t-set="iva" t-value="0"/>
+                              <t t-set="iva_retenido" t-value="0"/>
+                          
+                              <t t-foreach="o.line" t-as="factura">
+                                <t t-if="factura.alicuota_type == 'reduced' and factura.import_form_num == False ">
+                                  <t t-if="factura.tipo_doc == 'nc' ">
+                                    <t t-set="base_imponible" t-value="base_imponible - factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva - factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido - factura.iva_retenido"/>
+                                    </t>
+                                  </t>
+                                  <t t-else="">
+                                    <t t-set="base_imponible" t-value="base_imponible + factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva + factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido + factura.iva_retenido"/>
+                                    </t>
+                                  </t>
+                                </t>
+
+                              </t>
+                             <td style="text-align: right;"><t t-esc="base_imponible" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                              <td style="text-align: right;"><t t-esc="iva" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                              <td style="text-align: right;"><t t-esc="iva_retenido" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                            </tr>
+                            <tr>
+                              <td><p>Compras internas Exentas o Exoneradas</p></td>
+                              <t t-set="base_imponible" t-value="0"/>
+                              <t t-set="iva" t-value="0"/>
+                              <t t-set="iva_retenido" t-value="0"/>
+                          
+                              <t t-foreach="o.line" t-as="factura">
+                                <t t-if="factura.alicuota_type == 'exempt' and factura.import_form_num == False ">
+                                  <t t-if="factura.tipo_doc == 'nc' ">
+                                    <t t-set="base_imponible" t-value="base_imponible - factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva - factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido - 0"/>
+                                    </t>
+                                  </t>
+                                  <t t-else="">
+                                    <t t-set="base_imponible" t-value="base_imponible + factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva + factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido + 0"/>
+                                    </t>
+                                  </t>
+                                </t>
+
+                              </t>
+                              <td style="text-align: right;"><t t-esc=" '%.2f'%(base_imponible)"/></td>
+                              <td style="text-align: right;"><t t-esc=" '%.2f'%(iva)"/></td>
+                              <td style="text-align: right;"><t t-esc=" '%.2f'%(iva_retenido)"/></td>
+                            </tr>
+                            <tr>
+                              <td><p>Compras Internas No Gravadas</p></td>
+                              <t t-set="base_imponible" t-value="0"/>
+                              <t t-set="iva" t-value="0"/>
+                              <t t-set="iva_retenido" t-value="0"/>
+                          
+                              <t t-foreach="o.line" t-as="factura">
+                                <t t-if="factura.alicuota_type == 'no_tax_credit' and factura.import_form_num == False ">
+                                  <t t-if="factura.tipo_doc == 'nc' ">
+                                    <t t-set="base_imponible" t-value="base_imponible - factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva - factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido - 0"/>
+                                    </t>
+                                  </t>
+                                  <t t-else="">
+                                    <t t-set="base_imponible" t-value="base_imponible + factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva + factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido + 0"/>
+                                    </t>
+                                  </t>
+                                </t>
+
+                              </t>
+                              <td style="text-align: right;"><t t-esc=" '%.2f'%(base_imponible)"/></td>
+                              <td style="text-align: right;"><t t-esc=" '%.2f'%(iva)"/></td>
+                              <td style="text-align: right;"><t t-esc=" '%.2f'%(iva_retenido)"/></td>
+                            </tr>
+
+
+                            <tr>
+                              <td>Total</td>
+                              <t t-set="base_imponible" t-value="0"/>
+                              <t t-set="iva" t-value="0"/>
+                              <t t-set="iva_retenido" t-value="0"/>
+                          
+                              <t t-foreach="o.line" t-as="factura">
+                                <t t-if="factura.alicuota_type == 'exempt' and factura.import_form_num == False ">
+                                  <t t-if="factura.tipo_doc == 'nc' ">
+                                    <t t-set="base_imponible" t-value="base_imponible - factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva - factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido + 0"/>
+                                    </t>
+                                  </t>
+
+                                  <t t-else="">
+                                    <t t-set="base_imponible" t-value="base_imponible + factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva + factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido + 0"/>
+                                    </t>
+                                  </t>
+                                </t>
+
+                                <t t-elif="factura.alicuota_type == 'no_tax_credit' and factura.import_form_num == False ">
+                                  <t t-if="factura.tipo_doc == 'nc' ">
+                                    <t t-set="base_imponible" t-value="base_imponible - factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva - factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido + 0"/>
+                                    </t>
+                                  </t>
+
+                                  <t t-else="">
+                                    <t t-set="base_imponible" t-value="base_imponible + factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva + factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido + 0"/>
+                                    </t>
+                                  </t>
+                                </t>
+
+                                <t t-else="factura.import_form_num == False">
+                                  <t t-if="factura.tipo_doc == 'nc' ">
+                                    <t t-set="base_imponible" t-value="base_imponible - factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva - factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido - factura.iva_retenido"/>
+                                    </t>
+                                  </t>
+
+                                  <t t-else="">
+                                    <t t-set="base_imponible" t-value="base_imponible + factura.base_imponible"/>
+                                    <t t-set="iva" t-value="iva + factura.iva"/>
+                                    <t t-if="factura.state_retantion == 'posted'">
+                                      <t t-set="iva_retenido" t-value="iva_retenido + factura.iva_retenido"/>
+                                    </t>
+                                  </t>
+                                </t>
+                              </t>
+                              <td style="text-align: right;"><t t-esc="base_imponible" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                              <td style="text-align: right;"><t t-esc="iva" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                              <td style="text-align: right;"><t t-esc="iva_retenido" t-options='{"widget": "float", "decimal_precision": "Libro Ventas"}'/></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+               	</t>
+            	</t>
+            </t>
+        </template>
+     </data>
+</odoo>

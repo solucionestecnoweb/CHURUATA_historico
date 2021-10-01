@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="compute_cryptocurrency_value_wizard_form_view" model="ir.ui.view">
+            <field name="name">compute.cryptocurrency.value.wizard.form.view</field>
+            <field name="model">compute.crypto.value</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group string="Amount to Exchange">
+			        <div class="o_row">
+                        <field name="fiat_currency"/>
+                        <field name="value1"/>
+		            </div>
+		        </group>
+		        <group string="Exchange Rate" class="o_row">
+                        <field name="tasa"/>
+                    </group>
+                    <group string="Result in Cryptocurrency or Fiat Currency">
+                        <div  class="o_row">
+                           <field name="crypto_id"/>
+                           <field name="result"/>
+                           <field name="act_model" invisible="True"/>
+                           <field name="flag1" invisible="True"/>
+                        </div>
+                    </group>
+                    <footer>
+                        <button string="confirm" name="add_crypto_value_invoice" type="object" class="oe_highlight" attrs="{'invisible': [('flag1','=', False)]}"/>
+                        <button string="Compute" name="compute_value" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="compute_cryptocurrency_value_wizard_action" model="ir.actions.act_window">
+            <field name="name">Calculator</field>
+            <field name="res_model">compute.crypto.value</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

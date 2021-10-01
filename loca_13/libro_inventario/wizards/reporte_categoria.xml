@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data >
+        <record id="account_wizard_libro_inventario" model="ir.ui.view">
+       	    <field name="name">Libro de Inventario</field>
+            <field name="model">stock.move.report.categoria</field>
+    	    <field name="arch" type="xml">
+    	    	 <form string="Libro de Inventaroi">
+
+                    <group >
+                        <field name="date_from" string="Fecha Inicio" required="1"/>
+                        <field name="date_to"  string="Fecha Fin" required="1"/>
+                        <field name="category_id" string="Categoria" required="1"/>
+                    </group>
+                    <footer>
+                        <button name="print_facturas" string="Exportar PDF" type="object" class="oe_highlight" />
+                        <button special="cancel" string="Cancel" class="oe_highlight" />
+                    </footer>
+                </form>
+    	    </field>
+    	</record>
+
+        <record id="action_account_common_menu_libro_inventario" model="ir.actions.act_window">
+        	<field name="name">Libro Inventario</field>
+        	<field name="res_model">stock.move.report.categoria</field>
+        	<field name="view_mode">form</field>
+        	<field name="view_id" ref="account_wizard_libro_inventario"/>
+        	<field name="target">new</field>
+    	</record>
+
+		<menuitem    name="Libro Inventario" 
+                     parent="account.menu_finance_reports" 
+                     id="account.libro_inventario" 
+                     action="libro_inventario.action_account_common_menu_libro_inventario"/>
+
+        <!-- <menuitem name="Movimiento de Producto" 
+        parent="account.menu_finance_reports" 
+        id="account.libro_movimiento" 
+        action="action_account_common_menu_movimiento"/>
+ -->
+
+    </data>
+</odoo>

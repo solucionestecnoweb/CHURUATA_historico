@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- isrl.retention tree view -->
+    <record id="isrl_retention_view_tree" model="ir.ui.view">
+        <field name="name">isrl.retention.view.tree</field>
+        <field name="model">isrl.retention</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name" string="Número de Comprobante"/>
+                <field name="invoice_number"/>
+                <field name="type"/>
+                <field name="partner_id"/>
+                <field name="amount_untaxed" sum="amount_untaxed"/>
+                <field name="vat_retentioned" string="ISLR Retenido" sum="vat_retentioned"/>
+                <field name="date_isrl" string="Fecha ISLR"/>
+                <!--field name="move_id"/-->
+            </tree>
+        </field>
+    </record>
+    <!--isrl.retention form view -->
+    <record id="isrl_retention_view_form" model="ir.ui.view">
+        <field name="name">isrl.retention.view.form</field>
+        <field name="model">isrl.retention</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                        <!-- Post -->
+                        <button name="action_post" string="Post" class="oe_highlight" type="object"  attrs="{'invisible': [('state', '!=', 'draft')]}" />
+                       <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                    </header>
+                <sheet>
+                    <div class="oe_title">
+                        <span class="o_form_label">Comprobante  Número</span>
+                        <h1><field name="name" attrs="{'readonly': [('type', 'in', ('in_invoice','in_refund','in_receipt'))]}" /></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="move_id"    readonly="1" /> 
+                            <field name="partner_id" readonly="1"/>  
+                            <field name="invoice_id" readonly="1"/>
+                                                                                                                                                                                                                                                 
+                        </group>
+                        <group>
+                            <field name="date_move" required="1" attrs="{'readonly': [('state', '=','done')]}"/>
+                            <field name="date_isrl" required="1" attrs="{'readonly': [('state', '=','done')]}" string="Fecha ISLR"/>
+                            <field name="type" readonly="1"/>                                                                                                                                                                                                                         
+                        </group>                                                                                                                                                                                                                      
+                    </group>
+                    <notebook>
+                        <page string="ISLR retención">
+                            <field name="lines_id" nolabel="1" readonly="True">
+                                <tree string="ISLR retención linea" editable="buttom">
+                                    <field name="code"/>
+                                    <field name="name" string="ISLR Concepto"/>
+                                    <field name="base"/>
+                                    <field name="cantidad"/>
+                                    <field name="retention"/>
+                                    <field name="sustraendo"/>
+                                    <field name="total" string="ISLR Monto Retenido"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <newline/>
+                    <group class="oe_right">
+                        <group class="oe_subtotal_footer">
+                            <field name="amount_untaxed" string="Base imponible"/>
+                            <field name="vat_retentioned" class="oe_subtotal_footer_separator" string="ISLR Retenido"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record  id="action_isrl_vendors_retention_total" model="ir.actions.act_window">
+        <field name="name">Retención de ISLR Proveedores</field>
+        <field name="res_model">isrl.retention</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+     <!-- Acciones de ventana para los clientes -->
+    <record  id="action_isrl_customers_retention" model="ir.actions.act_window">
+        <field name="name">Retención de ISLR Cliente</field>
+        <field name="res_model">isrl.retention</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('type','=',('out_invoice','out_refund')),('state','=','done')]</field>
+        <field name="context">{'type':'out_invoice'}</field>
+    </record>
+     <record model="ir.actions.act_window.view" id="act_wv_account_wh_isrl_customer_tree">
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="isrl_retention_view_tree"/>
+        <field name="act_window_id" ref="action_isrl_customers_retention"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="act_wv_account_wh_isrl_customer_form">
+        <field name="sequence" eval="20"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="isrl_retention_view_form"/>
+        <field name="act_window_id" ref="action_isrl_customers_retention"/>
+    </record>
+
+    <!-- Acciones de ventana contra los proveedores -->
+    <record  id="action_isrl_vendors_retention" model="ir.actions.act_window">
+        <field name="name">Retención de ISLR Proveedores</field>
+        <field name="res_model">isrl.retention</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('type','=',('in_invoice','in_refund')),('state','=','done')]</field>
+        <field name="context">{'type':'in_invoice'}</field>
+    </record>
+
+    <record  id="action_isrl_supplier_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="isrl_retention_view_tree"/>
+        <field name="act_window_id" ref="action_isrl_vendors_retention"/>
+    </record>
+    <record  id="action_isrl_supplier_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="20"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="isrl_retention_view_form"/>
+        <field name="act_window_id" ref="action_isrl_vendors_retention"/>
+    </record>
+
+    <record forcecreate="True" id="decimal_islr" model="decimal.precision">
+            <field name="name">ISLR</field>
+            <field name="digits">2</field>
+        </record>
+   
+</odoo>

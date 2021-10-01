@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- Add you code here -->
+        <!-- mrp.production inherit form view -->
+        <record id="product_product_form_view" model="ir.ui.view">
+            <field name="name">product.product.inherit.view.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <!-- Add your xpath here -->
+                <header position="inside">
+                    <button string="kardex" type="object" name="ver_kardex"  attrs="{'invisible': [('type', '!=', 'product')]}"/>
+                </header>
+            </field>
+        </record>
+
+        <!-- product.product.kardex.line form view -->
+        <record id="kardex_line_view_form" model="ir.ui.view">
+            <field name="name">product.product.kardex.line.view.form</field>
+            <field name="model">product.product.kardex.line</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="fecha"/>
+                            <field name="type_operation_sunat_id"/>
+
+                            <field name="cantidad_entradas"/>
+                            <field name="costo_entradas"/>
+                            <field name="total_bolivares_entradas"/>
+
+                            <field name="cantidad_salidas"/>
+                            <field name="costo_salidas"/>
+                            <field name="total_bolivares_salida"/>
+
+                            <field name="total"/>
+                            <field name="promedio"/>
+                            <field name="total_bolivares"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- product.product.kardex.line tree view -->
+        <record id="kardex_line_view_tree" model="ir.ui.view">
+            <field name="name">product.product.kardex.line.view.tree</field>
+            <field name="model">product.product.kardex.line</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="fecha"/>
+                    <field name="type_operation_sunat_id"/>
+
+                    <field name="cantidad_entradas"/>
+                    <field name="costo_entradas"/>
+                    <field name="total_bolivares_entradas"/>
+
+                    <field name="cantidad_salidas"/>
+                    <field name="costo_salidas"/>
+                    <field name="total_bolivares_salida"/>
+
+                    <field name="total"/>
+                    <field name="promedio"/>
+                    <field name="total_bolivares"/>
+                </tree>
+            </field>
+        </record>
+
+         <record id="kardex_line_action" model="ir.actions.act_window">
+            <field name="name">Kardex</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product.kardex.line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

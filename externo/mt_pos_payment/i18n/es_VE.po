@@ -1,0 +1,59 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mt_pos_payment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20191217\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-12 03:00+0000\n"
+"PO-Revision-Date: 2021-05-12 03:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mt_pos_payment
+#. openerp-web
+#: code:addons/mt_pos_payment/static/src/xml/pos.xml:0
+#, python-format
+msgid "Change:"
+msgstr "Cambio:"
+
+#. module: mt_pos_payment
+#: model:ir.model,name:mt_pos_payment.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: mt_pos_payment
+#. openerp-web
+#: code:addons/mt_pos_payment/static/src/xml/pos.xml:0
+#, python-format
+msgid "Continuar Pago"
+msgstr "Continuar Pago"
+
+#. module: mt_pos_payment
+#. openerp-web
+#: code:addons/mt_pos_payment/static/src/xml/pos.xml:0
+#, python-format
+msgid "Next Order"
+msgstr "Siguiente pedido"
+
+#. module: mt_pos_payment
+#: model_terms:ir.ui.view,arch_db:mt_pos_payment.view_company_form_pos
+msgid "PoS Redirect"
+msgstr "Redirección PoS"
+
+#. module: mt_pos_payment
+#. openerp-web
+#: code:addons/mt_pos_payment/static/src/xml/pos.xml:0
+#, python-format
+msgid "Print Receipt"
+msgstr "Imprimir recibo"
+
+#. module: mt_pos_payment
+#: model:ir.model.fields,field_description:mt_pos_payment.field_res_company__url_redirect
+msgid "URL to Redirect in PoS"
+msgstr "URL a Redireccionar en PoS"

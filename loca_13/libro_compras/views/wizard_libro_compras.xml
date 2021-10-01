@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    	<record id="account_wizard_libro_compras" model="ir.ui.view">
+       	    <field name="name">Asistente para factura de Proveedores</field>
+            <field name="model">account.wizard.libro.compras</field>
+    	    <field name="arch" type="xml">
+    	    	 <form string="Facturas de Proveedores">
+                    <field invisible="1" name="state"/>
+                    <div states="choose">
+                        <group >
+                            <field name="date_from" string="Fecha Inicio" required="1"/>
+                            <field name="date_to"  string="Fecha Fin" required="1"/>
+                        </group>
+                    </div>
+                    <div states="get">
+                        <group>
+                            <field name="name" colspan="4" invisible="1"/>
+                            <field name="report" filename="name" colspan="4"/>
+                        </group>
+                    </div>
+                    <footer states="choose">
+                        <button name="generate_xls_report" string="Exportar Excel" type="object" class="oe_highlight" />
+                        <button name="print_facturas" string="Exportar PDF" type="object" class="oe_highlight" />
+                        <button special="cancel" string="Cancel" class="oe_highlight" />
+                    </footer>
+                    <footer states="get">
+                        <button special="cancel" string="Cancel" class="oe_highlight" />
+                    </footer>
+                </form>
+    	    </field>
+    	</record>
+        <record id="action_account_common_menu_libro_compras" model="ir.actions.act_window">
+        	<field name="name">Libro Compras</field>
+        	<field name="res_model">account.wizard.libro.compras</field>
+        	<field name="view_mode">form</field>
+        	<field name="view_id" ref="account_wizard_libro_compras"/>
+        	<field name="target">new</field>
+    	</record>
+
+		<menuitem name="Libro Compras" parent="account.menu_finance_reports" id="account.libro_compras" action="action_account_common_menu_libro_compras"/>
+        <record forcecreate="True" id="decimal_payroll" model="decimal.precision">
+            <field name="name">Libro ventas</field>
+            <field name="digits">2</field>
+        </record>
+</data>
+</odoo>

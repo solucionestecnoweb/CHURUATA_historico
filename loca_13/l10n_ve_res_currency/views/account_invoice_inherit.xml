@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_invoice_line_tree_inherit">
+            <field name="name">account.invoice.line.tree.inherit</field>
+            <field name="model">account.invoice.line</field>
+            <field name="inherit_id" ref="account.view_invoice_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="inside">
+                    <field name="tasa_me" />
+                    <!--field name="tax" /-->
+                </xpath>
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="invoice_form_inherit">
+            <field name="name">account.invoice.form.inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_invoice']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath>
+                <!--xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="tasa" domain="[('currency_id', '=', currency_id),('name', '=',date_invoice)]" options="{'no_create': True, 'no_edit': True, 'no_open':True}" attrs="{'invisible': [('currency_id', '=', 4)], 'required': [('currency_id', '!=', 4)]}"/>
+                </xpath-->
+                 <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_subtotal']" position="after">
+                    <field name="tasa_me" string="Precio total Bs." readonly="1" force_save="1"/>
+                     <!--field name="tax" string="tax Bs." readonly="1" force_save="1"/-->
+                </xpath>
+                <xpath expr="//tree/field[@name='price_subtotal']" position="replace">
+                    <field name="price_subtotal" string="Precio Total M/E"  attrs="{'invisible': [('currency_id', '=', 4)]}"/>
+                </xpath>
+
+                <xpath expr="//notebook/page/field[@name='comment']" position="before">
+                    <group class="oe_subtotal_footer oe_right">
+                        <field name="amount_untaxed_bs" attrs="{'invisible': [('currency_id', '=', 4)]}" readonly="1" force_save="1"/>
+                        <field name="amount_tax_bs" attrs="{'invisible': [('currency_id', '=', 4)]}" readonly="1" force_save="1"/>
+                        <field name="amount_total_bs" class="oe_subtotal_footer_separator" attrs="{'invisible': [('currency_id', '=', 4)]}" readonly="1" force_save="1"/>
+                        <field name="residual_bs" class="oe_subtotal_footer_separator" attrs="{'invisible': ['|',('state', '=', 'draft'),('currency_id', '=', 4)]}" readonly="1" force_save="1"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- vista de proveedores..-->
+        <record model="ir.ui.view" id="invoice_supplier_form_inherit">
+            <field name="name">invoice.supplier.form.inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_invoice']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath>
+                 <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_subtotal']" position="after">
+                    <field name="tasa_me" string="Precio total Bs." readonly="1" force_save="1"/>
+                </xpath>
+                <xpath expr="//tree/field[@name='price_subtotal']" position="replace">
+                    <field name="price_subtotal" string="Precio Total M/E"  attrs="{'invisible': [('currency_id', '=', 4)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='comment']" position="before">
+                    <group class="oe_subtotal_footer oe_right">
+                        <field name="amount_untaxed_bs" attrs="{'invisible': [('currency_id', '=', 4)]}" readonly="1" force_save="1"/>
+                        <field name="amount_tax_bs" attrs="{'invisible': [('currency_id', '=', 4)]}" readonly="1" force_save="1"/>
+                        <field name="amount_total_bs" class="oe_subtotal_footer_separator" attrs="{'invisible': [('currency_id', '=', 4)]}" readonly="1" force_save="1"/>
+                        <field name="residual_bs" class="oe_subtotal_footer_separator" attrs="{'invisible': ['|',('state', 'in', 'draft'),('currency_id', '=', 4)]}" readonly="1" force_save="1"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

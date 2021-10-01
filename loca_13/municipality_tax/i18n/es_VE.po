@@ -1,0 +1,712 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* municipality_tax
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e-20200417\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-24 21:43+0000\n"
+"PO-Revision-Date: 2020-06-24 17:49-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.3.1\n"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "'Withholding accounts receivable"
+msgstr "Retención de cuentas por cobrar"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "<b>Totales</b>"
+msgstr ""
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid ""
+"<br/>\n"
+"                                            <b>Firma Recepción</b>"
+msgstr ""
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid ""
+"<br/>\n"
+"                                            <b>Usuario Autorizado</b>\n"
+"                                            <br/>\n"
+"                                            <b>Nombre de Usuario</b>"
+msgstr ""
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view_form
+msgid "<span class=\"o_form_label\" style=\"font-weight:bold;\">Fiscal period</span>"
+msgstr "Periodo fiscal"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view_form
+msgid "<span class=\"o_form_label\" style=\"font-weight:bold;\">Voucher Number</span>"
+msgstr "Número de Comprobante"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "<strong>Correo Electrónico</strong>"
+msgstr ""
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "<strong>DIRECCIÓN DEL AGENTE DE RETENCIÓN</strong>"
+msgstr ""
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "<strong>DIRECCIÓN FISCAL DEL SUJETO RETENIDO</strong>"
+msgstr ""
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "<strong>NOMBRE O RAZÓN SOCIAL DEL SUJETO RETENIDO</strong>"
+msgstr ""
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "<strong>N° de NIFG</strong>"
+msgstr ""
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "<strong>RIF del Sujeto Retenido</strong>"
+msgstr ""
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "Account Withholding to pay (Suppliers)"
+msgstr "Cuenta Retenciones a pagar (Proveedores)"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__move_id
+msgid "Account entry"
+msgstr "Asiento contable"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__act_code_ids
+msgid "Activities code"
+msgstr "Código de actividades"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_muni_wh_concept__code
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__code
+msgid "Activity code"
+msgstr "Código de Actividad"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__address
+msgid "Address"
+msgstr "Dirección"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_muni_wh_concept__aliquot
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__aliquot
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "Aliquot"
+msgstr "Alícuota"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__amount
+msgid "Amount"
+msgstr "Importe"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__base_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "Base Tax"
+msgstr "Base Imponible"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "COMPROBANTE DE RETENCION DEL IMPUESTO SOBRE ACTIVIDADES ECONOMICAS"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model.fields.selection,name:municipality_tax.selection__municipality_tax__state__cancel
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__city
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "City"
+msgstr "Ciudad"
+
+#. module: municipality_tax
+#: model:ir.model,name:municipality_tax.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__company_id
+msgid "Company"
+msgstr "Compañia"
+
+#. module: municipality_tax
+#: model:ir.actions.act_window,name:municipality_tax.action_municipality_line_tax_concepts
+#: model:ir.ui.menu,name:municipality_tax.menu_municipality_tax_concepts
+msgid "Concepts of Municipal Tax Application"
+msgstr "Conceptos de Aplicación de Retención Municipal"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view_form
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: municipality_tax
+#: model:ir.model,name:municipality_tax.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "Control Number"
+msgstr "Número de Control"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "Country"
+msgstr "País"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_muni_wh_concept__create_uid
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__create_uid
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__create_uid
+#: model:ir.model.fields,field_description:municipality_tax.field_period_month__create_uid
+#: model:ir.model.fields,field_description:municipality_tax.field_period_year__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_muni_wh_concept__create_date
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__create_date
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__create_date
+#: model:ir.model.fields,field_description:municipality_tax.field_period_month__create_date
+#: model:ir.model.fields,field_description:municipality_tax.field_period_year__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_res_partner__account_ret_muni_receivable_id
+#: model:ir.model.fields,field_description:municipality_tax.field_res_users__account_ret_muni_receivable_id
+msgid "Cuenta Retencion Clientes"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_res_partner__account_ret_muni_payable_id
+#: model:ir.model.fields,field_description:municipality_tax.field_res_users__account_ret_muni_payable_id
+msgid "Cuenta Retencion Proveedores"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model.fields.selection,name:municipality_tax.selection__municipality_tax__type__out_invoice
+msgid "Customer Invoice"
+msgstr "Factura de Cliente"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "DATE"
+msgstr "FECHA"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid ""
+"DECRETO 037 GACETA MUNICIPAL - Art 02: Responsabilidad: Los agentes de retención estan obligados a retenerla totalidad del impuesto  que se genere\n"
+"                                                        al momento del pago o abono en cuenta, de conformidad con lo establecido en el articulo 119 y 124 de la Reforma Ordenanza de Impuesto sobre Actividades \n"
+"                                                        Económicas de Industria, Comercio, Servicio o de Indole Similar,\n"
+"                                                        Gaceta Municipal N° 039 Ordinario de Fecha 23 de Febrero de 2015 y en el articulo 210, 211, 214, de la ley Orgánica del Poder Público Municipal."
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__date_end
+msgid "Date end"
+msgstr "Fecha de culminación"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__date_start
+msgid "Date start"
+msgstr "Fecha de inicio"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_muni_wh_concept__name
+msgid "Description"
+msgstr "Descripción"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_muni_wh_concept__display_name
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__display_name
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__display_name
+#: model:ir.model.fields,field_description:municipality_tax.field_period_month__display_name
+#: model:ir.model.fields,field_description:municipality_tax.field_period_year__display_name
+msgid "Display Name"
+msgstr "Mostrar nombre"
+
+#. module: municipality_tax
+#: model:ir.model.fields.selection,name:municipality_tax.selection__municipality_tax_line__type__dont_apply
+msgid "Does not apply"
+msgstr "No aplica"
+
+#. module: municipality_tax
+#: model:ir.model.fields.selection,name:municipality_tax.selection__municipality_tax__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "ESPACIO"
+msgstr ""
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "Economic Activity Carried Out"
+msgstr "Actividad económica realizada"
+
+#. module: municipality_tax
+#: model:ir.model.fields,help:municipality_tax.field_res_company__econ_act_license
+#: model:ir.model.fields,help:municipality_tax.field_res_partner__econ_act_license
+#: model:ir.model.fields,help:municipality_tax.field_res_users__econ_act_license
+msgid "Economic activity license number"
+msgstr "Número de licencia de actividades económicas"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "Empresa"
+msgstr ""
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "FISCAL PERIOD"
+msgstr "PERIODO FISCAL"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_muni_wh_concept__id
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__id
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__id
+#: model:ir.model.fields,field_description:municipality_tax.field_period_month__id
+#: model:ir.model.fields,field_description:municipality_tax.field_period_year__id
+msgid "ID"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__move_id
+msgid "Id del movimiento"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__invoice_id
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__invoice_id
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__invoice_ctrl_number
+msgid "Invoice Control Number"
+msgstr "Número de Control de Factura"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__invoice_date
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "Invoice Date"
+msgstr "Fecha de  la factura"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__invoice_number
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "Invoice Number"
+msgstr "Número de Factura"
+
+#. module: municipality_tax
+#: model:ir.model,name:municipality_tax.model_account_move
+msgid "Journal Entries"
+msgstr "Asientos contables"
+
+#. module: municipality_tax
+#: model:ir.model,name:municipality_tax.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_muni_wh_concept____last_update
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax____last_update
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line____last_update
+#: model:ir.model.fields,field_description:municipality_tax.field_period_month____last_update
+#: model:ir.model.fields,field_description:municipality_tax.field_period_year____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_muni_wh_concept__write_uid
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__write_uid
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__write_uid
+#: model:ir.model.fields,field_description:municipality_tax.field_period_month__write_uid
+#: model:ir.model.fields,field_description:municipality_tax.field_period_year__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_muni_wh_concept__write_date
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__write_date
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__write_date
+#: model:ir.model.fields,field_description:municipality_tax.field_period_month__write_date
+#: model:ir.model.fields,field_description:municipality_tax.field_period_year__write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_res_company__econ_act_license
+#: model:ir.model.fields,field_description:municipality_tax.field_res_partner__econ_act_license
+#: model:ir.model.fields,field_description:municipality_tax.field_res_users__econ_act_license
+msgid "License number"
+msgstr "Número de Licencia  de activdades económicas"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "Month:"
+msgstr "Mes"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_period_month__name
+#: model_terms:ir.ui.view,arch_db:municipality_tax.period_month_view_tree
+msgid "Months"
+msgstr "Meses"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_account_move_line__concept_id
+msgid "Municipal Tax"
+msgstr "Impuesto Municipal"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_company_view
+msgid "Municipal Tax Tax Information"
+msgstr "Información Fiscal Municipal"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "Municipal Tax Withheld"
+msgstr "Impuesto Municipal Retenido"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "Municipal Tax Withholding"
+msgstr "Retencion de Impuesto Municipal"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "Municipal Taxes"
+msgstr "Impuesto Municipal"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "Municipal withholding agent"
+msgstr "Agente de rentención municipal"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__municipality_id
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__municipality_tax_id
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "Municipality"
+msgstr "Municipalidad"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_line_tax_view_form
+msgid "Municipality Retention Concept"
+msgstr "Conceptos de Retención Municipal"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view_form
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view_tree
+msgid "Municipality Tax"
+msgstr "Impuesto Municipal"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_line_view_form
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_line_view_tree
+msgid "Municipality Tax Line"
+msgstr "Línea de Impuesto Municipal"
+
+#. module: municipality_tax
+#: model:ir.actions.act_window,name:municipality_tax.action_municipality_tax_customer
+msgid "Municipality Tax for Customers"
+msgstr "Impuesto Municipal para Clientes"
+
+#. module: municipality_tax
+#: model:ir.actions.act_window,name:municipality_tax.action_municipality_tax_suppliers
+msgid "Municipality Tax for Suppliers"
+msgstr "Impuesto Municipal para Proveedores"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_res_company__nifg
+#: model:ir.model.fields,field_description:municipality_tax.field_res_partner__nifg
+#: model:ir.model.fields,field_description:municipality_tax.field_res_users__nifg
+msgid "NIFG"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_res_company__nit
+#: model:ir.model.fields,field_description:municipality_tax.field_res_partner__nit
+#: model:ir.model.fields,field_description:municipality_tax.field_res_users__nit
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "NIT"
+msgstr ""
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "NOMBRE O RAZÓN SOCIAL DEL AGENTE DE RETENCION"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_period_month__months_number
+msgid "Number"
+msgstr "Númber"
+
+#. module: municipality_tax
+#: model:ir.model.fields,help:municipality_tax.field_res_company__nifg
+#: model:ir.model.fields,help:municipality_tax.field_res_partner__nifg
+#: model:ir.model.fields,help:municipality_tax.field_res_users__nifg
+msgid "Number assigned by Satrin"
+msgstr "Número asignado por el Satrin"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "N° de Licencia de Actividades Económicas"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model.fields,help:municipality_tax.field_res_company__nit
+#: model:ir.model.fields,help:municipality_tax.field_res_partner__nit
+#: model:ir.model.fields,help:municipality_tax.field_res_users__nit
+msgid "Old tax identification number replaced by the current RIF"
+msgstr "Antiguo número de identificación fiscal reemplazado por el actual RIF"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__type
+msgid "Origin"
+msgstr "Origen"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "Other Information"
+msgstr "Otra Información"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "Parish"
+msgstr "Parroquia"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__partner_id
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: municipality_tax
+#: model:ir.model.fields.selection,name:municipality_tax.selection__municipality_tax__state__posted
+msgid "Posted"
+msgstr "Publicado"
+
+#. module: municipality_tax
+#: model:ir.model.fields.selection,name:municipality_tax.selection__municipality_tax_line__type__purchase
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "Purchase"
+msgstr "Compra"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_res_partner__purchase_jrl_id
+#: model:ir.model.fields,field_description:municipality_tax.field_res_users__purchase_jrl_id
+msgid "Purchase journal"
+msgstr "Diario de Compra"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__rif
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "RIF"
+msgstr ""
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "RIF Agente Retención"
+msgstr ""
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.acc_move_muni_tax_view_form
+msgid "Retención Municipal"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_res_partner__muni_wh_agent
+#: model:ir.model.fields,field_description:municipality_tax.field_res_users__muni_wh_agent
+msgid "Retention agent"
+msgstr "Agente de retención"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__concept_id
+msgid "Retention concept"
+msgstr "Concepto de retención"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "Sale"
+msgstr "Venta"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_res_partner__sale_jrl_id
+#: model:ir.model.fields,field_description:municipality_tax.field_res_users__sale_jrl_id
+msgid "Sales journal"
+msgstr "Diario de Venta"
+
+#. module: municipality_tax
+#: model:ir.model.fields.selection,name:municipality_tax.selection__municipality_tax_line__type__service
+msgid "Service"
+msgstr "Servicio"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__state_id
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "State"
+msgstr "Estado"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__state
+msgid "Status"
+msgstr "Estatus"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "Street 2..."
+msgstr "Calle 2..."
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "Street..."
+msgstr "Calle..."
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "Total Impuesto Municipal Retenido"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__transaction_date
+msgid "Transacción Date"
+msgstr "Fecha de Transacción"
+
+#. module: municipality_tax
+#: model:ir.model.fields,help:municipality_tax.field_res_partner__muni_wh_agent
+#: model:ir.model.fields,help:municipality_tax.field_res_users__muni_wh_agent
+msgid "True if your partner is a municipal retention agent"
+msgstr "Verdadero si su asociado es un agente de retención municipal"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__type
+msgid "Type of transaction"
+msgstr "Tipo de transacción"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_muni_wh_concept__month_ucim
+msgid "UCIM per month"
+msgstr "UCIM por mes"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_muni_wh_concept__year_ucim
+msgid "UCIM per year"
+msgstr "UCIM por año"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "VOUCHER NUMBER"
+msgstr "NÚMERO DE COMPROBANTE"
+
+#. module: municipality_tax
+#: model:ir.model.fields.selection,name:municipality_tax.selection__municipality_tax__type__in_invoice
+msgid "Vendor Bill"
+msgstr "Factura de Proveedor"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__name
+msgid "Voucher number"
+msgstr "Número de Comprobante"
+
+#. module: municipality_tax
+#: model:ir.actions.report,name:municipality_tax.action_report_municipality_tax
+msgid "Voucher of Municipal Withholding"
+msgstr "Comprobante de Retención Municipal"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax__withheld_amount
+msgid "Withheld Amount"
+msgstr "Importe retenido"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_municipality_tax_line__wh_amount
+msgid "Withholding Amount"
+msgstr "Importe de Retención"
+
+#. module: municipality_tax
+#: model:ir.ui.menu,name:municipality_tax.menu_municipality_tax_customers
+msgid "Withholding Municipal Tax for Customers"
+msgstr "Retención de Impuesto  Municipal para Clientes"
+
+#. module: municipality_tax
+#: model:ir.ui.menu,name:municipality_tax.menu_municipality_tax_suppliers
+msgid "Withholding Municipal Tax for Suppliers"
+msgstr "Retención de Impuesto Municipal para Proveedores"
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_account_move__wh_muni_id
+msgid "Withholding municipal tax"
+msgstr "Retención de impuesto municipal"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.template_wh_municipality_tax
+msgid "Year:"
+msgstr "Año"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.period_year_view_tree
+msgid "Years"
+msgstr "Años"
+
+#. module: municipality_tax
+#: model_terms:ir.ui.view,arch_db:municipality_tax.municipality_tax_view
+msgid "ZIP"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model,name:municipality_tax.model_muni_wh_concept
+msgid "muni.wh.concept"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model,name:municipality_tax.model_municipality_tax
+msgid "municipality.tax"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model,name:municipality_tax.model_municipality_tax_line
+msgid "municipality.tax.line"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model,name:municipality_tax.model_period_month
+msgid "period.month"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model,name:municipality_tax.model_period_year
+msgid "period.year"
+msgstr ""
+
+#. module: municipality_tax
+#: model:ir.model.fields,field_description:municipality_tax.field_period_year__name
+msgid "year"
+msgstr "año"

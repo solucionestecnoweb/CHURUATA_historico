@@ -1,0 +1,40 @@
+<odoo>
+
+    <record id="herencia_tipo_vista_conciliacion_2" model="ir.ui.view">
+        <field name="name">herencia.tipo.vista.conciliacion.2</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='communication']" position="replace">
+                <field name="communication" string="Referencia Bancaria"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="herencia_tipo_vista_conciliacion" model="ir.ui.view">
+        <field name="name">herencia.tipo.vista.conciliacion</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_invoice_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='communication']" position="replace">
+                <field name="communication" string="Referencia Bancaria xxx"/>
+            </xpath>            
+        </field>
+    </record>
+
+    <record id="view_account_reconciled_l10n_ve" model="ir.ui.view" >
+            <field name="name">view.account.reconciled.l10n.ve</field>
+            <field name="model">account.bank.statement</field>
+            <field name="inherit_id" ref="account.view_bank_statement_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//form/header/button[@name='check_confirm_bank']" position="after">
+                        <button name="button_organizar_ref"
+                                type='object'
+                                string='Re-organizar Extracto del Banco'
+                                icon="gtk-execute"/>
+                </xpath>
+            </field>
+    </record>
+  
+</odoo>

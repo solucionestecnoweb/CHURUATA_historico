@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pago_account_view_form" model="ir.ui.view">
+        <field name="name">pago.account.view.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='journal_id']" position="before">
+
+               <field name="ocultar_libros" string="Excluir de Libros?" widget="boolean_toggle"
+                attrs="{'invisible':[('state','=','posted')]}"/>
+                             
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_inherit_view_form2" model="ir.ui.view">
+        <field name="name">account.inherit.view.form2</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="l10n_ve_fiscal_requirements.account_inherit_view_form"/>
+        <field name="arch" type="xml">
+            
+            <!-- **************** Campos factura proveedor**************    -->
+            <xpath expr="//field[@name='invoice_number_pro']" position="replace">
+
+                
+                <field name="invoice_number_pro" string="Nro Factura:" attrs="{'invisible': [('type', 'not in', ('in_invoice'))], 'required':[('type', 'in', ('in_invoice')),('ocultar_libros','=',False)]}"/>
+                             
+            </xpath>
+
+            <xpath expr="//field[@name='invoice_ctrl_number_pro']" position="replace">
+
+                <field name="invoice_ctrl_number_pro" string="Nro Control:" attrs="{'invisible': [('type', 'not in', ('in_invoice'))], 'required':[('type', 'in', ('in_invoice')),('ocultar_libros','=',False)]}"/>             
+            </xpath>
+            <!-- **************** Fin Campos factura proveedor**************    -->
+            <!-- *********** Campos rectificativa o Nota Credito/Dibito proveedor *********-->
+                <xpath expr="//field[@name='refuld_number_pro']" position="replace">
+                
+                <field name="refuld_number_pro" string="Nota Nro:" attrs="{'invisible': [('type', 'not in', ('in_refund','in_receipt'))], 'required':[('type', 'in', ('in_refund','in_receipt')),('ocultar_libros','=',False)]}"/>
+                             
+                </xpath>
+
+                <xpath expr="//field[@name='refund_ctrl_number_pro']" position="replace">
+
+                <field name="refund_ctrl_number_pro" string="Nro Control:" attrs="{'invisible': [('type', 'not in', ('in_refund','in_receipt'))], 'required':[('type', 'in', ('in_refund','in_receipt')),('ocultar_libros','=',False)]}"/>
+
+                </xpath>
+            <!-- ******** Fin Campos rectificativa o Nota Credito/Debito proveedor ********-->
+        </field>
+    </record>
+  
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- This view replace the totals showed in the view -->
+    <record id="account_move_cryto_view" model="ir.ui.view">
+       <field name="name">account.move.cryto.view</field>
+       <field name="model">account.move</field>
+       <field name="inherit_id" ref="account.view_move_form"/>
+       <field name="arch" type="xml">
+            <xpath expr="//group/group[2]/field[@name='currency_id']" position="after">
+                <field name="aux_currency_id" readonly="True"/>
+            </xpath>
+            <xpath expr="//page/group[@class='oe_subtotal_footer']" position="replace">
+                <group col="2">
+                    <group>
+			    <button string="Crypto / Fiat Calculator" class="oe_highlight" type="action" name="%(compute_cryptocurrency_value_wizard_action)d"/>
+                       <group>
+                            <div class="o_row oe_right">
+                                <strong><field name="crypto_total"/></strong>
+                                <field name="aux_currency_id"  readonly="True" options="{'no_open':True,'no_create': True}"/>
+                            </div>
+                        </group>
+                    </group>
+                    <group class="oe_right">
+                        <group class="oe_subtotal_footer" attrs="{'invisible': [('type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund', 'out_receipt', 'in_receipt'))]}">
+                            <field name="amount_untaxed"/>
+                            
+                            <field name="amount_by_group" widget="tax-group-custom-field" nolabel="1" colspan="2"/>
+                            <field name="amount_total" class="oe_subtotal_footer_separator"/>
+                            
+                            <field name="invoice_payments_widget" colspan="2" nolabel="1" widget="payment"/>
+                            <field name="amount_residual" class="oe_subtotal_footer_separator" attrs="{'invisible': [('state', '=', 'draft')]}"/>
+                        </group>
+                        <newline/>
+                        <group class="oe_invoice_outstanding_credits_debits" style="width: 350px !important;">
+                            <field name="invoice_outstanding_credits_debits_widget" colspan="2" nolabel="1" widget="payment" attrs="{'invisible': ['|', ('state', '!=', 'posted'), ('type', 'in', ('out_receipt', 'in_receipt'))]}"/>
+                        </group>
+                    </group>
+                </group>
+            </xpath>
+       </field>
+    </record>
+</odoo>

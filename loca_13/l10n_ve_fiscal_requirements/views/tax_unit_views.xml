@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tax_unit_view_form" model="ir.ui.view">
+        <field name="name">tax.unit.view.form</field>
+        <field name="model">tax.unit</field>
+        <field name="arch" type="xml">
+            <form string="Tax Unit">
+               <sheet>
+                   <group col="4">
+                       <field name="name"/>
+                       <field name="date"/>
+                       <field name="tax_unit_amount"/>
+                    </group>
+               </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="tax_unit_view_tree" model="ir.ui.view">
+        <field name="name">tax.unit.view.tree</field>
+        <field name="model">tax.unit</field>
+        <field name="arch" type="xml">
+            <tree string="Tax Unit">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="tax_unit_amount"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_tax_unit" model="ir.actions.act_window">
+        <field name="name">Tax Unit</field>
+        <field name="res_model">tax.unit</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- <menuitem
+        id="menu_tax_unit"
+        action="action_tax_unit"
+        name="Tax Unit"
+        parent="account_accountant.menu_accounting"
+    /> -->
+
+</odoo>

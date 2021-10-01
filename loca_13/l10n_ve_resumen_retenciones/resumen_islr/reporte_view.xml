@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>    
+    <record id="paperformat_resumen_islr" model="report.paperformat">
+
+      <field name="default" eval="True"/>
+        <field name="name">A4 Landscape Account resumen ISLR</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">443</field>
+        <field name="page_width">270</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">50</field>
+        <field name="margin_bottom">5</field>
+        <field name="margin_left">1</field>
+        <field name="margin_right">1</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">40</field>
+        <field name="dpi">92</field>
+    </record>
+
+    <report id="libr_resumen_islr"
+        model="wizard.resumen.islr"
+        name="l10n_ve_resumen_retenciones.libro_resumen_islr"
+        file="l10n_ve_resumen_retenciones.libro_resumen_islr"
+        string="Reporte Resumen Impuesto ISLR"
+        report_type="qweb-html"
+        paperformat="l10n_ve_resumen_retenciones.paperformat_resumen_islr"
+        /><!-- paperformat="l10n_ve_resumen_retenciones.paperformat_resumen_iva"-->
+
+    <template id="libro_resumen_islr">
+
+       <t t-call="web.html_container" ><!-- realiza llamados a template propio de odoo -->
+         <t t-call="web.basic_layout" ><!-- realiza llamados a template propio de odoo -->
+          <t t-set="pag" t-value="0"/>
+          <t t-foreach="docs" t-as="o">
+            <t t-set="pag" t-value="pag+1"/>
+            <!-- CABECERA -->
+            <div class="header">
+            <table  width="100%"  border="0" > <!--class="table table-bordered" / class="table table-condensed"-->
+              <tr style="font-size:12px;">
+                <td colspan='6'>
+                  <strong>
+                    <h2 style="font-size:20px;"> <small><t t-esc="o.company_id.name"/>
+                    <br/> RIF:<t t-esc="o.rif(o.company_id.partner_id.id)"/>
+                    <br/> N.I.T: <t t-esc="o.company_id.nit"/>
+                    </small></h2>
+                  </strong>
+                </td>
+                
+                <td colspan='6'>
+                  <div align="right">
+                  <small>
+                    FECHA: <t t-esc="o.formato_fecha(o.date_actual)"/>
+                    <br/>
+                    Pag: <t t-esc="pag"/>
+                  </small>
+                  </div>
+                </td>
+                
+              </tr>
+              <tr style="font-size:12px;">
+                <td colspan='12'>
+                  <div align="center" style="font-size: 25px; color: #0406b3;">
+                    RELACION DE RETENCIONES ISLR
+                  </div>
+                </td>
+              </tr>
+              <tr style="font-size:12px;">
+                <td colspan='12'>
+                  <div align="left">
+                  STATUS DEL DOCUMENTO: AC           DESDE:<t t-esc="o.formato_fecha(o.date_from)"/> HASTA <t t-esc="o.formato_fecha(o.date_to)"/>             DATOS MOSTRADOS EN Bs.
+                  </div>
+                </td>
+              </tr>
+              <tr style="font-size:12px;">
+                    <td align="left" width='80'>
+                      Fecha
+                    </td>
+                    <td align="left" width='80'>
+                      F.Doc
+                    </td>
+                    <td align="left" width='130'>
+                      Nro. Factura
+                    </td>
+                    <td align="left" width='30'>
+                      ST
+                    </td>
+                    <td align="left" width='110'>
+                      Rif
+                    </td>
+                    <td align="left" width='140'>
+                      Proveedor
+                    </td>
+                    <td align="left" width='120'>
+                      Descripción
+                    </td>
+                    <td align="left" width='50'>
+                     Cod. 
+                    </td>
+                    <td align="center" width='8%'>
+                      Abono Cta
+                    </td>
+                    <td align="center" width='8%'>
+                      Can.Obj.Ret
+                    </td>
+                    <td align="center" width='70'>
+                      Porcentaje
+                    </td>
+                    <td align="center" width='8%'>
+                      Retención
+                    </td>
+                  </tr>
+            </table>
+            </div>
+            <!-- CUERPO DEL DOCUMENTO -->
+            <div class="page">
+              <t t-set="acom_abono3" t-value="0"/>
+              <t t-set="acom_obj3" t-value="0"/>
+              <t t-set="acom_ret3" t-value="0"/>
+              <table width="100%"  border="1"  vspace="0" hspace="0">
+                
+                <t t-foreach="o.line_people.sorted(key=lambda x: (x.name),reverse=False)" t-as="line_people" ><!-- tabla 1 -->
+                  <tr style="font-size:12px;">
+                    <td colspan='12'>
+                      <t t-esc="line_people.nombre(line_people.name)"/>
+                    </td>
+                  </tr>
+                  <t t-set="acom_abono2" t-value="0"/>
+                  <t t-set="acom_obj2" t-value="0"/>
+                  <t t-set="acom_ret2" t-value="0"/>
+                  <t t-foreach="line_people.line_code" t-as="line_code" ><!-- tabla 2 -->
+                    <tr style="font-size:12px;">
+                      <td colspan='12'>
+                        Código:&amp;nbsp;&amp;nbsp;<t t-esc="line_code.code"/>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<t t-esc="line_code.islr_concept_id.name"/>
+                      </td>
+                    </tr>
+                    <t t-set="acom_abono" t-value="0" />
+                    <t t-set="acom_obj" t-value="0" />
+                    <t t-set="acom_ret" t-value="0" />
+                    <t t-foreach="line_code.line_resumen" t-as="line_resumen" ><!-- tabla 3 -->
+                        <!-- x -->
+                          <tr style="font-size:12px;">
+                            <td align="left" width='80'>
+                              <t t-esc="line_resumen.formato_fecha2(line_resumen.fecha_comprobante)"/>
+                            </td>
+                            <td align="left" width='80'>
+                                <t t-esc="line_resumen.formato_fecha2(line_resumen.invoice_id.invoice_date)"/>
+                            </td>
+                            <td align="left" width='130'>
+                                <t t-esc="line_resumen.invoice_id.invoice_number"/>
+                            </td>
+                            <td align="left" width='30'>
+                                AC
+                            </td>
+                            <td align="left" width='110'>
+                                <t t-esc="line_resumen.rif2(line_resumen.invoice_id.partner_id.id)"/>
+                            </td>
+                            <td align="left" width='140'>
+                                <t t-esc="line_resumen.invoice_id.partner_id.name"/>
+                            </td>
+                            <td align="center" width='120'>
+                                General
+                            </td>
+                            <td align="center" width='50'>
+                                <t t-esc="line_code.code"/>
+                            </td>
+                            <td align="right" width='8%'>
+                                <t t-esc="line_resumen.float_format(line_resumen.abono_cta)"/>
+                                <t t-set="acom_abono" t-value="acom_abono+line_resumen.abono_cta" />
+                            </td>
+                            <td align="right" width='8%'>
+                              &amp;nbsp;
+                                <t t-esc="line_resumen.float_format(line_resumen.cant_retencion)"/>
+                                <t t-set="acom_obj" t-value="acom_obj+line_resumen.cant_retencion" />
+                            </td>
+                            <td align="center" width='70'>
+                                <t t-esc="line_resumen.porcentaje"/>
+                            </td>
+                            <td align="right" width='8%'>
+                                <t t-esc="line_resumen.float_format(line_resumen.total)"/>
+                                <t t-set="acom_ret" t-value="acom_ret+line_resumen.total" />
+                            </td>
+                        </tr>
+                        <!-- Y -->
+                    </t><!-- fin tabla 3 -->
+                    <tr style="font-size:12px; color: #0406b3;">
+                      <td colspan='8'>
+                         <div align="center">Total:&amp;nbsp;<t t-esc="line_code.islr_concept_id.name"/></div>
+                      </td>
+                      <td align="right">
+                         <t t-esc="line_code.float_format3(acom_abono)"/>
+                         <t t-set="acom_abono2" t-value="acom_abono2+acom_abono" />
+                      </td>
+                      <td align="right">
+                        &amp;nbsp;
+                          <t t-esc="line_code.float_format3(acom_obj)"/>
+                          <t t-set="acom_obj2" t-value="acom_obj2+acom_obj"/>
+                      </td>
+                      <td colspan='2' align="right">
+                          <t t-esc="line_code.float_format3(acom_ret)"/>
+                          <t t-set="acom_ret2" t-value="acom_ret2+acom_ret"/>
+                      </td>
+                    </tr>
+                    <tr><td colspan='12'>&amp;nbsp;</td></tr>
+                  </t><!-- fin tabla 2 -->
+                  <tr style="font-size:12px; color: #0406b3;">
+                    <td colspan='8'>
+                      <div align="center">Total:&amp;nbsp;<t t-esc="line_people.nombre(line_people.name)"/></div>
+                    </td>
+                    <td align="right">
+                      <t t-esc="line_people.float_format4(acom_abono2)"/>
+                      <t t-set="acom_abono3" t-value="acom_abono3+acom_abono2" />
+                    </td>
+                    <td align="right">
+                      &amp;nbsp;
+                      <t t-esc="line_people.float_format4(acom_obj2)"/>
+                      <t t-set="acom_obj3" t-value="acom_obj3+acom_obj2"/>
+                    </td>
+                    <td colspan='2' align="right">
+                      <t t-esc="line_people.float_format4(acom_ret2)"/>
+                      <t t-set="acom_ret3" t-value="acom_ret3+acom_ret2"/>
+                    </td>
+                  </tr>
+                  <tr><td colspan='12'>&amp;nbsp;</td></tr>
+                </t><!-- fin tabla 1 -->
+                <tr style="font-size:12px; font-weight: bold; color: #0406b3;">
+                    <td colspan='8'>
+                      <div align="center" style="font-weight: bold">Total General:&amp;nbsp;</div>
+                    </td>
+                    <td  align="right">
+                      <t t-esc="o.float_format2(acom_abono3)"/>
+                    </td>
+                    <td align="right">
+                      &amp;nbsp;
+                      <t t-esc="o.float_format2(acom_obj3)"/>
+                    </td>
+                    <td colspan='2' align="right">
+                      <t t-esc="o.float_format2(acom_ret3)"/>  
+                    </td>
+                </tr>
+              </table>
+            </div>
+          </t>
+         </t>
+       </t>
+
+     </template>
+  
+  </data>
+</odoo>

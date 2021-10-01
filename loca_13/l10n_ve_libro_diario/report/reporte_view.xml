@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>    
+    <record id="paperformat_libro_diario" model="report.paperformat">
+
+      <field name="default" eval="True"/>
+        <field name="name">A4 Landscape Account libro diario</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">497</field>
+        <field name="page_width">500</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">12</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">9</field>
+        <field name="dpi">110</field>
+    </record>
+
+    <report id="report_libro_diario"
+        model="wizard.libro.diario"
+        name="l10n_ve_libro_diario.reporte_libro_diario"
+        file="l10n_ve_libro_diario.reporte_libro_diario"
+        string="Reporte Libro Diario"
+        report_type="qweb-html"
+        /><!-- paperformat="l10n_ve_libro_diario.paperformat_libro_diario"-->
+
+    <template id="reporte_libro_diario">
+
+       <t t-call="web.html_container" ><!-- realiza llamados a template propio de odoo -->
+         <t t-call="web.basic_layout" ><!-- realiza llamados a template propio de odoo -->
+          <t t-foreach="docs" t-as="o">
+
+            <div class="header">
+              <table width="100%"  border="1">
+                <tr>
+                  <td colspan="4">
+                    <div align="center">
+                    <strong>
+                    <h2 style="font-size:20px;"> <small><t t-esc="o.company_id.name"/> RIF:<t t-esc="o.rif(o.company_id.partner_id.id)"/></small></h2>
+                    </strong>
+                    </div>
+                  </td>
+                </tr>
+                <tr style="font-size:14px;">
+                  <td colspan="4"><span style="font-weight: bold;">REPORTE: LIBDIA</span></td>
+                </tr>
+                <tr style="font-size:14px;">
+                  <td colspan="4"><div align="center">LIBRO DIARIO DEL PERIODO <t t-esc="o.periodo(o.date_to)"/> DESDE <t t-esc="o.formato_fecha(o.date_from)"/> AL <t t-esc="o.formato_fecha(o.date_to)"/></div></td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    ======================================================================================================
+                  </td>
+                </tr>
+
+                <tr style="font-size:14px;">
+                	<td> </td>
+				    <td> </td>
+				    <td width="300"><div align="right">DÉBITOS</div></td>
+				    <td width="260"><div align="right">CRÉDITOS</div>    </td>
+  				</tr>
+
+  				<tr>
+                    <td colspan="4"><div align="center">-----------------------------------------------------------------------------------------------------------------------------------------------</div></td>
+                  </tr>
+              </table>
+            </div>
+
+            <div class="page">
+              <table width="100%"  border="1">
+                  
+                  <t t-set="acom_deber" t-value="0" />
+                  <t t-set="acom_haber" t-value="0" />
+
+                  <t t-foreach="o.line" t-as="line" >
+                  <tr style="font-size:14px;">
+                    <td height="20"><t t-esc="line.account_id.code"/> </td>
+                    <td>__<t t-esc="line.name"/></td>
+                    <td><div align="right"><t t-esc="line.float_format(line.total_deber)"/> 
+                	</div> <t t-set="acom_deber" t-value="acom_deber+line.total_deber" /></td>
+                    <td><div align="right"><t t-esc="line.float_format(line.total_haber)"/> 
+                    <t t-set="acom_haber" t-value="acom_haber+line.total_haber" /></div></td>
+                  </tr>
+                  </t>
+
+                  <tr>
+                      <td colspan="2"> </td>
+                      <td colspan="2"><div align="right">==========================================</div></td>
+                  </tr>
+                  <tr style="font-size:14px;">
+                      <td colspan="2">TOTAL GENERAL </td>
+                      <td><div align="right"><t t-esc="o.float_format2(acom_deber)"/> 
+                      </div></td>
+                      <td><div align="right"><t t-esc="o.float_format2(acom_haber)"/> 
+                  		</div></td>
+                  </tr>
+                  <tr style="font-size:14px;">
+                      <td colspan="4">************************************************* FINAL DEL REPORTE *************************************************</td>
+                  </tr>
+
+              </table>
+            </div>
+
+          </t>
+         </t>
+       </t>
+
+     </template>
+  
+  </data>
+</odoo>

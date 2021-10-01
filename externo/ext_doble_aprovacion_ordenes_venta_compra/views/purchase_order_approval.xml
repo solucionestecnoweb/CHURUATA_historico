@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+		
+        <record id="action_purchase_order_double_approval" model="ir.actions.act_window">
+            <field name="name">Aprobaciones de Ordenes de Compras</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_id" ref="purchase.purchase_order_tree"/>
+            <field name="view_mode">kanban,tree,form,calendar,pivot,graph</field>
+            <field name="type">ir.actions.act_window</field>
+            <!--field name="search_view_id" ref="purchase.purchase_order_view_search_inherit_quotation"/-->
+            <field name="domain">[('state', 'in', ['approve','approve2'])]</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Mostrar los pedidos de Compras que estan en la etapa "Por Aprobar".
+              </p>
+            </field>
+        </record>
+			
+		
+		
+	<menuitem id="menu_purchase_order_approval" name="Aprobaciones de Ordenes de Compras" action="action_purchase_order_double_approval" 
+		parent="purchase.menu_procurement_management"/>
+
+    </data>
+</odoo>		

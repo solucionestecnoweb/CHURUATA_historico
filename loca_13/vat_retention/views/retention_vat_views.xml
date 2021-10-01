@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- SEARCH VIEW FOR RETENTIONS-->
+    <record id="retention_vat_filter" model="ir.ui.view">
+        <field name="name">vat.retention.search</field>
+        <field name="model">vat.retention</field>
+        <field name="arch" type="xml">
+            <search string="Search VAT retention">
+                <group col="10" colspan="4">
+                    <filter name="draft" icon="terp-gtk-media-pause" string="Draft" domain="[('state','=','draft')]" help="Draft VAT Retention"/>
+                    <filter name="done" icon="terp-check" string="Done" domain="[('state','=','done')]" help="Done VAT Retention"/>
+                    <filter name="cancel" icon="terp-dialog-close" string="Cancel" domain="[('state','=','cancel')]" help="Cancel VAT Retention"/>
+                    <separator orientation="vertical"/>
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <!-- <field name="journal_id" widget="selection" string="Journal"/> -->
+                    <field name="accouting_date"/>
+                </group> 
+                <newline/>
+                <group expand="1" string="Group By">
+                    <filter string="Partner" name="group_by_partner" icon="terp-gtk-media-pause" context="{'group_by':'partner_id'}"/>
+                    <separator orientation="vertical"/>
+                    <filter string="State" name="group_by_state" icon="terp-check" domain="[]" context="{'group_by':'state'}"/>
+                    <separator orientation="vertical"/>
+                    <filter string="Accounting Date of Retention" name="group_by_partner" domain="[]" context="{'group_by':'accouting_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+
+    <record id="retention_vat_form_view" model="ir.ui.view">
+        <field name="name">vat.retention.form.view</field>
+        <field name="model">vat.retention</field>
+        <field name="arch" type="xml">
+            <form string="Vat Retention">
+                <header>
+                    <button name="cargar_fact" string="Cargar Lineas Factura" type="object" 
+                    attrs="{'invisible': [('manual', '=',False)]}" />
+
+                    <button name="action_posted" string="Confirm" class="oe_highlight" type="object" attrs="{'invisible': ['|',('state', '!=', 'draft'),('manual', '!=',False)]}"/>
+
+                    <button name="action_draft" string="Draft" type="object" 
+                        attrs="{'invisible': [('manual', '!=',False)]}"/>
+                    <button name="action_cancel" string="Cancel" type="object"
+                        attrs="{'invisible': [('manual', '!=',False)]}"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <span class="o_form_label">Voucher Number</span>
+                        <h1>
+                            <field name="name" attrs="{'readonly':[('type', 'in', ('in_invoice','in_refund','in_receipt'))]}"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="supplier_data">
+                            <field name="manual" invisible="1"/>
+                            <field name="partner_id"/>
+                            <field name="rif"/>
+                        </group>
+                        <group name="dates">
+                            <!-- Accounting_date is the date when the voucher is created -->
+                            <field name="accouting_date" readonly="False"/> 
+                            <field name="voucher_delivery_date"/>
+                        </group>
+                    </group>
+                    <group col="4">
+                        <field name="invoice_id" domain="[('type','!=','entry')]"
+                            /><!--,('vat_ret_id.manual','=',True)-->
+                        <field name="invoice_number"/>
+                    </group>
+                    <group>
+                        <field name="is_customer" invisible="1"/>
+                        <field name="is_supplier" invisible="1"/>
+                        <!-- <field name="variant" invisible="True"/> -->
+                        <field name="type" invisible="1"/>
+                        <!-- <group string="Accounting Information">
+                            <field name="journal_id"/>
+                        </group> -->
+                    </group>
+                    <notebook>
+                        <page string="VAT Retention">
+                            <field name="retention_line_ids" nolabel="1">
+                            <!--field name="retention_line_ids" nolabel="1" readonly="True"-->
+                                <tree string="VAT Retention Line" editable="buttom">
+                                    <field name="invoice_number"/>
+                                    <field name="amount_vat_ret" string="Importe del impuesto"/>
+                                    <field name="retention_rate" string="Tasa de retención" readonly="False"/>
+                                    <field name="retention_amount"/>
+                                    <field name="move_id" string="Account Entry"/>
+                                </tree>
+                                <!-- <form string="VAT Retention Line">
+                                    <group col="4">
+                                        <field name="name"/>
+                                        <field name="move_id"/>
+                                        <field name="invoice_number"/>
+                                        <field name="amount_untaxed"/>
+                                    </group>
+                                </form> -->
+                            </field>
+                        </page>
+                        <!-- <page string="Journal Items">
+                            <field name="line_ids">
+                                <tree editable="bottom" string="Journal Items" default_order="sequence, date desc, move_name desc, id">
+                                    <field name="account_id"/>
+                                    <field name="partner_id"/>
+                                    <field name="name"/>
+                                    <field name="move_id"/>
+                                    <field name="debit"/>
+                                    <field name="credit"/>
+                                </tree>
+                            </field>
+                        </page> -->
+                    </notebook>
+                    <newline/>
+                    <group class="oe_right">
+                        <group class="oe_subtotal_footer">
+                            <field name="amount_untaxed" string="Base imponible"/>
+                            <field name="vat_retentioned" class="oe_subtotal_footer_separator"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="retention_vat_tree_view" model="ir.ui.view">
+        <field name="name">retention.vat.tree.view</field>
+        <field name="model">vat.retention</field>
+        <field name="arch" type="xml">
+            <tree string="VAT Retention">
+                <field name="name"/>
+                <!--field name="invoice_id"/-->
+                <field name="invoice_number"/>
+                <field name="type" string="Tipo" />
+                <field name="partner_id"/>
+                <field name="amount_untaxed" string="Importe Base" sum="amount_untaxed"/>
+                <field name="vat_retentioned" string="Importe Retenido" sum="vat_retentioned"/>
+                <field name="voucher_delivery_date" string="Fecha Comp."/>
+                <!-- <field name="journal_id"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- Acciones de ventana para los clientes -->
+    <record  id="action_vat_customers_retention" model="ir.actions.act_window">
+        <field name="name">Customer VAT Retention</field>
+        <field name="res_model">vat.retention</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('type','=',('out_invoice','out_refund','out_receipt'))]</field>
+        <field name="context">{'type':'out_invoice'}</field>
+        <field name="search_view_id" ref="retention_vat_filter"/>
+    </record>
+     <record model="ir.actions.act_window.view" id="act_wv_account_wh_iva_customer_tree">
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="retention_vat_tree_view"/>
+        <field name="act_window_id" ref="action_vat_customers_retention"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="act_wv_account_wh_iva_customer_form">
+        <field name="sequence" eval="20"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="retention_vat_form_view"/>
+        <field name="act_window_id" ref="action_vat_customers_retention"/>
+    </record>
+
+    <!-- Acciones de ventana contra los proveedores -->
+    <record  id="action_vat_vendors_retention" model="ir.actions.act_window">
+        <field name="name">Vendor VAT Retention</field>
+        <field name="res_model">vat.retention</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('type','in',('in_invoice','in_refund','in_receipt'))]</field>
+        <field name="context">{'type':'in_invoice'}</field>
+        <field name="search_view_id" ref="retention_vat_filter"/>
+    </record>
+    <record  id="action_vat_supplier_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="retention_vat_tree_view"/>
+        <field name="act_window_id" ref="action_vat_vendors_retention"/>
+    </record>
+    <record  id="action_vat_supplier_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="20"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="retention_vat_form_view"/>
+        <field name="act_window_id" ref="action_vat_vendors_retention"/>
+    </record>
+
+    
+    <!-- TODAS LAS RETENCIONES -->
+    <record id="action_vat_retention" model="ir.actions.act_window">
+        <field name="name">VAT Retentions</field>
+        <field name="res_model">vat.retention</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- VAT RETENTION INVOICE LINE -->
+    <record id="vat_retention_invoice_line_view_form" model="ir.ui.view">
+        <field name="name">vat.retention.view.form</field>
+        <field name="model">vat.retention.invoice.line</field>
+        <field name="arch" type="xml">
+            <form string="Vat Retention Invoice Line">
+                <sheet>
+                    <group col="4">
+                        <field name="name" readonly="True"/>
+                        <field name="invoice_id" readonly="True"/>
+                        <field name="retention_id" invisible="True"/>
+                    </group>
+                    <group string="Retention Details">
+                        <field name="tax_line_ids" nolabel="1">
+                           <tree string="Retention Details">
+                               <field name="name"/>
+                               <field name="base_tax"/>
+                               <field name="tax_amount"/>
+                               <field name="amount_withheld"/>
+                            </tree>
+                            <form string="Retention Details">
+                                <group string="VAT Retention Info" col="4">
+                                    <field name="name"/>
+                                    <field name="base_tax"/>
+                                    <field name="tax_amount"/>
+                                    <field name="amount_withheld"/>
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="vat_retention_invoice_line_view_tree" model="ir.ui.view">
+        <field name="name">vat.retention.view.tree</field>
+        <field name="model">vat.retention.invoice.line</field>
+        <field name="arch" type="xml">
+            <tree string="VAT Retention Line for Invoices">
+                <field name="invoice_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- TAX LINE -->
+    <record id="vat_retention_tax_lines_view_form" model="ir.ui.view">
+        <field name="name">vat.retention.tax.lines.form</field>
+        <field name="model">vat.retention.tax.lines</field>
+        <field name="arch" type="xml">
+            <form string="Vat Retention Invoice Line">
+                <sheet>
+                    <group col="4">
+                        <field name="name"/>
+                        <field name="tax_id"/>
+                        <field name="company_id"/>
+                    </group>
+                    <group string="Retention Details">
+                        <field name="vat_ret_line_id"/>
+                        <field name="base_tax"/>
+                        <field name="tax_amount"/>
+                        <field name="amount_withheld"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="vat_retention_tax_lines_view_tree" model="ir.ui.view">
+        <field name="name">vat.retention.tax.lines.tree</field>
+        <field name="model">vat.retention.tax.lines</field>
+        <field name="arch" type="xml">
+            <tree string="VAT Retention Line for Invoices">
+                <field name="name"/>
+                <field name="tax_id"/>
+                <field name="company_id"/>
+                <field name="vat_ret_line_id"/>
+                <field name="base_tax"/>
+                <field name="tax_amount"/>
+                <field name="amount_withheld"/>
+            </tree>
+        </field>
+    </record>
+
+
+</odoo>

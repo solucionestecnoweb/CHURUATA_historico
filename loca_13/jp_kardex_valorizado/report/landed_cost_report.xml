@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="action_report_landed_cost"
+            string="Landed Cost Report"
+            model="stock.landed.cost" 
+            report_type="qweb-pdf"
+            file="jp_kardex_valorizado.report_landed_cost" 
+            name="jp_kardex_valorizado.report_landed_cost"
+            print_report_name="(object.state in ('draft', 'done') and 'Landed Cost - %s' % (object.name))"
+        />
+
+    </data>
+</odoo>

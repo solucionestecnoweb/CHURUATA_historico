@@ -1,0 +1,758 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vat_retention
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e-20200121\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-03 19:37+0000\n"
+"PO-Revision-Date: 2020-06-03 15:40-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_form_view
+msgid "<span class=\"o_form_label\">Voucher Number</span>"
+msgstr "Número de Comprobante"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__account_id
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_form_view
+msgid "Account Entry"
+msgstr "Asiento contable"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_filter
+msgid "Accounting Date of Retention"
+msgstr "Fecha Contable de la Retención"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_form_view
+msgid "Accounting Information"
+msgstr "Información"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__accouting_date
+msgid "Accounting date"
+msgstr "Fecha contable"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__message_needaction
+msgid "Action Needed"
+msgstr "Acción necesaria"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoración de excepción de actividad"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__activity_state
+msgid "Activity State"
+msgstr "Estado de actividad"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__amount_vat_ret
+msgid "Amount tax"
+msgstr "Importe del impuesto"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__amount_untaxed
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__amount_untaxed
+msgid "Amount untaxed"
+msgstr "Cantidad libre de impuesto"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_tax_lines__amount_withheld
+msgid "Amount withheld"
+msgstr "Monto retenido"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_snc_wizard_retencioniva__file_data
+msgid "Archivo TXT"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__move_id
+msgid "Asiento"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__message_attachment_count
+msgid "Attachment Count"
+msgstr "Cuenta adjunta"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_form_view
+msgid "Base imponible"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_tax_lines__base_tax
+msgid "Base tax"
+msgstr "Base imponible"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_filter
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_filter
+msgid "Cancel VAT Retention"
+msgstr "Cancelar Retención de IVA"
+
+#. module: vat_retention
+#: model:ir.model.fields.selection,name:vat_retention.selection__vat_retention__state__cancel
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.snc_wizard_retencioniva_form_view
+msgid "Cerrar"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_tax_lines__company_id
+msgid "Company"
+msgstr "Compañia"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_form_view
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: vat_retention
+#: model:ir.model,name:vat_retention.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_snc_wizard_retencioniva__create_uid
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__create_uid
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__create_uid
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_tax_lines__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_snc_wizard_retencioniva__create_date
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__create_date
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__create_date
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_tax_lines__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_res_partner__account_ret_receivable_id
+#: model:ir.model.fields,field_description:vat_retention.field_res_users__account_ret_receivable_id
+msgid "Cuenta Retencion a Cobrar"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_res_partner__account_ret_payable_id
+#: model:ir.model.fields,field_description:vat_retention.field_res_users__account_ret_payable_id
+msgid "Cuenta Retencion a Pagar"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__is_customer
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: vat_retention
+#: model:ir.model.fields.selection,name:vat_retention.selection__vat_retention__type__out_invoice
+msgid "Customer Invoice"
+msgstr "Factura del Cliente"
+
+#. module: vat_retention
+#: model:ir.actions.act_window,name:vat_retention.action_vat_customers_retention
+msgid "Customer VAT Retention"
+msgstr "Retención de IVA a Clientes"
+
+#. module: vat_retention
+#: model:ir.ui.menu,name:vat_retention.menu_customer_vat_retention
+msgid "Customer VAT retention"
+msgstr "Retención de IVA a Clientes"
+
+#. module: vat_retention
+#: model:ir.actions.act_window,name:vat_retention.action_declaracion_retiva_form
+#: model:ir.ui.menu,name:vat_retention.menu_snc_declaracion_retiva
+msgid "Declaración Retención IVA"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__description
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__name
+msgid "Description"
+msgstr "Descripción"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_vat_retention__description
+msgid "Description about this voucher."
+msgstr "Descripción del comprobante"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_snc_wizard_retencioniva__display_name
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__display_name
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__display_name
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_tax_lines__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_filter
+msgid "Done"
+msgstr "Hecho"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_filter
+msgid "Done VAT Retention"
+msgstr "Retención de IVA Hecha"
+
+#. module: vat_retention
+#: model:ir.model.fields.selection,name:vat_retention.selection__vat_retention__state__draft
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_filter
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_form_view
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_filter
+msgid "Draft VAT Retention"
+msgstr "Retención de IVA Borrador"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_snc_wizard_retencioniva__date_from
+msgid "Fecha de Llegada"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_snc_wizard_retencioniva__date_to
+msgid "Fecha de Salida"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (Canales)"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (socios)"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.snc_wizard_retencioniva_form_view
+msgid "Generar TXT"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model,name:vat_retention.model_snc_wizard_retencioniva
+msgid "Generar archivo TXT de retenciones de IVA"
+msgstr ""
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_filter
+msgid "Group By"
+msgstr "Agrupado por"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_snc_wizard_retencioniva__id
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__id
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__id
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_tax_lines__id
+msgid "ID"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_vat_retention__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción."
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_vat_retention__message_needaction
+#: model:ir.model.fields,help:vat_retention.field_vat_retention__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si los nuevos mensajes están marcados requieren su atención"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_vat_retention__message_has_error
+#: model:ir.model.fields,help:vat_retention.field_vat_retention__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si está marcado, algunos mensajes tienen un error de entrega."
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_form_view
+msgid "Importe del impuesto"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__invoice_id
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__invoice_id
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__invoice_number
+msgid "Invoice Number"
+msgstr "Número de Factura"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__invoice_ctrl_num
+msgid "Invoice control number"
+msgstr "Número de control de factura"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__line_ids
+msgid "Invoice lines"
+msgstr "Línea de Facturas"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__invoice_number
+msgid "Invoice number"
+msgstr "Número de factura"
+
+#. module: vat_retention
+#: model:ir.model.fields.selection,name:vat_retention.selection__vat_retention__variant__invoice_vendors
+msgid "Invoice vendors"
+msgstr "Factura de proveedores"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__message_is_follower
+msgid "Is Follower"
+msgstr "Es seguidor"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__journal_id
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_filter
+msgid "Journal"
+msgstr "Diario"
+
+#. module: vat_retention
+#: model:ir.model,name:vat_retention.model_account_move
+msgid "Journal Entries"
+msgstr "Asientos contables"
+
+#. module: vat_retention
+#: model:ir.model,name:vat_retention.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_snc_wizard_retencioniva____last_update
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention____last_update
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line____last_update
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_tax_lines____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_snc_wizard_retencioniva__write_uid
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__write_uid
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__write_uid
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_tax_lines__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización el"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_snc_wizard_retencioniva__write_date
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__write_date
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__write_date
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_tax_lines__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjunto principal"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__message_has_error
+msgid "Message Delivery error"
+msgstr "Mensaje de entrega de error"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Fecha límite de la actividad siguiente"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen de actividad siguiente"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__activity_type_id
+msgid "Next Activity Type"
+msgstr "Siguiente tipo de actividad"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_vat_retention__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_vat_retention__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de entrega"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_vat_retention__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes no leídos"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__partner_id
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_filter
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: vat_retention
+#: model:ir.model.fields.selection,name:vat_retention.selection__vat_retention__state__posted
+msgid "Posted"
+msgstr "Públicado"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.vat_retention_partner_view
+msgid "Purchase"
+msgstr "Compra"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_res_partner__purchase_jrl_id
+#: model:ir.model.fields,field_description:vat_retention.field_res_users__purchase_jrl_id
+msgid "Purchase journal"
+msgstr "Diario de Compra"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__rif
+msgid "RIF"
+msgstr "RIF"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__retention_rate
+msgid "Rate"
+msgstr "Tasa"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario Responsable"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.snc_wizard_retencioniva_form_view
+msgid "Retenciones de IVA"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__retention_line_ids
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__retention_amount
+msgid "Retention"
+msgstr "Retención"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.vat_retention_invoice_line_view_form
+#: model_terms:ir.ui.view,arch_db:vat_retention.vat_retention_tax_lines_view_form
+msgid "Retention Details"
+msgstr "Detalles de la Retención"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_res_partner__ret_agent
+#: model:ir.model.fields,field_description:vat_retention.field_res_users__ret_agent
+msgid "Retention agent"
+msgstr "Agente de retención"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_vat_retention_invoice_line__invoice_id
+msgid "Retention invoice"
+msgstr "Retención de Factura"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "SMS entrega de error"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.vat_retention_partner_view
+msgid "Sale"
+msgstr "Venta"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_res_partner__sale_jrl_id
+#: model:ir.model.fields,field_description:vat_retention.field_res_users__sale_jrl_id
+msgid "Sales journal"
+msgstr "Diario de Venta"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_filter
+msgid "Search VAT retention"
+msgstr "Buscar Retención de IVA"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_filter
+msgid "State"
+msgstr "Estado"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__state
+msgid "Status"
+msgstr "Estatus"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_vat_retention__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estado basado en actividades vencidas: la fecha de vencimiento ya pasó\n"
+"Hoy: la fecha de la actividad es hoy Planificado: actividades futuras."
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__is_supplier
+msgid "Supplier"
+msgstr "Proveedor"
+
+#. module: vat_retention
+#: model:ir.model.fields.selection,name:vat_retention.selection__vat_retention__type__in_invoice
+msgid "Supplier Invoince"
+msgstr "Factura de Proveedor"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_form_view
+msgid "Tasa de retención"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__tax_id
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_tax_lines__tax_id
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_tax_lines__tax_amount
+msgid "Tax amount"
+msgstr "Importe del impuesto"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_tax_lines__name
+msgid "Tax name"
+msgstr "Nombre del impuesto"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_vat_retention_invoice_line__retention_rate
+msgid ""
+"The retention rate can vary between 75% al 100% depending on the taxpayer."
+msgstr ""
+"La tasa de retención puede variar entre el 75%  al 100% dependiendo del "
+"contribuyente"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_vat_retention__amount_untaxed
+msgid "This concept is tax base"
+msgstr "El concepto es base imponible"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_res_partner__ret_agent
+#: model:ir.model.fields,help:vat_retention.field_res_users__ret_agent
+msgid "True if your partner is retention agent"
+msgstr "Verdadero si el socio es agente de retención"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__variant
+msgid "Type"
+msgstr "Tipo"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__type
+msgid "Type invoice"
+msgstr "Tipo de factura"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_vat_retention__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de actividad de excepción registrada."
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes no leídos"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Contador de mensajes no leídos"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_account_move_line__retention_id
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_form_view
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_tree_view
+#: model_terms:ir.ui.view,arch_db:vat_retention.vat_retention_partner_view
+msgid "VAT Retention"
+msgstr "Retención de IVA"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.vat_retention_invoice_line_view_form
+msgid "VAT Retention Info"
+msgstr "Información de Retención de IVA"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_form_view
+msgid "VAT Retention Line"
+msgstr "Línea de retención de IVA"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.vat_retention_invoice_line_view_tree
+#: model_terms:ir.ui.view,arch_db:vat_retention.vat_retention_tax_lines_view_tree
+msgid "VAT Retention Line for Invoices"
+msgstr "Retenciones de IVA"
+
+#. module: vat_retention
+#: model:ir.actions.act_window,name:vat_retention.action_vat_retention
+msgid "VAT Retentions"
+msgstr "Retenciones de IVA"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_account_move__vat_ret_id
+msgid "VAT retention voucher"
+msgstr "Comprobante de retención de IVA"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__vat_retentioned
+msgid "VAT retentioned"
+msgstr "IVA retenido"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_account_move__vat_ret_id
+msgid "VAT withheld"
+msgstr "IVA retenido"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.retention_vat_form_view
+msgid "Vat Retention"
+msgstr "Retenciones de IVA"
+
+#. module: vat_retention
+#: model_terms:ir.ui.view,arch_db:vat_retention.vat_retention_invoice_line_view_form
+#: model_terms:ir.ui.view,arch_db:vat_retention.vat_retention_tax_lines_view_form
+msgid "Vat Retention Invoice Line"
+msgstr "Línea de facturación de retención de IVA"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__retention_id
+msgid "Vat retention"
+msgstr "retención de IVA"
+
+#. module: vat_retention
+#: model:ir.actions.act_window,name:vat_retention.action_vat_vendors_retention
+msgid "Vendor VAT Retention"
+msgstr "Retención de IVA del Proveedor"
+
+#. module: vat_retention
+#: model:ir.ui.menu,name:vat_retention.menu_vendor_vat_retention
+msgid "Vendors VAT retention"
+msgstr "Retención de IVA proveedores"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__voucher_delivery_date
+msgid "Voucher delivery date"
+msgstr "Fecha de entrega del comprobante"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_vat_retention__accouting_date
+msgid "Voucher generation date"
+msgstr "Fecha de generación del comprobante"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__name
+msgid "Voucher number"
+msgstr "Número de comprobante"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention__website_message_ids
+msgid "Website Messages"
+msgstr "mensajes del website"
+
+#. module: vat_retention
+#: model:ir.model.fields,help:vat_retention.field_vat_retention__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicación del Website"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_invoice_line__tax_line_ids
+msgid "tax lines"
+msgstr "líneas de impuesto"
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_snc_wizard_retencioniva__file_name
+msgid "txt_generacion.txt"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model,name:vat_retention.model_vat_retention
+msgid "vat.retention"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model,name:vat_retention.model_vat_retention_invoice_line
+msgid "vat.retention.invoice.line"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model,name:vat_retention.model_vat_retention_tax_lines
+msgid "vat.retention.tax.lines"
+msgstr ""
+
+#. module: vat_retention
+#: model:ir.model.fields,field_description:vat_retention.field_vat_retention_tax_lines__vat_ret_line_id
+msgid "vat_ret_line_id"
+msgstr ""

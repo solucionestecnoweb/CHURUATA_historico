@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="company_inherit_view_form" model="ir.ui.view">
+        <field name="name">company.inherit.view.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_title']" position="replace">
+                <div class="oe_title">
+                    <label for="name" string="Razón Social"/>
+                        <h1>
+                            <attributes name="name"/>
+                        </h1>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='vat']" position="attributes">
+                <attribute name="string">RIF</attribute>
+            </xpath>
+            <xpath expr="//notebook/page/group/group[2]/field[@name='vat']" position="after">
+                <field name="type_taxpayer"/>
+            </xpath>
+            <xpath expr="//notebook/page[1]" position="after">
+                <page string="Invoicing">
+                    <group name="fiscal_print" string="Fiscal Print Information">
+                        <field name="fiscal_printer"/>
+                    </group>
+                    <group name="damage_invoice" string="Damaged Invoice Information" col="4">
+                        <field name="damaged_invo_id" />
+                        <field name="acct_id"/>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="//group[@name='social_media']" position="after">
+                    <group string="Configuración para los comprobantes de retenciones a Proveedores" name="ret_provee" aling="center">
+                        <field name="confg_ret_proveedores" string="Se configura las Ret. a Proveedores a través de:" widget="selection_badge"/>
+                    </group>
+                </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,37 @@
+<odoo>
+  <data>
+
+     <record id="pos_config_view_form_pos_sale_tpdv" model="ir.ui.view">
+        <field name="name">pos.config.form.pos.sale.tpdv</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <div id="accounting_section" position="after">
+                <h2>Configuracion Maquina Fiscal</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Nro Registro Maquina Fiscal</span>
+                            <div class="text-muted">
+                                Es el valor que tiene registrado la maquina fiscal por el seniat
+                            </div>
+                            <field name="reg_maquina"/>
+                            <div class="text-muted">
+                                Es el nombre que buscara el appi en el archivo nombre_caja.txt para la integracion con la impresora
+                            </div>
+                            <field name="nb_identificador_caja"/>
+                            <br/>
+                            <span class="o_form_label">Mostrar solo ordenes facturadas en Libro Pos</span>
+                            <div class="text-muted">
+                                Al tildar esta opción, solo se mostrarar las ordenes salidas por la Imp.Fiscal
+                            </div>
+                            <field name="ordenes_impr"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>     	 
+
+  </data>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="vat_retention_partner_view" model="ir.ui.view">
+        <field name="name">vat_retention_partner_view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='vat']" position="before">
+                <field name="doc_type" string="Grupo Contribuyente"/>
+            </xpath>
+            <!--xpath expr="//field[@name='vat']" position="replace">
+                <field name="vat" string="Rif" required="True"/>
+            </xpath-->
+
+            <!--xpath expr="//group[@name='accounting_entries']" position="after">
+                <group string="VAT Retention">
+                    <separator string="Purchase" name="purchase_vat_retetion"/>
+                    <field name="purchase_jrl_id"/>
+                    <separator string="Sale" name="sale_vat_retention"/>
+                    <field name="sale_jrl_id"/>
+
+                </group>
+            </xpath-->
+        </field>
+    </record>
+
+    <record id="partner_inherit_view_form2" model="ir.ui.view">
+        <field name="name">partner.inherit.view.form2</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='vat_retention']" position="replace">
+			    <group name="vat_retention2" col="4">
+                    <field name="ret_agent"/>
+                    <field name="vat_retention_rate" attrs="{'readonly': [('ret_agent', '=', False)]}"/>
+                    <field name="ret_jrl_id"/>
+                    <field name="account_ret_receivable_id" attrs="{'readonly': [('ret_agent', '=', False)]}"/>
+                    <field name="account_ret_payable_id" attrs="{'readonly': [('ret_agent', '=', False)]}"/>                   
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

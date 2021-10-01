@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+		
+        <record id="action_sale_order_double_approval" model="ir.actions.act_window">
+            <field name="name">Aprobaciones de Ordenes de Venta</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_id" ref="sale.view_quotation_tree"/>
+            <field name="view_mode">kanban,tree,form,calendar,pivot,graph</field>
+            <field name="search_view_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+            <field name="domain">[('state', 'in', ['approve','approve2'])]</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Mostrar los pedidos de ventas que estan en la etapa "Por Aprobar".
+              </p>
+            </field>
+        </record>
+			
+	</data>	
+		
+	<menuitem id="menu_sale_order_approval" name="Aprobaciones de Ordenes de Venta" action="action_sale_order_double_approval" 
+		parent="sale.sale_order_menu" />
+</odoo>		

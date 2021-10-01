@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    
+        <record id="mrp_job_cost_line_tree_view" model="ir.ui.view">
+            <field name="name">mrp.job.cost.line.tree</field>
+            <field name="model">mrp.job.cost.line</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="job_type" invisible="1" />
+                    <field name="routing_workcenter_id" domain="[('routing_id', '=', parent.routing_id)]"/>
+                    <field name="product_id"/>
+                    <field name="product_qty"/>
+                    <field name="actual_quantity"/>
+                    <field name="uom_id"/>
+                    <field name="to_produse_product" invisible="1"/>
+                    <field name="to_produse_qty" invisible="1"/>
+                    <field name="cost_price" sum="Cost Unit" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="total_cost" sum="Total Cost" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+<!--                    <field name="actual_quantity"/>-->
+                    <field name="total_actual_cost" sum="Total Actual Cost" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="bom_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        
+         <record id="bom_job_cost_line_tree_view" model="ir.ui.view">
+            <field name="name">bom.job.cost.line.tree</field>
+            <field name="model">bom.job.cost.line</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="job_type" invisible="1" />
+                    <field name="routing_workcenter_id" domain="[('routing_id', '=', parent.routing_id)]"/>
+                    <field name="product_id"/>
+                    <field name="product_qty"/>
+                    <field name="uom_id"/>
+                    <field name="custom_currency_id" invisible="1"/>
+                    <field name="cost_price" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                    <field name="total_cost" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+<!--                    <field name="actual_quantity"/>-->
+<!--                    <field name="total_actual_cost" widget="monetary"/>-->
+                    <field name="bom_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="workorder_job_cost_line_tree_view" model="ir.ui.view">
+            <field name="name">workorder.job.cost.line.tree</field>
+            <field name="model">workorder.job.cost.line</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="job_type" invisible="1" />
+                    <field name="routing_workcenter_id" domain="[('routing_id', '=', parent.routing_id)]"/>
+                    <field name="product_id"/>
+                    <field name="product_qty"/>
+                    <field name="actual_quantity"/>
+                    <field name="uom_id"/>
+                    <field name="cost_price" sum="Cost Price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="total_cost" sum="Total Cost" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="total_actual_cost" sum="Total Actual Cost" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+<!--                    <field name="actual_quantity"/>-->
+<!--                    <field name="total_actual_cost" widget="monetary"/>-->
+                    <field name="workorder_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_mrp_job_cost_line_pivot" model="ir.ui.view">
+            <field name="name">mrp.job.cost.line.pivot</field>
+            <field name="model">mrp.job.cost.line</field>
+            <field name="arch" type="xml">
+                <pivot string="Process Job Cost Line">
+                    <field name="product_qty" type="measure"/>
+                    <field name="cost_price" type="measure"/>
+                    <field name="total_cost" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+        
+        <record id="view_mrp_production_filter" model="ir.ui.view">
+            <field name="name">mrp.job.cost.line.select</field>
+            <field name="model">mrp.job.cost.line</field>
+            <field name="arch" type="xml">
+                <search string="Search MRP Job Cost Line">
+                    <field name="job_type"/>
+                    <field name="routing_workcenter_id"/>
+                    <field name="product_id"/>
+                    <field name="mrp_id"/>
+                    <field name="bom_id"/>
+                    <field name="routing_id"/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Process Cost Type" name="cost_type" domain="[]" context="{'group_by':'job_type'}"/>
+                        <filter string="Routing" name="routing_workcenter_id" domain="[]" context="{'group_by':'routing_workcenter_id'}"/>
+                        <filter string="Product" name="product" domain="[]" context="{'group_by':'product_id'}"/>
+                        <filter string="Bill of Materials" name="bill_of_materials" domain="[]" context="{'group_by':'bom_id'}"/>
+                        <filter string="Routing" name="routing" domain="[]" context="{'group_by':'routing_id'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_mrp_job_cost_line">
+            <field name="name">Manufacturing Process Costing</field>
+            <field name="res_model">mrp.job.cost.line</field>
+            <field name="view_mode">pivot</field>
+        </record>
+        
+        <menuitem id="menu_mrp_job_cost_line" name="Manufacturing Process Costing" parent="mrp.menu_mrp_reporting" action="action_mrp_job_cost_line"/>
+        
+    </data>
+</odoo>

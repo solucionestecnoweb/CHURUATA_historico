@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="vat_retention_partner_view" model="ir.ui.view">
+        <field name="name">vat_retention_partner_view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position="after">
+            <page name="isrl_retention" string="Retencion ISLR">
+                <group string="Agente ISLR.">
+                    <field name="ret_agent_isrl" string="Agente de Retención ISLR"/>
+                </group>
+
+                <group string="Journal" >
+                    <field name="sale_isrl_id"  attrs="{'readonly': [('ret_agent_isrl', '=', False)]}" />
+                </group>
+                <group name="vat_retention2" col="4"  >
+                    <field name="account_isrl_receivable_id" attrs="{'readonly': [('ret_agent_isrl', '=', False)]}" string="Cuenta ISLR Retencion a Cobrar (Clientes)"/>
+                    <field name="account_isrl_payable_id" attrs="{'readonly': [('ret_agent_isrl', '=', False)]}" string="Cuenta ISLR Retencion a Pagar (Proveedores)"/>                   
+                </group>
+                <!--group name="firma" col="4"  >
+                    <field name="firma"  widget="image" attrs="{'readonly': [('ret_agent_isrl', '=', False)]}"/>                   
+                </group-->
+            </page>
+                
+            </xpath>
+        </field>
+    </record>
+
+
+
+</odoo>

@@ -1,0 +1,351 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* jp_foreign_trade_logistics
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-09 04:20+0000\n"
+"PO-Revision-Date: 2020-06-09 04:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.actions.report,print_report_name:jp_foreign_trade_logistics.action_report_unit_cost
+msgid ""
+"(object.state in ('draft', 'done') and 'Unit Cost - %s' % (object.name))"
+msgstr ""
+"(object.state in ('draft', 'done') and 'Cost Unitario - %s' % (object.name))"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "<span>Landed Cost # </span>"
+msgstr "<span>Importación # </span>"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "<strong>Date:</strong>"
+msgstr "<strong>Fecha:</strong>"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "<strong>Foreign Currency:</strong>"
+msgstr "<strong>Moneda Extranjera:</strong>"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "<strong>Journal:</strong>"
+msgstr "<strong>Diario:</strong>"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "<strong>Product:</strong>"
+msgstr "<strong>Producto:</strong>"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "<strong>Quantity:</strong>"
+msgstr "<strong>Cantidad:</strong>"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report_line__additional_landed_cost
+msgid "Additional Landed Cost"
+msgstr "Costo en destino adicional"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report_line__additional_landed_cost_signed
+msgid "Additional Landed Cost Signed"
+msgstr "Costo en Destino Adicional en Moneda"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "Amount"
+msgstr "Importe"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "Amount Signed"
+msgstr "Importe en Moneda"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__company_currency_id
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.view_stock_landed_cost_form_inherit
+msgid "Company Currency"
+msgstr "Moneda de la Empresa"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,help:jp_foreign_trade_logistics.field_stock_landed_cost__company_id
+msgid "Company related to this journal"
+msgstr "Compañía relacionada con este diario"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report__create_uid
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report__create_date
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model,name:jp_foreign_trade_logistics.model_data_for_report
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report_line__data_id
+msgid "Data For Report"
+msgstr ""
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model,name:jp_foreign_trade_logistics.model_data_for_report_line
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report__line_ids
+msgid "Data For Report Line"
+msgstr ""
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.actions.report,name:jp_foreign_trade_logistics.action_report_unit_cost
+msgid "Determination Unit Cost Report"
+msgstr "Determinación de Costo Unitario"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report__display_name
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "Document Number"
+msgstr "Numero de Documento"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report_line__expense_bill_id
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost_lines__expense_bill_id
+msgid "Expense Bill"
+msgstr "Factura de Gasto"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.view_stock_landed_cost_form_inherit
+msgid "Expenses Bills"
+msgstr "Facturas de Gasto"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__data_for_report_ids
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__expenses_bill_ids
+msgid "Expenses bills"
+msgstr "Facturas de gasto"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__foreign_currency_id
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.view_stock_landed_cost_form_inherit
+msgid "Foreign Currency"
+msgstr "Moneda Extranjera"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_valuation_adjustment_lines__additional_landed_cost_foreign
+msgid "Foreign Currency Additional Landed Cost"
+msgstr "Costo en Destino Adicinal en Moneda Extranjera"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost_lines__foreign_pu
+msgid "Foreign Currency Cost"
+msgstr "Costo en Moneda Extranjera"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.view_stock_landed_cost_form_inherit
+msgid "Get Expenses Lines"
+msgstr "Obtener Lineas de Gasto"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report__id
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report_line__id
+msgid "ID"
+msgstr ""
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "Invoice Date"
+msgstr "Fecha de Factura"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model,name:jp_foreign_trade_logistics.model_account_move
+msgid "Journal Entries"
+msgstr "Asientos contables"
+
+#. module: jp_foreign_trade_logistics
+#: code:addons/extra-addons/jp/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#: code:addons/jp/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#: code:addons/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#, python-format
+msgid "Landed Cost Warning!"
+msgstr ""
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report____last_update
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report__write_uid
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report__write_date
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__many_products
+msgid "Many products"
+msgstr ""
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "Partner"
+msgstr "Socio"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.view_stock_landed_cost_form_inherit
+msgid "Pickings"
+msgstr "Guias"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: jp_foreign_trade_logistics
+#: code:addons/extra-addons/jp/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#: code:addons/jp/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#: code:addons/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#, python-format
+msgid ""
+"Quantities in invoices are not the same than quantities in invoice pickins."
+msgstr ""
+"Las cantidades en las facturas no son iguales a las cantidades en las guías."
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report__product_qty
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "Rate"
+msgstr "T/C"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model,name:jp_foreign_trade_logistics.model_stock_landed_cost
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_account_move__expenses_landed_cost_id
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_account_move__vendor_landed_cost_id
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report__landed_id
+msgid "Stock Landed Cost"
+msgstr "Coste en destino"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model,name:jp_foreign_trade_logistics.model_stock_landed_cost_lines
+msgid "Stock Landed Cost Line"
+msgstr "Línea de costo de desembarque"
+
+#. module: jp_foreign_trade_logistics
+#: code:addons/extra-addons/jp/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#: code:addons/jp/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#: code:addons/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#, python-format
+msgid "There is no pickings on this invoice %s."
+msgstr "La factura %s no tiene guías."
+
+#. module: jp_foreign_trade_logistics
+#: code:addons/extra-addons/jp/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#: code:addons/jp/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#: code:addons/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#, python-format
+msgid "There is no product selected in the expenses bill %s"
+msgstr "No tiene productos en las lineas de la factura %s"
+
+#. module: jp_foreign_trade_logistics
+#: code:addons/extra-addons/jp/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#: code:addons/jp/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#: code:addons/jp_foreign_trade_logistics/models/stock_landed_cost.py:0
+#, python-format
+msgid "This landed cost form will have more than one product"
+msgstr "Este formulario tendrá mas de un producto"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "Total Amount"
+msgstr "Importe Total"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__amount_total_expenses
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__amount_total_expenses_signed
+msgid "Total expenses"
+msgstr "Total de Gastos"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__amount_total_landed
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__amount_total_landed_signed
+msgid "Total landed cost"
+msgstr "Total de Costo"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__total_quantity
+msgid "Total quantity"
+msgstr "Cantidad Total"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__amount_total_vendor
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__amount_total_vendor_signed
+msgid "Total vendor bills"
+msgstr "Total de Compras"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "Type Document"
+msgstr "Tipo de Documento"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__unit_cost
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__unit_cost_signed
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.report_unit_cost_document
+msgid "Unit Cost"
+msgstr "Costo Unitario"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model,name:jp_foreign_trade_logistics.model_stock_valuation_adjustment_lines
+msgid "Valuation Adjustment Lines"
+msgstr "Líneas de ajuste de valoración"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_data_for_report_line__vendor_bill_id
+msgid "Vendor Bill"
+msgstr "Factura de Compra"
+
+#. module: jp_foreign_trade_logistics
+#: model_terms:ir.ui.view,arch_db:jp_foreign_trade_logistics.view_stock_landed_cost_form_inherit
+msgid "Vendor Bills"
+msgstr "Facturas de Compra"
+
+#. module: jp_foreign_trade_logistics
+#: model:ir.model.fields,field_description:jp_foreign_trade_logistics.field_stock_landed_cost__vendor_bill_ids
+msgid "Vendor bills"
+msgstr "Facturas de Compra"

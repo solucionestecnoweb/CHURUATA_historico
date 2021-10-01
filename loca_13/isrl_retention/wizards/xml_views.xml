@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+            <record id="view_account_xml_wizard" model="ir.ui.view">
+                <field name="name">XML Proveedores</field>
+                <field name="model">account.xml.wizard</field>
+                <field name="arch" type="xml">
+                    <form string="XML de Proveedores">
+                        <group>
+                            <field name="date_from" string="Fecha Inicio" required="1"/>
+                            <field name="date_to"  string="Fecha Fin" required="1"/>
+                            <!-- <field name="name" colspan="4" invisible="1"/>
+                            <field name="report" filename="name" colspan="4"/> -->
+                        </group>
+                        <footer>
+                            <button name="create_xml" string="Exportar XML" type="object" class="oe_highlight" />
+                        </footer>
+
+                    </form>
+                </field>
+            </record>
+            <record id="action_account_xml_wizard" model="ir.actions.act_window">
+                <field name="name">XML Proveedores</field>
+                <field name="res_model">account.xml.wizard</field>
+                <field name="view_mode">form</field>
+                <field name="view_id" ref="view_account_xml_wizard"/>
+                <field name="target">new</field>
+            </record>
+
+            <record id="view_account_xml_wizard_descargar" model="ir.ui.view">
+                <field name="name">XML Proveedores Descarga</field>
+                <field name="model">account.xml.wizard.descargar</field>
+                <field name="arch" type="xml">
+                    <form string="XML de Proveedores">
+                        <group >
+                            <field name="name" string="url" required="1" invisible="1"/>
+                            <field name="report" filename="name" colspan="4"/>
+                        </group>
+                    </form>
+                </field>
+            </record>
+
+            <record id="action_account_xml_wizard_descargar" model="ir.actions.act_window">
+                <field name="name">XML Proveedores descargar</field>
+                <field name="res_model">account.xml.wizard.descargar</field>
+                <field name="view_mode">form</field>
+                <field name="view_id" ref="view_account_xml_wizard_descargar"/>
+                <field name="target">new</field>
+            </record>
+
+            <menuitem   name="XML Proveedores" 
+                        parent="account.menu_finance_reports" 
+                        id="menu_account_xml_wizard" 
+                        action="action_account_xml_wizard"/>
+
+    </data>
+</odoo>

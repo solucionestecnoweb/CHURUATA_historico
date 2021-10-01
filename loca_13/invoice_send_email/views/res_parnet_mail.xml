@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!-- Mail template are declared in a NOUPDATE block
+         so users can freely customize/delete them -->
+    <data >
+
+        <record id="res_company_custom_inherit_form_view" model="ir.ui.view">
+            <field name="name">res_company_inherit.inherit_form_view</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="after">
+                    <group colspan="2" col="2" name="enviar_email" string="Envio de Email">
+                        <field name="send_email_auto"/>
+                        <field name="send_xml" attrs="{'invisible': [('send_email_auto', '!=', True)]}"/>
+                        <field name="send_ticket" attrs="{'invisible': [('send_email_auto', '!=', True)]}"/>
+                        <field name="send_pdf" attrs="{'invisible': [('send_email_auto', '!=', True)]}"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

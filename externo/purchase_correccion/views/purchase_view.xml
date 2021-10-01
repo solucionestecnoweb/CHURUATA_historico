@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="company_inherit_view_form_porcentaje2" model="ir.ui.view">
+        <field name="name">company.inherit.view.form.porcentaje2</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase_stock.purchase_order_view_form_inherit"/>
+        <field name="arch" type="xml">
+      
+
+            <xpath expr="//field[@name='picking_type_id']" position="replace">
+                        <field name="picking_type_id" string="Porcentaje de Ganancia de Ventas (%):" domain="[('company_id', 'in', ('company_id','False'))]"/>
+                </xpath>
+        </field>
+    </record>
+</odoo>

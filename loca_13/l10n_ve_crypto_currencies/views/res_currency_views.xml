@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_cripto_currencies_view_form" model="ir.ui.view">
+        <field name="name">res.cripto.currencies.view.form</field>
+        <field name="model">res.currency</field>
+        <field name="inherit_id" ref="base.view_currency_form"/>
+        <field name="arch" type="xml">
+           <xpath expr="//group/group/field[@name='active']" position="after">
+               <field name="is_crypto"/>
+           </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pago_account_view_form" model="ir.ui.view">
+        <field name="name">pago.account.view.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='partner_id']" position="after">
+
+            	<field name="usar_anticipo" string="Usar Anticipo?" widget="boolean_toggle" attrs="{'invisible': [('type', '=','entry')]}"/>
+
+                <!--field name="payment_id"  options="{'no_open':True, 'no_create': True}" domain="[('partner_id.id','=',partner_id),('usado','!=',True),('tipo','=',type)]" attrs="{'invisible': [('type', 'not in', ('in_invoice','out_invoice'))]}"/-->
+
+                <!--field name="monto_anticipo" readonly="True" attrs="{'invisible': [('type', 'not in', ('in_invoice','out_invoice'))]}"/-->  
+
+                <!--field name="rel_field" readonly="True" attrs="{'invisible': [('type', 'not in', ('in_in-voice','out_invoice'))]}"/-->  
+                             
+            </xpath>
+
+
+			<xpath expr="//page[@name='other_info']" position="before">
+			  <page string="Anticipos" attrs="{'invisible': [('type', '=', 'entry')]}">
+			    <group string="Anticipos Disponibles">
+			        <!--field name="payment_ids" widget="one2many"/-->
+			        <!--field name="payment_ids" widget="many2many_tags" /-->
+			        <field name="payment_ids" widget="one2many_list" domain="[('partner_id.id','=',partner_id),('usado','!=',True),('tipo','=',type)]" attrs="{'invisible': [('type', 'not in', ('in_invoice','out_invoice'))]}"/>
+			    </group>
+			  </page>
+			</xpath>
+			
+            
+        </field>
+    </record>
+
+</odoo>

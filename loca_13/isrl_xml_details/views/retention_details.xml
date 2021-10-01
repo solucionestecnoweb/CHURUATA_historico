@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data >
+        <!-- Add you code here -->
+
+        <!-- account.xml.detalle form view -->
+        <record id="account_details_view_form" model="ir.ui.view">
+            <field name="name">account.xml.detalle.view.form</field>
+            <field name="model">account.xml.detalle</field>
+            <field name="arch" type="xml">
+                <form string="">
+                <header>
+                    <button name="generar_xml" states="por_generar" type="object" string="Generar XML"/>
+                    <button name="views_detalle" states="por_generar" type="object" string="Exportar/Importar a Excel"/>
+                    <field name="state" widget="statusbar" statusbar_visible="por_generar,generada"/>
+                </header>
+                    <sheet>
+                        <group string="Retención">
+                            <group>
+                                <field name="date_from"/>
+                                <field name="name" invisible="1"/>
+                                <field name="date_to"/>
+                            </group>
+                            <group>
+                                <field name="report"/>
+                                <field name="company_id"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Detalle" name="detalle">
+                               <field name="line_id">
+                                    <tree>
+                                        <field name="rif_retenido"/> 
+                                        <field name="numero_factura"/> 
+                                        <field name="numero_control"/>
+                                        <field name="fecha_operacion"/> 
+                                        <field name="codigo_concepto"/>       
+                                        <field name="monto_operacion"/>       
+                                        <field name="porcentaje_retencion"/>       
+                                        <field name="detalle_id" invisible="1" />       
+                                    </tree>
+                               </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- account.xml.detalle tree view -->
+        <record id="account_details_view_tree" model="ir.ui.view">
+            <field name="name">account.xml.detalle.view.tree</field>
+            <field name="model">account.xml.detalle</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_account_reten_details" model="ir.actions.act_window">
+            <field name="name">Declaracion ISLR</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.xml.detalle</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_account_reten_details_wizard" model="ir.actions.act_window">
+            <field name="name">Declaracion ISLR</field>
+            <field name="res_model">account.xml.detalle</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="account_details_view_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <!--account.xml.detalle.line form view -->
+        <record id="account_xml_detalle_line_view_form" model="ir.ui.view">
+            <field name="name">account.xml.detalle.line.view.form</field>
+            <field name="model">account.xml.detalle.line</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="rif_retenido"/>
+                            <field name="numero_factura"/>
+                            <field name="numero_control"/>
+                            <field name="fecha_operacion"/>
+                            <field name="codigo_concepto"/>
+                            <field name="monto_operacion"/>
+                            <field name="porcentaje_retencion"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--account.xml.detalle.line tree view -->
+        <record id="account_xml_detalle_line_tree" model="ir.ui.view">
+            <field name="name">account.xml.detalle.line.view.tree</field>
+            <field name="model">account.xml.detalle.line</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="id"/>
+                    <field name="rif_retenido"/>
+                    <field name="numero_factura"/>
+                    <field name="numero_control"/>
+                    <field name="fecha_operacion"/>
+                    <field name="codigo_concepto"/>
+                    <field name="monto_operacion"/>
+                    <field name="porcentaje_retencion"/>
+                </tree>
+            </field>
+        </record>
+
+         <record id="action_account_reten_details_line" model="ir.actions.act_window">
+            <field name="name">Detalle ISLR</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.xml.detalle.line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem  name="Declaraciones ISLR" 
+                parent="account.menu_finance_payables" 
+                id="menu_account_reten_details" 
+                action="action_account_reten_details"/>
+    </data>
+</odoo>

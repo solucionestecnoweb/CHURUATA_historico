@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_landed_cost_document">
+    <t t-call="web.external_layout">
+        <t t-set="doc" t-value="doc.with_context(lang=doc.company_id.partner_id.lang)" />
+        <div class="page">
+            <div class="oe_structure"/>
+
+            <h2 class="mt16">
+                <t>
+                    <span>Landed Cost # </span>
+                </t>
+                <span t-field="doc.name"/>
+            </h2>
+
+            <div class="row mt32 mb32" id="informations">
+                <div t-if="doc.date and doc.state in ['draft','done']" class="col-auto mw-100 mb-2">
+                    <strong>Date:</strong>
+                    <p class="m-0" t-field="doc.date"/>
+                </div>
+                <div t-if="doc.account_journal_id" class="col-auto mw-100 mb-2">
+                    <strong>Journal:</strong>
+                    <p class="m-0" t-field="doc.account_journal_id"/>
+                </div>
+                <div t-if="doc.amount_total" class="col-auto mw-100 mb-2">
+                    <strong>Total cost:</strong>
+                    <p class="m-0" t-field="doc.amount_total"/>
+                </div>
+            </div>
+            <div class="row mt32 mb32" id="pickings">
+                <div t-if="doc.picking_ids and doc.state in ['draft','done']" class="col-auto mw-100 mb-2">
+                    <strong>Pickings:</strong>
+                    <p class="m-0" t-field="doc.picking_ids"/>
+                </div>
+            </div>
+            <div class="row mt32 mb32" id="bills">
+                <div t-if="doc.vendor_bill_ids and doc.state in ['draft','done']" class="col-auto mw-100 mb-2">
+                    <strong>Vendor bills:</strong>
+                    <p class="m-0" t-field="doc.vendor_bill_ids"/>
+                </div>
+            </div>
+
+            <table class="table table-sm o_main_table">
+                <thead>
+                    <tr>
+                        <th name="th_product_id" class="text-left">Product</th>
+                        <th name="th_description" class="text-left">Description</th>
+                        <th name="th_account_id" class="text-left">Account</th>
+                        <th name="th_split_method" class="text-left">Split Method</th>
+                        <th name="th_priceunit" class="text-right">Cost</th>
+                    </tr>
+                </thead>
+                <tbody class="cost_lines_tbody">
+                    <t t-foreach="doc.cost_lines" t-as="line">
+
+                        <tr>
+                            <t>
+                                <td name="td_product_id"><span t-field="line.product_id"/></td>
+                                <td name="td_description"><span t-field="line.name"/></td>
+                                <td name="td_account_id"><span t-field="line.account_id"/></td>
+                                <td name="td_split_method"><span t-field="line.split_method"/></td>
+                                <td name="td_priceunit" class="text-right">
+                                    <span t-field="line.price_unit"/>
+                                </td>
+                            </t>
+                        </tr>
+                    </t>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="text-right">Total Amount</td>
+                        <td class="text-right"><t t-esc="doc.amount_total"/></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </t>
+</template>
+
+
+<template id="report_landed_cost">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="jp_kardex_valorizado.report_landed_cost_document" t-lang="doc.company_id.partner_id.lang"/>
+        </t>
+    </t>
+</template>
+
+</odoo>

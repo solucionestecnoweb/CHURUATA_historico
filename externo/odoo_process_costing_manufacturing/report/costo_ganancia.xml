@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data> 
+
+    <record id="paperformat_report_costo_ganancia" model="report.paperformat">
+
+      <field name="default" eval="True"/>
+        <field name="name">A4 Reporte Costo Vs Ganancia</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">216</field>
+        <field name="page_width">279</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <template id="reporte_costo_ganancia">
+      <t t-call="web.html_container">
+        <t t-call="web.basic_layout" >
+          <div class="header">
+            <table width="100%">
+
+                    <tr>
+                      <td style="width:30%;text-align:center;">
+                        <t t-if="docs.company_id.logo">  
+                            <img t-attf-src="data:image/*;base64,{{docs.company_id.logo}}" style="width:auto; height:80px;"/>
+                        </t>
+                      </td>
+                      <td style="font-size:13px;"><t t-esc="docs.company_id.street"/>
+                      <br/>
+                      CÓDIGO POSTAL: <t t-esc="docs.company_id.zip"/>
+                     <br/>
+                     RIF: <t t-esc="docs.doc_cedula(docs.company_id.partner_id.id)"/>
+                    </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><br/>Desde: <t t-esc="docs.periodo(docs.date_from)"/></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">Hasta: <t t-esc="docs.periodo(docs.date_to)"/></td>
+                    </tr>
+
+            </table>
+          </div>
+          <div class="page">
+            <table width="100%"><!--table table-bordered-->
+              <tr>
+                <td align="center" colspan="7" style="color: #968F78;"><h5>RESUMEN DE COSTOS VS GANANCIAS</h5></td>
+              </tr>
+              <tr><td colspan="7"><hr/></td></tr>
+              <tbody class="table table-bordered">
+              <tr align="center" style="font-size:12px; background-color:#EEEBEC; color: #253a0f;">
+                <td>PRODUCTO</td>
+                <td>COSTO UNIT.</td>
+                <td>CANTIDAD VENDIDA</td>
+                <td>COSTO TOTAL</td>
+                <td>PRECIO UNIT.</td>
+                <td>TOTAL VENTA</td>
+                <td>GANANCIA</td>
+              </tr>
+                <t t-set="total_costo" t-value="0"/>
+                <t t-set="total_sub" t-value="0"/>
+                <t t-set="total_ganancia" t-value="0"/>
+              <t t-foreach="docs.line" t-as="o">
+                <tr style="font-size:12px;">
+                <td><t t-esc="o.product_id.name"/></td>
+                <td align="right"><t t-esc="o.float_format(o.costo_unit)"/></td>
+                <td align="right"><t t-esc="o.float_format(o.cantidad)"/></td>
+                <td align="right"><t t-esc="o.float_format(o.costo_total)"/><t t-set="total_costo" t-value="total_costo+o.costo_total"/></td>
+                <td align="right"><t t-esc="o.float_format(o.valor_venta_unit)"/></td>
+                <td align="right"><t t-esc="o.float_format(o.sub_total)"/><t t-set="total_sub" t-value="total_sub+o.sub_total"/></td>
+                <td align="right"><t t-esc="o.float_format(o.ganancia_total)"/><t t-set="total_ganancia" t-value="total_ganancia+o.ganancia_total"/></td>
+              </tr>
+              </t>
+              <tr style="font-size:13px; color:#332DAD">
+                <td colspan="4" align="right"><t t-esc="docs.float_format2(total_costo)"/></td>
+                <td colspan="2" align="right"><t t-esc="docs.float_format2(total_sub)"/></td>
+                <td align="right"><t t-esc="docs.float_format2(total_ganancia)"/></td>
+              </tr>
+            </tbody>
+            </table>
+          </div>
+
+        </t>
+      </t>
+
+    </template>
+  
+    <report
+              id="report_costo_ganancia"
+              model="stock.wizard.costo.ganancia"
+              string="Reporte Costo vs Ganancia"
+              report_type="qweb-pdf"
+              name="odoo_process_costing_manufacturing.reporte_costo_ganancia"
+              file="odoo_process_costing_manufacturing.reporte_costo_ganancia"
+              paperformat="odoo_process_costing_manufacturing.paperformat_report_costo_ganancia"
+          />
+
+  </data>
+</odoo>

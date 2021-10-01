@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="orden_compra_solicitud_form_inherit" model="ir.ui.view">
+			<field name="name">orden.compra.solicitudform.inherit</field>
+			<field name="model">purchase.order</field>
+			<field name="inherit_id" ref="purchase.purchase_order_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='partner_ref']" position="replace">
+                    <field name="partner_ref" string="Persona de Contacto"/>
+ 	 			</xpath>
+
+
+				
+
+ 	 			<xpath expr="//notebook" position="inside">
+					<page string="Detalle Bancario" name="detal_bank">
+                    	<group string="Descripcion de las cuentas bancarias para realizar los pagos">
+                    		
+		                    <field name="nota_proveedor" string="Notas Internas"/>
+		                    
+		                    <!--group string="Segundo Aprobador">
+		                            <field name="two_approve_by" readonly="True"/>
+		                            <field name="statu_two" string="Status del doc." readonly="True"/>
+		                            <field name="two_approve_time" readonly="True"/>
+	                        </group-->
+	                        
+	                        <!--group string="Refuse Information" name="refuse_info">
+	                            <field name="sh_refuse_by"/>
+	                            <field name="sh_refuse_time"/>
+	                            <field name="sh_refuse_reason"/>
+	                        </group-->
+                    	</group>						
+					</page>
+				</xpath>
+
+				
+
+			</field>
+		</record>
+	</data>	
+</odoo>

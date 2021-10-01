@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    
+    <record id="product_template_inherit_terminado" model="ir.ui.view">
+        <field name="name">product.template.inherit.terminado</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+             <xpath expr="//field[@name='taxes_id']" position="before">
+                <field name="habilita_precio_div" string="Habilitar precios en divisas" />
+                <field name="list_price2" required="True" string="Precio de venta en divisas" attrs="{'invisible': [('habilita_precio_div', '!=',True)]}"/><!-- widget="radio"--> 
+                <field name="moneda_divisa_venta" string="Moneda del precio de venta en divisas" attrs="{'invisible': [('habilita_precio_div', '!=',True)]}"/>
+                <field name="list_price_comp" invisible='1'/> 
+             </xpath>
+            <!--xpath expr="//field[@name='producto_terminado']" position="attributes">
+                <attribute name="widget">radio</attribute>
+            </xpath-->
+        </field>
+    </record>
+    </data>
+</odoo>

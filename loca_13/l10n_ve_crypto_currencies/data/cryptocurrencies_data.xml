@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="cripto_btc" model="res.currency">
+            <!-- Aunque no oficial todavía para la norma ISO 4217 el nombre aceptado por la comunidad es XBT -->
+            <field name="name">BTC</field> 
+            <field name="currency_unit_label">bitcoin</field>
+            <field name="currency_subunit_label">satoshi</field>
+            <field name="symbol">BTC</field>
+            <field name="is_crypto" eval="1"/>
+            <field name="rounding" eval="0.00000001"/>
+        </record>
+        <record id="cripto_dash" model="res.currency">
+            <field name="name">DSH</field>
+            <field name="currency_unit_label">DASH</field>
+            <field name="currency_subunit_label"></field>
+            <field name="symbol">DSH</field>
+            <field name="is_crypto" eval="1"/>
+            <field name="rounding" eval="0.00000001"/>
+        </record>
+        <record id="cripto_ltc" model="res.currency">
+            <field name="name">LTC</field>
+            <field name="currency_unit_label">Litecoin</field>
+            <field name="currency_subunit_label">satoshi</field>
+            <field name="symbol">LTC</field>
+            <field name="is_crypto" eval="1"/>
+            <field name="rounding" eval="0.00000001"/>
+        </record>
+        <record id="cripto_ptr" model="res.currency">
+            <field name="name">PTR</field>
+            <field name="currency_unit_label">Petro</field>
+            <field name="currency_subunit_label">mene</field>
+            <field name="symbol">PTR</field>
+            <field name="is_crypto" eval="1"/>
+            <field name="rounding" eval="0.00000001"/>
+        </record>
+    </data>
+</odoo>

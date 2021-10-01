@@ -1,0 +1,542 @@
+id,code,name,aliquot,month_ucim,year_ucim
+concept1,1000,Abasto,6,1170,14040
+concept2,1001,Bodegas y pulperias,6,1170,14040
+concept3,1002,Detal de carbón,4,1170,14040
+concept4,1003,Detal de alimentos para animales,6,1170,14040
+concept5,1004,"Detal de Bombones,  galletería,  caramelos y confiterías",6,1170,14040
+concept6,1005,Detal de carnes con frigorificos,6,1170,14040
+concept7,1006,"Detal de granos cereales, confites, aceitunas y similares",6,1170,14040
+concept8,1007,"detal de frutas, verduras y hortalizas ",6,1170,14040
+concept9,1008,Detal de hielo,4,1170,14040
+concept10,1009,Detal de pescados y mariscos,6,1170,14040
+concept11,1010,Detal de productos alimenticios naturistas,6,1170,14040
+concept12,1011,"Detal de otros productos alimenticios, café, cacao, copra, otros similares y bebidas no alcohólicas no especificadas",6,1170,14040
+concept13,1012,"Detal de lácteos, quesos, afines",6,1170,14040
+concept14,1013,"Detal de carnes, charcutería, embutidos, derivados de la carne de res y porcina, aves de corral y postura de aves exclusivamente",6,1170,14040
+concept15,1014,"Panaderías, pastelería, bombonerías",6,1170,14040
+concept16,1014.1,Panaderías,6,1170,14040
+concept17,1015,"Supermercados y automercados (excepto cosméticos, bebidas alcohólicas, electrodomésticos, panaderia, fuente de soda y similares)",6,1170,14040
+concept18,1016,"Supermercados y automercados con tamaño superior a 500mts 2 incluye cosméticos, detergentes, alimentos para animales, quincallería, perfumería y similares",6,1340,16080
+concept19,1017,"Hipermercados y automercados con tamaño superior a 2000 mts 2 incluye cosméticos, detergentes, alimentos para animales, quincallería, perfumería, bebidas alcohólicas, electrodomésticos, panadería",6,1670,20040
+concept20,1018,Detal de bebidas no alcohólicas,7,1170,14040
+concept21,1019,Detal de víveres,6,1340,16080
+concept22,1020,"Detal de alimentos de consumo masivo, otros alimentos no especificados",7,1670,20040
+concept23,1030,Mayor de aceites y grasas comestibles (refinados),7,1170,14040
+concept24,1031,Mayor de alimentos para animales,7,1170,14040
+concept25,1032,Mayor de aves beneficiadas,7,1170,14040
+concept26,1033,Mayor de bebidas no alcohólicas,7,1170,14040
+concept27,1034,"Mayor de bombones, caramelos, confitería",7,1170,14040
+concept28,1035,"Mayor de granos, cereales, confites, aceitunas y similares",7,1170,14040
+concept29,1036,"Mayor de frutas, verduras y hortalizas",7,1170,14040
+concept30,1037,Mayor de productos lácteos,7,1170,14040
+concept31,1038,Mayor de pescados y mariscos,7,1170,14040
+concept32,1039,"Mayor de productos de molinería, carbón",7,1170,14040
+concept33,1040,Mayor de alimentos naturistas,7,1170,14040
+concept34,1041,"Mayor de carnes de ganado vacuno, porcino, caprino y otras carnes",7,1170,14040
+concept35,1042,Mayor de hielo,8,1170,14040
+concept36,1043,Mayor de embutidos charcutería y similares,7,1170,14040
+concept37,1044,"Agentes, distribuidores ambulancias, ruteros, franquiciados, mayor de alimentos y bebidas no alcohólicas, en unidades automotoras en envases sellados.",7,1340,16080
+concept38,1045,Mayor de productos alimenticios y bebidas no alcohólicas no especificados,11,1340,16080
+concept39,1046,"Distribuidoras de alimentos de consumo masivo, otros alimentos no especificados",10,1670,20040
+concept40,1047,Depósito y almacenaje de productos alimenticios en general,10,1670,20040
+concept41,1060,"Detal de artículos de ropa para damas, caballeros y niños",8,1010,12120
+concept42,1061,"Detal de carteras, maletines, neceseres y otros artículos de cuero o sucedáneos de cuero",8,1010,12120
+concept43,1062,"Detal de lencerías, almohadas y otros no especificados",8,1010,12120
+concept44,1063,"Detal de telas, mercería y bisutería",8,1010,12120
+concept45,1064,Materiales para zapatería y talabarterías,8,1010,12120
+concept46,1065,Sastrería,10.5,1010,12120
+concept47,1066,Zapatería (exclusivamente),8,1010,12120
+concept48,1067,Otros productos relacionados similares no especificados,10,1010,12120
+concept49,1068,Mercería y bisutería,8,1010,12120
+concept50,1069,"Distribuidores y/o mayoristas de textiles, prendas de vestir, calzados, lencería y similares",5,1340,16080
+concept51,1070,Grandes tiendas por departamentos,8,1670,20040
+concept52,1080,Detal de detergentes y artículos de limpieza,10,1170,14040
+concept53,1081,Detal de productos químicos y farmacéuticos para uso veterinario,10,1170,14040
+concept54,1082,Droguerías (mayor),10,1670,20040
+concept55,1083,"Farmacias, boticas y expendios de medicamentos únicamente",10,1170,14040
+concept56,1084,Detal de productos y suplementos famacéuticos naturales o naturistas,10,1170,14040
+concept57,1085,"Grandes farmacias, expendios de medicamentos, venta de artículos y mercancías secas, alimentos, no relacionados con su actividad principal",10,1340,16080
+concept58,1086,"Detal de cosméticos, perfumerías, artículos de tocador de fabricación nacional y de uso personal",12,1340,16080
+concept59,1087,"Perfumería detal de cosméticos artículos de tocador, preparados afines importados",30,1340,16080
+concept60,1088,Detal de material médico quirúrgico,7,1170,14040
+concept61,1089,Detal de productos químicos para uso odontológico,7,1170,14040
+concept62,1090,"Detal de colorantes, resinas, descartables y otros",7,1170,14040
+concept63,1091,"Detal de artículos de peluquería, tintes y similares (excepto cosméticos).",10,1170,14040
+concept64,1092,Mayor de productos farmacéuticos y medicamentos,7,1170,14040
+concept65,1093,Mayor de productos y suplementos farmacéuticos y medicamentos naturales y naturistas,7,1170,14040
+concept66,1094,"Mayor de productos químicos, farmacéuticos de uso veterinario",7,1170,14040
+concept67,1095,Mayor de productos químicos industriales básicos,7,1170,14040
+concept68,1096,Mayor de detergentes y artículos de limpieza,7,1170,14040
+concept69,1097,"Mayor de productos para uso agropecuario (abonos, semillas y plaguicidas)",7,1170,14040
+concept70,1098,Mayor de material médico quirúrgico,10,1170,14040
+concept71,1099,"Distribuidoras y/o mayoristas de drogas, productos químicos, farmacéuticos y similares no especificados.",10,1170,14040
+concept72,1100,Otros productos químicos no medicinales no clasificados en ninguna parte,10,1170,14040
+concept73,1101,Detal de fuegos artificiales y pirotécnicos,10.5,3340,40080
+concept74,1102,Mayor de fuegos Artificiales y pirotécnicos,10,3340,40080
+concept75,1103,Depósito y almacenaje de productos farmacéuticos y similares en general,10,1670,20040
+concept76,1110,Artefactos y artículos eléctricos para el hogar,10,1010,12120
+concept77,1111,Cerrajerías,10,1010,12120
+concept78,1112,Cocinas y equipos para cocina,10,1010,12120
+concept79,1113,Colchonerías,10,1010,12120
+concept80,1114,"Detal de persianas, alfombras y tapicerías",10,1010,12120
+concept81,1115,"Ferreterías, pinturas, lacas y barnices",8,1010,12120
+concept82,1116,Materiales eléctricos,8,1010,12120
+concept83,1117,Mueblerías,10,1010,12120
+concept84,1118,Quincallas,6,1010,12120
+concept85,1119,Detal de lámparas,10,1010,12120
+concept86,1120,Detal de otros muebles para el hogar,8,1010,12120
+concept87,1121,Detal de repuestos para artículos eléctricos y no eléctricos de uso doméstico,8,1010,12120
+concept88,1122,"Detal de equipos de ventilación y aires acondicionados, refrigeración y afines",8,1010,12120
+concept89,1123,"Otros artículos de uso doméstico, muebles y equipos para oficinas y clínicas no especificas en otra parte",10,1010,12120
+concept90,1124,"Detal de muebles y equipos para oficinas, clínicas y hospitales",10,1010,12120
+concept91,1125,Proveedores de artículos de ferretería,10,1010,12120
+concept92,1126,Mayor de pinturas lacas y barnices,10,1010,12120
+concept93,1127,Mayor de artículos y materiales eléctricos,10,1010,12120
+concept94,1128,Mayor de artefactos de uso doméstico,10,1010,12120
+concept95,1129,"Mayor de repuesto y accesorios para artefactos domésticos, industriales y comerciales",10,1010,12120
+concept96,1130,Mayor de artículos y accesorios de cocina,10,1010,12120
+concept97,1131,Mayor de muebles y sus accesorios para el hogar industria y comercio,10,1010,12120
+concept98,1132,"Mayor de colchones, cortinas, alfombras, tabiques y similares",10,1010,12120
+concept99,1133,Mayor de lámparas,10,1010,12120
+concept100,1134,"Mayor de muebles y sus accesorios, para el hogar oficinas, clínicas y otros no especificados.",10,1010,12120
+concept101,1135,"Módulos, carretas o similares ventas de artículos varios",10,1010,12120
+concept102,1136,Materiales y artículos para talleres de latoneria y pintura automotriz,10,1010,12120
+concept103,1137,"Artículos de plástico (sillas, mesas, entre otros).",10,1010,12120
+concept104,1138,"Material de empaque (cartón, plásticos, papel, anime y otros)",10,1010,12120
+concept105,1139,Venta de equipos electrónicos,10,1010,12120
+concept106,1140,"Distribuidores y/o mayoristas de ferreterías, quincallería, arts, eléctricos de uso domésticos no especificados, muebles y equipos para oficinas y clínicas.",10,1010,12120
+concept107,1150,Marmolerías,10,1170,14040
+concept108,1151,"Detal de materiales de construcción, incluye cabillas, cementos, bloques, cerámicas, sanitarios y similares nacionales e importados",10,1170,14040
+concept109,1152,"Bloques, cerámicas, sanitarios y similares nacionales e importados",10,1170,14040
+concept110,1153,Venta de madera,10,1170,14040
+concept111,1154,"Vidrios, espejos y conexos",10,1170,14040
+concept112,1155,Otros materiales de construcción no especificados,10,1170,14040
+concept113,1156,"Mayor de madera aserrada, cepillada, terciada y contra enchapada",10,1170,14040
+concept114,1157,Mayor de materiales de construcción,10,1170,14040
+concept115,1158,Mayor de madera aserrada y otros materiales de construcción no especificados,10,1170,14040
+concept116,1159,Marqueterías,10,1170,14040
+concept117,1160,Mayor de vidrios espejos y conexos,10,1170,14040
+concept118,1161,"Muebles para cocinas, closet de madera, instalación con o sin accesorios.",10,1170,14040
+concept119,1162,Distribuidores y/o mayoristas de materiales de construcción no especificados.,10,1170,14040
+concept120,1170,"Artículos de artesanías típicas, folclóricas y similares",10,1010,12120
+concept121,1171,Artículos de escritorio,10,1010,12120
+concept122,1172,Artículos de fotografía y estudios fotográficos,10,1010,12120
+concept123,1173,Artículos deportivos,10,1010,12120
+concept124,1174,Artículos e instrumentos de cinematografía,10,1010,12120
+concept125,1175,Detal de artículos religiosos,10,1010,12120
+concept126,1176,"Detal de cuchillería, vajillas y otros artículos de vidrio, loza o porcelana",10,1010,12120
+concept127,1177,"Juguetaría, piñatería y similares",10,1010,12120
+concept128,1178,"Librería, papelerías y revistas",10,1010,12120
+concept129,1179,"Ópticas, lentes, similares",10,1010,12120
+concept130,1180,Otros comercios similares o conexos,7,1010,12120
+concept131,1181,Revistas y periódicos,8,1010,12120
+concept132,1182,Revistas y periódicos con anexos de actividades similar,8,1010,12120
+concept133,1183,"Venta de discos (detal), cartuchos y casetes, CD, DVD, VCD, Blu-Ray",8,1010,12120
+concept134,1184,"Detal de artículos eróticos, mágicos, de broma, esotéricos y similares",10,1170,14040
+concept135,1185,Mayor de artículos deportivos,10,1010,12120
+concept136,1186,Mayor de artículos religiosos,10,1010,12120
+concept137,1187,"Mayor de cuchilleria, vajillas y otros artículos de vidrio, loza o porcelana",10,1010,12120
+concept138,1188,"Mayor de jugueteria, piñateria y similares",10,1010,12120
+concept139,1189,"Mayor de librería, papeleria, revistas",10.5,1010,12120
+concept140,1190,Tiendas de instrumentos musicales y detal de accesorios para instrumentos musicales,10,1010,12120
+concept141,1191,Tiendas de mascotas y accesorios,10.5,1010,12120
+concept142,1192,Armería,8,1010,12120
+concept143,1740,"Fabricación de forros de vehículos, carpas, etc.",5,1340,16080
+concept144,1741,Empresas ensambladoras diversas,5,1340,16080
+concept145,1742,"Otras actividades comerciales, industriales, de servicio, conexas, de índole similar no clasificadas en ninguna parte.",5,1670,20040
+concept146,1750,Otras actividades comerciales ambulantes ejercidas en forma eventual,10,1670,20040
+concept147,1751,Detal de alimentos preparadas en Vehículos automotores (Food Trucks),12,1670,20040
+concept148,1752,Vendedores ambulantes en carrito de mano,4,1170,14040
+concept149,1753,"Jugos, refrescos, agua y otras actividades de la economía informal",4,1170,14040
+concept150,1754,Otras expendidos de alimentos preparados no especificados,4,1170,20040
+concept151,1755,Otros expendios de mercancías secas no especificados,4,1670,20040
+concept152,1756,"Otros expendios de alimentos y víveres, no especificados",4,1670,20040
+concept153,1716,Instalación de ascensores y demás accesorios para contratistas especializadas,5,1340,16080
+concept154,1717,Pintura y decoraciones de edificios para contratistas especializados,5,1340,20040
+concept155,1718,"Construcción, negociación y mantenimiento de calles, avenidas, autopistas y similares",5,1340,16080
+concept156,1719,"Constructores de aeropuertos, con todas sus instalaciones relacionadas",5,1340,16080
+concept157,1720,Construcción de centrales y líneas telefónicas y televisión por cable,5,1340,16080
+concept158,1721,"Construcción de acueductos, cloacas y alcantarillado",5,1340,16080
+concept159,1722,Construcción de obras portuarias,5,1340,16080
+concept160,1723,"Construcción de bombas de gasolina, o cualquier otra.",5,1340,16080
+concept161,1724,Construcción derivada de empresas relacionadas con hidrocarburos,5,1340,16080
+concept162,1725,"Estudio, construcción y obras diversas no especificadas en otros grupos",5,1670,20040
+concept163,1730,Fabricación de aparatos fotográficos e instrumentos de óptica,5,1340,16080
+concept164,1731,"Fabricación de escobas, cepillos y similares",3.5,1340,16080
+concept165,1732,Fabricación de instrumentos musicales,5,1340,16080
+concept166,1733,"Fabricación de instrumentos profesionales científicos de medidas, precisión y control",3.5,1340,16080
+concept167,1734,"Fabricación de joyas, orfebrería y platería",3.5,1340,16080
+concept168,1735,Fabricación de juguetes y artículos para deporte y juegos de salón,5,1340,16080
+concept169,1736,Industrias diversas no especificadas en otro grupo,5,1340,16080
+concept170,1737,Tallado de productos de piedra y mármol,5,1340,16080
+concept171,1738,Industrias de Reciclaje,5,1340,16080
+concept172,1739,Fabricación de hielo,5,1340,16080
+concept173,1688,"Construcción, reparación y embalaje de aviones",5,1340,16080
+concept174,1689,Construcción naval y reparación de barcos,5,1340,16080
+concept175,1690,Construcción y reparación de equipos ferroviarios,5,1340,16080
+concept176,1691,Construcción y ensamblaje de vehículos automotores,5,1340,16080
+concept177,1692,Fabricación de materiales de transporte no especificados en otro grupo,5,1340,16080
+concept178,1700,"Producción, transmisión y distribución de energía eléctrica y comercialización privada, públicada o del estado",7,1340,16080
+concept179,1701,"Producción y distribución de agua mediante uso de camiones, tanques y otros medios distintos al acueducto regional",11,1340,16080
+concept180,1702,"Tratamiento y distribución de agua mediante uso de camiones, tanques y otros medios distintos al acueducto regional",11,1340,16080
+concept181,1704,Obras hidráulicas y suministros de agua,11,1340,16080
+concept182,1710,Constructoras transeúntes que ejecuten cualquier obra en el municipio Girardot,11,2090,25080
+concept183,1711,"Construcción, reparación y remodelación de edificios, casas, hospitales, escuelas y cualesquiera otras edificaciones similiares",8,1670,20040
+concept184,1712,"Instalación de pilotes, trabajos de excavación cimentación y rehabilitación de tierras para la construcción",5,1340,16080
+concept185,1713,Albañilería en construcción de edificios,5,1340,16080
+concept186,1714,Instalación de plomería para contratista especializadas,5,1340,16080
+concept187,1715,Instalación eléctricas para contratistas especializadas,5,1340,16080
+concept188,1670,Construcción de máquinas y equipos para la agricultura,5,1340,16080
+concept189,1671,Construcción de máquinas para trabajar los metales y la madera,5,1340,16080
+concept190,1672,Construcción de máquinas y equipos especiales para la industria textil,5,1340,16080
+concept191,1673,"Construcción de máquinas para la industrias del cuero, caucho y plástico",5,1340,16080
+concept192,1674,"Construcción de máquinas para la industria del papel, carton e industria gráfica.",5,1340,16080
+concept193,1675,"Construcción de máquinas para la industria alimentos, bebidas y tabacos",5,1340,16080
+concept194,1676,Construcción de máquinas y equipos para la industria de la construcción,5,1340,16080
+concept195,1677,"Construcción de máquinas de oficina, cálculo y contabilidad",5,1340,16080
+concept196,1678,"Fábricas de cocinas, hornos, calentadores de agua otro similar de usos doméstico",5,1340,16080
+concept197,1679,"Fábricas de equipos de ventilación, aire acondicionado, refrigeración comercial e industrial",5,1340,16080
+concept198,1680,"Construcción de máquinas de coser, lavadoras y secadoras domésticas e industriales",5,1340,16080
+concept199,1681,"Construcción y fabricación de equipos, accesorios, partes y repuestos mecánicos y eléctricos para vehículos de automotores particulares y usos industriales",5,1340,16080
+concept200,1682,"Construcción y fabricación de equipos accesorios, partes y repuestos mecánicos y eléctricos para aparatos de TV, radio y otros medios de comunicación",5,1340,16080
+concept201,1683,Repuestos mecánicos y eléctricos para aparatos de TV,5,1340,16080
+concept202,1684,"Fábrica de bombillos, tubos eléctricos, lámparas y accesorios de metal, para la iluminación eléctrica",5,1340,16080
+concept203,1685,Fábrica de equipos profesionales y científicos de medicina e instrumentos de medicina,5,1340,16080
+concept204,1686,"Fabricación de instrumentos de óptica, lentes y artículos oftalmológicos",5,1340,16080
+concept205,1687,Construcción de máquinas y equipos diversos no clasificados,5,1340,16080
+concept206,1638,Fabricación de otros productos no metálicos no especificados en otro grupo,6,1340,16080
+concept207,1639,"Fabricación de producto, de arcilla para construcción de alfarería",6,1340,16080
+concept208,1640,Fabricación de productos de asbesto y cemento,6,1340,16080
+concept209,1650,Fabricación de artículos de vidrio y fibra de vidrio para la mesa y la cocina artículo para decoración y ornamento,6,1340,16080
+concept210,1651,"Fabricación de envases, botellas y otros recipientes de vidrios común",6,1340,16080
+concept211,1652,Fabricación de espejos,6,1340,16080
+concept212,1653,"Fabricación de vidrios, fibra de vidrio y manufactura de vidrio, para Vehículos,  automotores, y otros vidrios de seguridad, industriales, comerciales y residenciales",6,1340,16080
+concept213,1655,"Industrias del aluminio, fabricación de productos estructurales de aluminio",5,1340,16080
+concept214,1656,Industrias de fabricación de productos del hierro y el acero,5,1340,16080
+concept215,1657,"Fabricación de piezas fundidas, forjadas o estampadas de hierro o acero",5,1340,16080
+concept216,1658,Fabricación de envases metálicos y artículos de hojalata,5,1340,16080
+concept217,1659,"Fabricación de herramientas de mano, artículos de ferretería y otros similares",5,1340,16080
+concept218,1660,"Fabricación y/o elaboración de estructuras mayores de hierro, aluminio o cualquier otra estructura metálica",5,1340,16080
+concept219,1661,Fabricación de resortes y otros productos de alambre,5,1340,16080
+concept220,1662,Fabricación de otros productos metálicos no especificados en otro grupo,5,1340,16080
+concept221,1663,"Galvanoplástica, gravado, niquelado, laqueado, pintura de objetos metálicos",5,1340,16080
+concept222,1664,Industrias básicas de otros metales no ferrosos,5,1340,16080
+concept223,1615,"Fabricación de juguetes, artículos para pelo, flojes, frutas y otros artículos de adorno de plástico",4,1340,16080
+concept224,1616,"Fabricación de neumáticos, cauchos y cámaras de aire y tripas",4,1340,16080
+concept225,1617,Fabricación de otros artículos de caucho no especificados en otros grupos,4,1340,16080
+concept226,1618,"Fabricación de telas plásticas, hilos, alfombras, esterillas, tapetes y similares de plásticos",4,1340,16080
+concept227,1619,"Fabricación de calzados, tacones y suelas de caucho",4,1340,16080
+concept228,1620,Rencauchadora de llantas,4,1340,16080
+concept229,1621,"Fabricación de envases plásticos, bolsas, accesorios, y otros productos plásticos para embalaje.",4,1340,16080
+concept230,1625,Fabricación de materiales asfalticos para la impermeabilización de techos y otros similares,6,1340,16080
+concept231,1626,Fabricación de otros productos derivados del petróleo y del carbón,6,1340,16080
+concept232,1627,Horno de coke y sus productos,6,1340,16080
+concept233,1628,Preparación de asfalto para pavimentación,7,1340,16080
+concept234,1629,Refinación de petróleo,7,1340,16080
+concept235,1630,Otros derivados del petróleo no especificados,6,1340,16080
+concept236,1635,Fabricación de cal y yeso,6,1340,16080
+concept237,1636,Fabricación de cemento,6,1340,16080
+concept238,1637,"Fabricación de objetos de barro, loza, porcelana y yeso",6,1340,16080
+concept239,1582,"Fabricación de envases, jaulas, cajas, barriles, cestas ataúdes y otros envases de madera",3,1340,16080
+concept240,1583,Fabricación de mangos de madera para herramientas y de artículos de menudos de madera,3,1340,16080
+concept241,1584,"Fabricación de productos de madera, corcho no específicamente en este grupo",3,1340,16080
+concept242,1590,"Carpintería, cerrajería y muebleria",3,1340,16080
+concept243,1591,Fabricación de colchones y almohadas,3,1340,16080
+concept244,1592,Fábrica de muebles de madera y de metal,3,1340,16080
+concept245,1593,"Fábrica de persianas, toldos, lámparas, carpas y similares",3,1340,16080
+concept246,1594,Fabricación de otros tipos de muebles y sus accesorios no especificados en otro grupo,3,1340,16080
+concept247,1595,Tapizados,3,1340,16080
+concept248,1597,"Fabricación de pulpa de madera, papel y cartón",3,1340,16080
+concept249,1598,"Grabados, fotograbados, tamigrafía",3,1340,16080
+concept250,1599,"Impresión de periódicos, revistas y libros",3,1340,16080
+concept251,1600,"Litografía, tipografía, encuadernación",3,1340,16080
+concept252,1601,Servicios conexos con la industria de artes gráficas,3,1340,16080
+concept253,1602,Fabricación de envases y cajas de cartón,3,1340,16080
+concept254,1610,"Fabricación de carteras, artículos de viajes, billeteras, monederos y similares",4,1340,16080
+concept255,1611,Fabricación de productos de talabartería y artículos de cuero para uso industrial,4,1340,16080
+concept256,1559,Fabricación de productos farmacéuticos y medicamentos,6,1340,16080
+concept257,1560,Fabricación de productos químicos no medicinales no especificados,6,1340,16080
+concept258,1561,"Fabricación de productos y sustancias químicas industriales básicas, ácidos, base, sales",6,1340,16080
+concept259,1562,"Fabricación de resinas, plásticos, cauchos sintéticos",6,1340,16080
+concept260,1564,"Fabricación de tinta para uso de imprentas, multígrafos y otras tintas similares",6,1340,16080
+concept261,1565,Fabricación de velas y fósforos,6,1340,16080
+concept262,1566,Fabricación de material médico quirúrgico y afines,3,1340,16080
+concept263,1570,"Destilación, rectificación y mezcla de alcoholes potables y elaboración de bebidas alcohólicas",10,1670,20040
+concept264,1571,"Desvenes, desecación y otros trabajos relacionados con la hoja de tabaco",10,1670,20040
+concept265,1572,"Fabricación de cigarrillos, tabacos, picaduras para pipa, preparación de chimo y tabaco para mascar",10,1670,20040
+concept266,1573,Fabricación de mostos y vinos ordinarios de frutas,10,1670,20040
+concept267,1574,Fabricación de mostos y vinos ordinarios de frutas,10,1670,20040
+concept268,1575,Otras industrias de consumo masivo de bebidas alcohólicas no especificadas en otro grupo,10,1670,20040
+concept269,1580,Aserraderos,3,1340,16080
+concept270,1581,Elaboración de madera enchapada,3,1340,16080
+concept271,1536,Fabricación de linóleo y similares,4,1340,16080
+concept272,1538,"Fabricación de mecates, sogas y cordeles",4,1340,16080
+concept273,1539,Fabricación de sacos de fibra,4,1340,16080
+concept274,1540,"Fabricación de sombreros y accesorios tales como corbatas, gorras, impermeables y otros similares",4,1340,16080
+concept275,1541,Fabricación de tapices y alfombras,4,1340,16080
+concept276,1542,Fabricación de telas destinadas a la rama industrial,4,1340,16080
+concept277,1543,"Fabricación y confección de ropa para caballeros, damas y niños",4,1340,16080
+concept278,1544,"Fabricación de productos y derivados, textiles, hilados, confección y otros no especificados.",4,1340,16080
+concept279,1550,Fabricación de aceites y grasas vegetales para uso industrial,6,1340,16080
+concept280,1551,"Fabricación de adhesivos, colas, apresto y mordientes, para la industria textil",6,1340,16080
+concept281,1552,"Fabricación de ceras, abrillantadores desinfectantes, desodorizantes, pulimentos de muebles y metal, otros productos de limpieza y mantenimiento no especificado",6,1340,16080
+concept282,1553,"Fabricación de detergentes, jabones u otros artículos para lavados, aseo y limpìeza",6,1340,16080
+concept283,1554,"Fabricación de explosivos, fuegos artificiales y municiones",6,1340,16080
+concept284,1555,"Fabricación de gases industriales, oxigeno, acetileno, cloro, etc.",6,1340,16080
+concept285,1556,"Fabricación de materiales químicos para fotografía, películas y papel sensibles.",6,1340,16080
+concept286,1557,"Fabricación de perfumes, cosméticos y otros productos de tocador",6,1340,16080
+concept287,1558,"Fabricación de pinturas, barnices, lacas, esmalte y charoles",6,1340,16080
+concept288,1514,"Fabricación, envasado, transformación y/o conservación de pescado crustáceos y otros",8,1340,16080
+concept289,1515,"Fabricación de productos derivados de la harina de trigo, pastas alimenticias, galletas y similares",8,1340,16080
+concept290,1516,Fabricación y elaboración de mantequillas y quesos,8,1340,16080
+concept291,1517,Fabricación de otros productos alimenticios y derivados no alcohólicos N.E.P,8,1340,16080
+concept292,1518,"Fabricación y preparación de vinagres, condimentos y otras especies no clasificadas en otro grupo",8,1340,16080
+concept293,1519,"Embotelladora de Refrescos, Gaseosas, maltas y similares",8,1340,16080
+concept294,1520,"Fabricación de helados, pasteles congelados y similares",8,1340,16080
+concept295,1521,Otras industrias de alimentos de consumo masivo no especificadas en otro grupo,8,1340,16080
+concept296,1530,Alpargatería,4,1340,16080
+concept297,1531,Fabricación y/o confección de otros artículos textiles: uniformes,4,1340,16080
+concept298,1532,Fabricación de accesorios y partes de cuero destinado para la elaboración del calzado,4,1340,16080
+concept299,1533,"Fabricación de artículos textiles para el hogar, tales como: cortinas, sábanas, paños y similares con materiales textiles",4,1340,16080
+concept300,1534,"Fabricación de calzado de cuero, telas y otros materiales excepto el de caucho vulcanizado, moldeado o de plástico",4,1340,16080
+concept301,1535,"Fabricación de hilados, tejidos y acabados textiles",4,1340,16080
+concept301,1500,Embotelladora y tratamiento de agua natural y mineral,8,1340,16080
+concept301,1501,"Fabricación de productos de molinera, trillado y molienda de trigo, proceso de descargar, limpiar y pulir el arroz, pilado y molienda de maíz y preparación de cereales y leguminosas para consumo humanos",8,1340,16080
+concept301,1502,"Elaboración de productos molinería, torrefacción y molienda de café, transformación de té, productos similares y preparación de cereales y leguminosas, para consumo humano.",7,1340,16080
+concept301,1503,"Elaboración de productos de molinería, torrefacción de Sal",7,1340,16080
+concept301,1504,"Fabricación, envasado, transformación y/o conservación de frutas legumbres, hortalizas y similares",8,1340,16080
+concept301,1505,"Fabricación, elaboración, transformación de productos lácteos",8,1340,16080
+concept301,1506,Fabricación de alimentos preparados para animales,8,1340,16080
+concept301,1507,Fabricación de aceites y grasas comestibles y no comestibles,8,1340,16080
+concept301,1508,"Fabricación refinerías y envasado de azúcar, papelón, mermeladas, jaleas y similares",8,1340,16080
+concept301,1509,"Fabricación de derivados del cacao, chocolates y confiterías",8,1340,16080
+concept301,1510,"Industrias de bebidas no alcohólicas, excepto gaseosas y agua mineral",8,1340,16080
+concept301,1511,Industrias de producción alimenticios y bebidas no alcohólicas no incluidas en otro grupo (jugos y leches),8,1340,16080
+concept301,1512,"Matanza de ganado, preparación, conservación y embalaje de carnes",8,1340,16080
+concept301,1513,"Beneficio de aves y otros animales, excepto el ganado",8,1340,16080
+concept301,1478,"Servicios de montajes y Mantenimiento de Sistema de Seguridad, Accesorios y Equipos de Seguridad de índole comercial, industrial y residencial",10,1010,12120
+concept302,1479,Servicio de instalación de papel ahumado,10,1010,12120
+concept303,1480,Otros talleres no especificados,10,1010,12120
+concept304,1485,"Transporte de carga en Camiones, Gandolas y vehículos similares",7,1010,12120
+concept305,1486,"Transporte de carga en Camiones pequeños, camionteas y vehículos y similares",7,1010,12120
+concept306,1487,Transporte de pasajeros aérea,15,1170,14040
+concept307,1487.1,Transporte de carga aéreo,12,1170,14040
+concept308,1488,Transporte de carga marítima o fluvial,10,1170,14040
+concept309,1488.1,Transporte de pasajeros marítimo o fluvial,11,1170,14040
+concept310,1489,Transporte de pasajeros ferroviario,10,1170,14040
+concept311,1489.1,Transporte de carga ferroviario,10,1170,14040
+concept312,1490,Transporte de pasajeros en zonas urbanas,7,1170,14040
+concept313,1491,Transporte de pasajeros en zonas extra urbanas,10,1170,14040
+concept314,1492,Transpote de pasajeros en zonas inter urbanas,8,1170,14040
+concept315,1493,Transporte de pasajeros de uso turístico,15,1170,14040
+concept316,1494,"Transporte de pasajeros, líneas de Taxis",7,1170,14040
+concept317,1495,Transporte privado de pasajeros,12,1170,14040
+concept318,1496,"Transporte privado de pasajeros, vehículos blindados",15,1170,14040
+concept319,1497,Otros servicios de transporte no especificados fichas monedas (setecientos 700 UCIM por maquina o aparato mensual),12,1170,14040
+concept320,1460,Auto alarmas,10,1010,12120
+concept321,1461,Carpintería (reparación de muebles y tapizados),10,1010,12120
+concept322,1462,De motores y/o bicicletas,10,1010,12120
+concept323,1463,De propagandas luminosas,10,1010,12120
+concept324,1464,De reparación de calzado,10,1010,12120
+concept325,1465,Electricidad automotriz y/o baterías,10,1010,12120
+concept326,1466,Frenos y amortiguadores,10,1010,12120
+concept327,1467,Herrerías,10,1010,12120
+concept328,1468,Latonería y pintura,10,1010,12120
+concept329,1469,Mecánica automotriz,10,1010,12120
+concept330,1470,Montura de cauchos y reparación,10,1010,12120
+concept331,1471,Radiadores y/o silenciadores,10,1010,12120
+concept332,1472,"Servicio de reparación de radio, televisión, eléctricos, electrónicos y computadoras",10,1010,12120
+concept333,1473,Rectificación de motores y/o torneros,10,1010,12120
+concept334,1474,Refrigeración,10,1010,12120
+concept335,1475,Tapicería de Automóviles,10,1010,12120
+concept336,1476,Tapicería de en General,10,1010,12120
+concept337,1477,Talleres de corte y costura,10,1010,12120
+concept338,1442,Hoteles ejecutivos,8,1670,20040
+concept339,1443,Moteles,15,1670,20040
+concept340,1444,Residencias,4,1170,14040
+concept341,1450,"Aparatos o máquinas expendedoras de alimentos, chucherías, snack, galletas, caramelos y confites (200 UCIM) por maquina o aparato mensual",10,1340,16080
+concept342,1451,Aparatos o máquinas expendedoras de cigarrillos exclusivos (quinientos 500 UCIM) por máquina o aparato mensual,2,1340,16080
+concept343,1452,"Aparatos o máquinas expendedoras de bebidas frías no alcohólicas o bebidas, infusiones y café calientes (100 UCIM por máquina o aparato mensual)",2,1340,16080
+concept344,1453,Aparatos o máquinas de juegos de diversiones accionadas por medio de fichas o monedas (trescientos 300 UCIM) por maquina o aparto mensual (no incluye maquinas traganíqueles),2,1340,16080
+concept345,1454,Máquinas o aparatos para medición de peso automático (100 UCIM) por maquina o aparato mensual,2,1340,16080
+concept346,1455,"Sinfónicas bares, institutos o salones baile (300 UCIM) por máquina o aparato mensual",2,1340,16080
+concept347,1456,"Sinfónicas, rockolas (300 UCIM) por maquina o parato mensual",2,1340,16080
+concept348,1457,"Sala de pool billares, salas de juego, patio de bolas criollas, bowling. (500 UCIM) por mesa, cancha o similar mensual.",2,1340,16080
+concept349,1458,Aparatos o maquinas traganíqueles de juegos de envite y azar accionadas por medio de,2,1340,16080
+concept350,1406,Sociedades y consorcios de inversoras y/o financiadoras de seguros,18,1670,20040
+concept351,1407,"Otras empresas de Seguro, Fondos de Protección, Fondos de Previsión y similares",16,1670,20040
+concept352,1408,"Otros servicios financieros, Empresas Bancarias, de Capitalización, de Seguros y similares no especificados en otra parte",18,1670,20040
+concept353,1415,Bolsa de valores de productos y metales varios,18,1670,20040
+concept354,1416,Empresa de investigación y asesoramiento sobre inversiones,18,1670,20040
+concept355,1417,"Arrendamientos, compras y venta de patente y licencia",18,1670,20040
+concept356,1418,"Otros servicios financieros, y similares no especificados",18,1670,20040
+concept357,1430,Inmobiliarias y ventas de inmueble,20,1670,20040
+concept358,1431,Urbanizadoras,10,1670,20040
+concept359,1432,"Otras operaciones y negociones Inmobiliarias, ventas de inmueble no especificadas en ninguna parte",10,2090,25080
+concept360,1433,Promotoras,5,1670,20040
+concept361,1434,Administración de condominio,10,1670,20040
+concept362,1435,Constructora con venta de inmueble,10,1670,20040
+concept363,1440,"Hospedaje, posadas, hosterías y pensiones",4,1170,14040
+concept364,1441,Hoteles ejecutivos,10,1340,16080
+concept365,1378,"Gimnasio, Centro de fisicoculturismo",12,1010,12120
+concept366,1379,Centro de Rehabilitación y Terapias (Fisiatría),10,1010,12120
+concept367,1380,Servicios médicos,10,1010,12120
+concept368,1381,Alquileres d trajes,10,1670,20040
+concept369,1390,Agencia o empresas de inversiones,18,1670,20040
+concept370,1391,Agencia de avalúos y servicios para fines de seguro,18,1670,20040
+concept371,1392,"Bancos, sucursales y agencias",18,1670,20040
+concept372,1393,"Compañias y agencias de seguros, reaseguros y coaseguros",18,1670,20040
+concept373,1394,Agentes de corredores de empresas de seguros,18,1670,20040
+concept374,1395,Empresa de crédito prendario,18,1670,20040
+concept375,1396,Asociaciones de ahorros y préstamos,18,1670,20040
+concept376,1397,Bancos de créditos hipotecarios,18,1670,20040
+concept377,1398,Casa de empeño,18,1670,20040
+concept378,1399,Casas o agentes de cambios de divisas,18,1670,20040
+concept379,1400,Instituciones de comercio industrial,18,1670,20040
+concept380,1401,Instituciones de crédito agrícola,18,1670,20040
+concept381,1402,Instituciones de crédito personal y corresponsales y agentes de préstamo,18,1670,20040
+concept382,1403,Otros establecimientos financieros no especificados,18,1670,20040
+concept383,1404,Sociedades y consorcios Inversiones,18,1670,20040
+concept384,1405,"Compañias fiduciarias, sociedades financieras, etc",18,1670,20040
+concept385,1356,Servicio de mantenimientos de áreas verdes,10,1010,12120
+concept386,1357,"Gimnasio, centros estéticos y Spa",10,1010,12120
+concept387,1358,"Escuela de danzas, modelaje y otros similares",10,1010,12120
+concept388,1359,Servicio especial y encomiendas,10,1010,12120
+concept389,1360,Grúas y remolques,7,1010,12120
+concept390,1361,Confección y/o Reparación de prendas de vestir,10,1010,12120
+concept391,1362,Peluquería canina,10,1010,12120
+concept392,1363,Estampados y Bordados,10,1010,12120
+concept393,1364,Servicio de Transporte de valores,7,1670,20040
+concept394,1365,Escuelas de capacitación profesional y formación académica,7,1170,14040
+concept395,1366,Estudios de Grabación,10,1170,14040
+concept396,1367,Viveros,10,1170,14040
+concept397,1368,Centro de Planchado,10,1010,12120
+concept398,1369,Empresas de Servicios y comercios no especificados en otra parte,15,1010,12120
+concept399,1370,Servicio de Ploteo,10,1010,12120
+concept400,1371,Recarga de Cartuchos de Tinta,10,1010,12120
+concept401,1372,Reparación de calzados y otros artículos de cuero,10,1010,12120
+concept402,1373,Servicio de reparación de ascensores,10,1010,12120
+concept403,1374,Ventas de pelucas,10,1010,12120
+concept404,1375,Centros de estéticas y spa,15,1010,12120
+concept405,1376,Salón de belleza y peluquería,12,1010,12120
+concept406,1377,Centro de estética cejas y uñas,12,1010,12120
+concept407,1334,Servicios de transporte Camiones y gandolas de carga,7,1010,12120
+concept408,1335,"Servicios de transportes Camionetas, minibuses, autos y motos",7,1010,12120
+concept409,1336,Cines,15,1010,12120
+concept410,1337,Clínicas y otras instituciones similares,15,1170,14040
+concept411,1338,Depósitos de mercancías  de industrias diversas (sin facturación),10,1670,20040
+concept412,1339,"Empresas de jardinería, reforestación y similares",10,1010,12120
+concept413,1340,Estacionamientos techadas sin techar y garajes,6,1010,12120
+concept414,1341,"Gestorías, oficinas de representaciones comerciales",10,1010,12120
+concept415,1342,Hospitales y clínicas para animales,10,1010,12120
+concept416,1343,Laboratorios médicos dentales,10,1010,12120
+concept417,1344,Lavanderías y tintorerías,10,1010,12120
+concept418,1345,Limpieza y mantenimiento a domicilio,10,1010,12120
+concept419,1346,Oficinas de contratación y representación de artistas,10,1010,12120
+concept420,1347,Oficinas de representaciones comerciales,10,1010,12120
+concept421,1348,Recolección y destrucción de desperdicios,10,1010,12120
+concept422,1349,Servicio de ambulancia,10,1010,12120
+concept423,1350,"Servicio de reproducción, impresión, heliográficas, fotocopias y mecanografías",10,1010,12120
+concept424,1351,Servicios varios no específicos,10,1010,12120
+concept425,1352,Tratamiento o eliminación de aguas negras y explotación de sistemas de drenajes,10,1010,12120
+concept426,1353,Laboratorios Clínicos,10,1010,12120
+concept427,1354,Servicios odontológicos,10,1010,12120
+concept428,1355,Servicios oftalmológicos,10,1010,12120
+concept429,1315,"Agencia de detectives, de protección personal de vigilancia y resguardo de la propiedad",10,1010,12120
+concept430,1316,Agencia de festejos,15,1670,20040
+concept431,1317,"Salones de Eventos, Sala Show, Organizadores de Eventos",15,1670,20040
+concept432,1318,"Clubes sociales, centro de recreo privados y deportivos familiares con piscinas y cacha de tenis",10,1010,12120
+concept433,1319,Servicio de esparcimiento y recreación no específicas,10,1340,16080
+concept434,1320,"Empresa que proporcionan espectáculos en vivo, Teatros, Bandas, Conciertos, Compañias teatrales, talento en vivo, otros afines",20,1670,20040
+concept435,1321,Agencia de películas y distribuidores,15,1010,12120
+concept436,1322,Agencia de publicidad y publicidades,10,1010,12120
+concept437,1323,"Agencia de viajes, cambio, aviones, barcos, etc.",15,1010,12120
+concept438,1324,"Agencia funeraria, Crematorios",10,1010,12120
+concept439,1325,Agencia y oficinas de cobranzas,15,1010,12120
+concept440,1326,Agencias de billetes de lotería,10,3340,40080
+concept441,1327,Sub-Agencias de billetes de lotería,10,2090,25080
+concept442,1328,Distribuidores de Billetes de Loterías y otros tipos de juegos de envite y azar,22,3340,40080
+concept443,1329,Alquileres de películas cinematográficas,15,1010,12120
+concept444,1330,"Autobuses, transporte de pasajeros urbanos",7,1010,12120
+concept445,1331,"Auto lavado, Puente de lavado y/o engrase y afines",10,1010,12120
+concept446,1332,"Barberías, peluqerías, salones de belleza y pedicura",10,1170,14040
+concept447,1333,"Expendido de gasolina, gasoil, gas natural (no incluye aceites, grasas, lubricantes y aditivos especialmente para vehículos)",5,1010,12120
+concept448,1293,Distribuidores y representantes autorizados de sotfware y hardware,10,1670,20040
+concept449,1294,Empresas de instalación y desarrollos de redes,18,1670,20040
+concept450,1295,"Otras actividades conexos en telecomunicaciones y comuicación (comercios, industrias, personales no especificados)",11,1010,12120
+concept451,1296,Otras actividades relacionadas con la venta y distribución ON LINE al Detal y al Mayor no clasificadas en ninguna parte,15,1170,14040
+concept452,1300,Distribuidora de gas por bombonas,7,1170,14040
+concept453,1301,Empresas de acueductos y cloacas,10,1170,14040
+concept454,1302,Empresas de luz y fuerza eléctrica y/o empresas similares,10,1170,14040
+concept455,1303,Empresas de teléfonos,11,1170,14040
+concept456,1304,"Otros servicios similares no especificados anteriormente (servicio de internet, televisión por cable)",10,1170,14040
+concept457,1305,Venta de gases medicinales,11,1170,14040
+concept458,1310,Agencia de alquileres de máquinas o equipos,20,1010,12120
+concept459,1311,Alquiler de equipos audiovisuales y similares,10,1010,12120
+concept460,1312,Agencia de colocaciones (excepto las domésticas),10,1010,12120
+concept461,1313,"Agencia de alquiler de autos sin chofer, Autoescuela",10,1010,12120
+concept461,1314,"Agencia de negocios, oficinas comerciales",15,1010,12120
+concept462,1237,Detal de maquinarias agrícolas y/o repuestos,10,1170,14040
+concept463,1238,Mayor de maquinarias agrícolas y/o repuestos,9,1170,14040
+concept464,1239,"Detal de maquinarias industriales, máquina de coser, oficina y otros",10,1170,14040
+concept465,1240,"Mayor de maquinarias industriales, maquina de coser, oficina y otros",10,1170,14040
+concept466,1241,Detal de acumuladores o baterías,11,1170,14040
+concept467,1242,Mayor de acumuladores o baterías,10,1170,14040
+concept468,1243,Detal de llantas y cámaras de caucho,11,1170,14040
+concept469,1244,Mayor de llantas y cámaras de caucho,10,1170,14040
+concept470,1245,Reencauchadoras,10,1170,14040
+concept471,1246,Venta de máquinas registradoras,10,1170,14040
+concept472,1247,"Detal de grasa, aceites y lubricantes activos y especiales para vehículos automotores",10,1010,12120
+concept473,1248,"Mayor y  distribuidoras de grasa, aceites y lubricantes activos y especiales para vehículos automotores",10,1340,16080
+concept474,1249,Lanchas y motores para lanchas y otras embarcaciones,10,1170,14040
+concept475,1250,"Distribuidores y mayoristas de maquinarias, vehículos, equipos industriales y/o repuestos para automotores y similares o conexos no especifícadas",12,1340,16080
+concept476,1251,Otras actividades comerciales e industriales conexas no especificadas,15,1340,16080
+concept477,1260,"Artículos para adornos, decoraciones",10,1010,12120
+concept478,1261,Artículos para arreglos y novedades,10,1010,12120
+concept479,1262,"Artículos de decoraciones, cortinas y adornos",15,1010,12120
+concept480,1263,Floristeria,10,1010,12120
+concept481,1264,Joyerías y relojerías,10,1670,20040
+concept482,1265,"Perfumerías, artículos de tocador y cosméticos de uso personal",10,1340,16080
+concept483,1266,Reparación de relojes y sus joyas sin venta,15,1010,12120
+concept484,1267,"Distribuidores y/o mayoristas de joyerías, relojerías, perfumerías, antiguedades y articulos para regalos no especificados",8,1670,20040
+concept485,1268,Otros comercios de ventas al detal de productos y artículos de regalo conexos o similares no especificados,18,1670,20040
+concept486,1275,Actividades de radio difusión y Televisión,5,1010,12120
+concept487,1276,Actividades de telecomunicación no especificadas,10,1010,12120
+concept488,1277,"Empresas de venta de teléfonos celulares, tabletas y accesorios similares o conexos",10,1010,12120
+concept489,1278,"Agentes Autorizados de empresas, Ventas de Accesorios similares o conexos",5,1010,12120
+concept490,1279,Centro de comunicaciones y navegación de internet,5,1670,20040
+concept491,1280,Servicio de telecomunicación Pre pagado (Incluye venta de tarjetas),10,1010,12120
+concept492,1281,Distribuidores de Tarjetas Prepagadas,9,1670,20040
+concept493,1290,"Ventas al mayor de equipos de computación, de articulos de computación consumibles conexos y afines",10,1340,16080
+concept494,1291,"Ventas, detal de equipos de computación, repuestos, artículos consumibles conexos y afines",10,1340,16080
+concept495,1292,Empresas mayoristas de piezas y partes de computadoras personales,10,1340,16080
+concept496,1211,Otros establecimientos que expende alimentos preparados y bebidas no alcohólicas no especificados no especificados (Delivery),40,1340,16080
+concept497,1212,Servicio de comedores industriales,9,1010,12120
+concept498,1213,"Detal de cigarrillos, tabacos y similares",18,1670,20040
+concept499,1214,"Mayor de cigarrillos, tabacos y similares",18,1670,20040
+concept500,1220,"Licorerías, botillería, expendio de bebidas alcohólicas en envases originales y sellados",30,1670,20040
+concept501,1221,Bodegones con expendio de bebidas alcohólicas en envases originales y sellados.,32,1670,20040
+concept502,1222,"Distribuidoras, importaciones, ventas al mayor de bebidas alcohólicas (incluye almacenaje)",30,3340,40080
+concept503,1223,"Agentes, ruteros y franquiciados, de bebidas alcohólicas en unidades automotoras en sus envases originales",20,1670,20040
+concept504,1224,Depósito y almacenaje de licores nacionales e importados en general,10,1670,20040
+concept505,1230,Detal de bicicletas y/o repuestos,10,1170,14040
+concept506,1231,Detal de repuestos y accesorios para vehículos a motor,10,1170,14040
+concept507,1232,Mayor de repuestos y accesorios para vehículos a motor,10,1170,14040
+concept508,1233,"Venta de vehículos, automóviles, camiones, buses ( nuevos)",10,1170,14040
+concept509,1234,"Venta de vehículos, automóviles, camiones, buses (usados)",10,1170,14040
+concept510,1235,"Ventas de vehículos, automóviles, motocicletas no especificados en otra parte de este subgrupo",10,1170,14040
+concept511,1236,"Venta de repuestos para maquinarias, equipos y similares no especificados",10,1170,14040
+concept512,1193,"Grabados, medallas y placas",10.5,1010,12120
+concept513,1194,"Distribuidores y/o mayoristas de artículos musicales, fotografía, libros, juguetes, artículos religiosos, deportes, videos y otros no especificados",10,1010,12120
+concept514,1195,Depósito y almacenaje de todo tipo de  mercancía seca en general,10,1670,20040
+concept515,1200,"Areperas, venta de empanadas, desayunos, chicharronera, cachapera, refresquerñia, y similares sin expendio de bebidas alcohólicas.",10,1170,14040
+concept516,1201,"Heladerías y cafetería, fuente de soda, pizzerías y similares sin expendio de bebidos alcohólicas",10,1170,14040
+concept517,1202,Bar restaurantes con expendio de bebidas alcohólicas,20,1670,20040
+concept518,1203,Restaurant sin expendio de bebidas alcohólicas,10,1340,16080
+concept519,1204,"Restaurant de comida rápida, sin expendio de bebidas alcohólicas",10,1340,16080
+concept520,1205,"Bar restaurantes con expendio de bebidas alcohólicas, músicales en vivo, karaoke",25,1670,20040
+concept521,1206,"Cantinas, tascas, bares y discotecas, dancing, club nocturno y cabaret",40,1670,20040
+concept522,1207, Centros hípicos (jugadas),40,3340,40080
+concept523,1208,Salas de bingos,40,3340,40080
+concept524,1209,Salas de juegos y casinos,40,3340,40080
+concept525,1210,Otros no especificados,40,3340,40080

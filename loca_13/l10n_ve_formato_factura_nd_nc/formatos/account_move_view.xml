@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="correlativo_nota_entrega_view_form" model="ir.ui.view">
+        <field name="name">correlativo.nota.entrega.view.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='partner_id']" position="after">
+
+                <field name="act_nota_entre" string="Aplica Nota de Entrega?:" widget="boolean_toggle" attrs="{'invisible': ['|',('type', 'in',('in_invoice','in_refund','in_receipt')),('type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund'))], 'readonly':[('state','=','posted')]}"/>
+
+            	<field name="correlativo_nota_entrega" string="Nota Entrega Nro:" attrs="{'invisible': ['|',('act_nota_entre', '=',False),('type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund'))]}" readonly="1"/>
+            </xpath>  
+
+            <xpath expr="//field[@name='currency_id']" position="after">
+                <field name="doc_currency_id" attrs="{'invisible': [('type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund'))]}"/>
+            </xpath>          
+        </field>
+    </record>
+
+</odoo>

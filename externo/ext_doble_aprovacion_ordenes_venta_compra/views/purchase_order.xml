@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="orden_compra_double_aprobacion_form_inherit" model="ir.ui.view">
+			<field name="name">orden.compra.double.aprobacion.form.inherit</field>
+			<field name="model">purchase.order</field>
+			<field name="inherit_id" ref="purchase.purchase_order_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//header//field[@name='state']" position="replace">
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,approve,'approve2',approves,refuse,sale"/>
+ 	 			</xpath>
+
+ 	 			<xpath expr="//header//button[@name='button_cancel']" position="replace">
+                     <!--button name="action_approve" type="object" string="Approve" attrs="{'invisible': [('hide_approve_btn','=',True) ]}"/>
+                     <button name="action_refuse" type="object" string="Refused" attrs="{'invisible': [('hide_approve_btn','=',True) ]}"/-->
+
+                     <button name="action_approve" type="object" string="Enviar para Aprobación" attrs="{'invisible': [('state', 'in', ('approve','approve2','approves','refuse','purchase','done','cancel'))]}"/>
+
+                     <button name="action_approves" type="object" string="Aprobar Orden" attrs="{'invisible': [('state', 'not in', ('approve'))]}"/>
+
+                     <button name="action_approve2" type="object" string="Validar Orden" attrs="{'invisible': [('state', 'not in', ('approve2'))]}"/>
+
+                     <button name="action_refuse" type="object" string="Rechazar Orden" attrs="{'invisible': [('state', 'not in', ('approve','approve2'))]}"/>
+
+                     <button name="button_cancel" type="object" string="Cancelar"/>
+                     <!--button name="action_cancel" states="draft,sent,approve,refuse,sale" type="object" string="Cancel"/-->
+				</xpath>
+
+				<xpath expr="//button[@name='button_confirm'][2]" position="replace"><!-- draft_confirm-->
+					<button name="button_confirm" id="draft_confirm" string="Confirmar Orden" type="object" attrs="{'invisible': [('state', 'not in', ('sent','approves'))]}"/>
+ 	 			</xpath>
+
+ 	 			<xpath expr="//notebook" position="inside">
+					<page string="Detalles de Aprobación" name="approve_details">
+                    	<group>
+                    		<group string="Primer Aprobador" name="approve_info">
+		                            <field name="one_approve_by" readonly="True"/>
+		                            <field name="statu_one" string="Status del doc." readonly="True"/>
+		                            <field name="one_approve_time" readonly="True"/>
+		                    </group>
+		                    <group string="Segundo Aprobador">
+		                            <field name="two_approve_by" readonly="True"/>
+		                            <field name="statu_two" string="Status del doc." readonly="True"/>
+		                            <field name="two_approve_time" readonly="True"/>
+	                        </group>
+	                        
+	                        <!--group string="Refuse Information" name="refuse_info">
+	                            <field name="sh_refuse_by"/>
+	                            <field name="sh_refuse_time"/>
+	                            <field name="sh_refuse_reason"/>
+	                        </group-->
+                    	</group>						
+					</page>
+				</xpath>
+
+				
+
+			</field>
+		</record>
+	</data>	
+</odoo>

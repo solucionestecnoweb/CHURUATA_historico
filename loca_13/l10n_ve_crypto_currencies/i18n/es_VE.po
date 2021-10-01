@@ -1,0 +1,233 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ve_crypto_currencies
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e-20200121\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-27 20:57+0000\n"
+"PO-Revision-Date: 2020-05-27 17:03-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_VE\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: l10n_ve_crypto_currencies
+#: model_terms:ir.ui.view,arch_db:l10n_ve_crypto_currencies.compute_cryptocurrency_value_wizard_form_view
+msgid "Amount to Exchange"
+msgstr "Monto a Intercambiar"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.actions.act_window,name:l10n_ve_crypto_currencies.compute_cryptocurrency_value_wizard_action
+msgid "Calculator"
+msgstr "Calculadora"
+
+#. module: l10n_ve_crypto_currencies
+#: model_terms:ir.ui.view,arch_db:l10n_ve_crypto_currencies.compute_cryptocurrency_value_wizard_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_ve_crypto_currencies
+#: model_terms:ir.ui.view,arch_db:l10n_ve_crypto_currencies.compute_cryptocurrency_value_wizard_form_view
+msgid "Compute"
+msgstr "Calcular"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value__create_date
+msgid "Created on"
+msgstr "Creando en"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_res_currency__is_crypto
+msgid "Cripto currency"
+msgstr "Moneda de referencia"
+
+#. module: l10n_ve_crypto_currencies
+#: model_terms:ir.ui.view,arch_db:l10n_ve_crypto_currencies.sale_order_crypto_view
+msgid "Crypto / Fiat  Calculator"
+msgstr "Cripto / Fiat Calculadora"
+
+#. module: l10n_ve_crypto_currencies
+#: model_terms:ir.ui.view,arch_db:l10n_ve_crypto_currencies.account_move_cryto_view
+#: model_terms:ir.ui.view,arch_db:l10n_ve_crypto_currencies.purchase_order_crypto_view
+msgid "Crypto / Fiat Calculator"
+msgstr "Cripto / Fiat Calculadora"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_account_move__crypto_total
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_purchase_order__crypto_total
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_sale_order__crypto_total
+msgid "Crypto Total"
+msgstr "Total en criptomoneda"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value__crypto_id
+msgid "Cryptocurrency"
+msgstr "Moneda de referencia"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model,name:l10n_ve_crypto_currencies.model_res_currency
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields.selection,name:l10n_ve_crypto_currencies.selection__compute_crypto_value__fiat_currency__euro
+msgid "EURO"
+msgstr ""
+
+#. module: l10n_ve_crypto_currencies
+#: model_terms:ir.ui.view,arch_db:l10n_ve_crypto_currencies.compute_cryptocurrency_value_wizard_form_view
+msgid "Exchange Rate"
+msgstr "Tasa de Intercambio"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value__fiat_currency
+msgid "Fiat Currency"
+msgstr "Moneda fiduciaria"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model,name:l10n_ve_crypto_currencies.model_account_move
+msgid "Journal Entries"
+msgstr "Asientos contables"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value__write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model,name:l10n_ve_crypto_currencies.model_purchase_order
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_account_move__aux_currency_id
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_purchase_order__aux_currency_id
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_sale_order__aux_currency_id
+msgid "Reference currency"
+msgstr "Moneda de referencia"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value__result
+msgid "Result"
+msgstr "Resultado"
+
+#. module: l10n_ve_crypto_currencies
+#: model_terms:ir.ui.view,arch_db:l10n_ve_crypto_currencies.compute_cryptocurrency_value_wizard_form_view
+msgid "Result in Cryptocurrency or Fiat Currency"
+msgstr "Resultado en criptomoneda o moneda Fiduciaria"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_res_currency__rounding
+msgid "Rounding Factor"
+msgstr "Factor de Redondeo"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model,name:l10n_ve_crypto_currencies.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,help:l10n_ve_crypto_currencies.field_res_currency__is_crypto
+msgid "Set true this field if you have a cryptocurrency"
+msgstr "Establezca verdadero este campo si tiene una criptomoneda"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value__tasa
+msgid "Tasa"
+msgstr "Tasa"
+
+#. module: l10n_ve_crypto_currencies
+#: model_terms:ir.ui.view,arch_db:l10n_ve_crypto_currencies.sale_order_crypto_view
+msgid "Terms and conditions..."
+msgstr "Términos y condiciones"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,help:l10n_ve_crypto_currencies.field_account_move__aux_currency_id
+#: model:ir.model.fields,help:l10n_ve_crypto_currencies.field_purchase_order__aux_currency_id
+#: model:ir.model.fields,help:l10n_ve_crypto_currencies.field_sale_order__aux_currency_id
+msgid "This currency is a reference for exchange."
+msgstr "Esta moneda es una referencia para el intercambio."
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,help:l10n_ve_crypto_currencies.field_account_move__crypto_total
+#: model:ir.model.fields,help:l10n_ve_crypto_currencies.field_purchase_order__crypto_total
+#: model:ir.model.fields,help:l10n_ve_crypto_currencies.field_sale_order__crypto_total
+msgid "Total in crypto."
+msgstr "Total en cripto"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields.selection,name:l10n_ve_crypto_currencies.selection__compute_crypto_value__fiat_currency__usd
+msgid "USD"
+msgstr ""
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields.selection,name:l10n_ve_crypto_currencies.selection__compute_crypto_value__fiat_currency__ves
+msgid "VES"
+msgstr ""
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value__value1
+msgid "Value"
+msgstr "Valor"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model,name:l10n_ve_crypto_currencies.model_compute_crypto_value
+msgid "compute.crypto.value"
+msgstr ""
+
+#. module: l10n_ve_crypto_currencies
+#: model_terms:ir.ui.view,arch_db:l10n_ve_crypto_currencies.compute_cryptocurrency_value_wizard_form_view
+msgid "confirm"
+msgstr "Confirmar"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value__flag1
+msgid "flag1"
+msgstr "Bandera1"
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value__id_record
+msgid "id_record"
+msgstr ""
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,field_description:l10n_ve_crypto_currencies.field_compute_crypto_value__act_model
+msgid "model"
+msgstr ""
+
+#. module: l10n_ve_crypto_currencies
+#: model:ir.model.fields,help:l10n_ve_crypto_currencies.field_compute_crypto_value__act_model
+#: model:ir.model.fields,help:l10n_ve_crypto_currencies.field_compute_crypto_value__flag1
+msgid "technical use"
+msgstr "Uso técnico"

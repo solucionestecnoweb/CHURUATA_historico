@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>    
+    <record id="paperformat_resumen_semanal" model="report.paperformat">
+
+      <field name="default" eval="True"/>
+        <field name="name">A4 Landscape Account resumen Municipal</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">243</field>
+        <field name="page_width">399</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">52</field>
+        <field name="margin_bottom">5</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <report id="resum_semanal"
+        model="wizard.resumen.semanal.produccion"
+        name="ext_agro_rep_inventario.resumen_semanal"
+        file="ext_agro_rep_inventario.resumen_semanal"
+        string="Reporte Resumen Semanal Producción"
+        report_type="qweb-html"
+        paperformat="ext_agro_rep_inventario.paperformat_resumen_semanal"
+        
+        /><!--paperformat="ext_agro_rep_inventario.paperformat_resumen_semanal"-->
+
+    <template id="resumen_semanal">
+
+       <t t-call="web.html_container" ><!-- realiza llamados a template propio de odoo -->
+         <t t-call="web.basic_layout" ><!-- realiza llamados a template propio de odoo -->
+          <t t-set="pag" t-value="0"/>
+          <t t-foreach="docs" t-as="o">
+            <div class="header">
+                  <table width="100%">
+
+                    <tr>
+                      <td style="width:30%;text-align:center;">
+                        <t t-if="docs.company_id.logo">  
+                            <img t-attf-src="data:image/*;base64,{{docs.company_id.logo}}" style="width:auto; height:80px;"/>
+                        </t>
+                      </td>
+                      <td style="font-size:13px;"><t t-esc="docs.company_id.street"/>
+                      <br/>
+                      CÓDIGO POSTAL: <t t-esc="docs.company_id.zip"/>
+                     <br/>
+                     RIF: <t t-esc="docs.rif(docs.company_id.partner_id.id)"/>
+                    </td>
+                    </tr>
+                  </table>
+            </div>
+
+            <div class="page">
+               <table width="100%"><!--table table-bordered /table table-condensed -->
+                <tbody class="table table-bordered">
+                <tr>
+                  <td colspan="10" align="center">
+                    RESUMEN SEMANAL DE PRODUCCION 
+                  </td>
+                </tr>
+                <tr style="font-size:12px;">
+                  <td>
+                    GALPON
+                  </td>
+                  <td>
+                    INVENTARIO DE AVES
+                  </td>
+                  <td>
+                    MORTALIDAD
+                  </td>
+                  <td>
+                    %
+                  </td>
+                  <td>
+                    HUEVOS BUENOS
+                  </td>
+                  <td>
+                    %
+                  </td>
+                  <td>
+                    HUEVOS ROTOS
+                  </td>
+                  <td>
+                    %
+                  </td>
+                  <td>
+                    PRODUCCIÓN TOTAL
+                  </td>
+                  <td>
+                    %
+                  </td>
+                </tr>
+                <t t-set="acum_total_inv" t-value="0"/>
+                <t t-foreach="docs.line" t-as="o">
+                  <tr style="font-size:12px;">
+                    <td>
+                      <t t-esc="o.location_id.complete_name"/>
+                    </td>
+                    <td align="right">
+                      <t t-esc="o.float_format(o.inventario_total)"/>
+                      <t t-set="acum_total_inv" t-value="acum_total_inv+o.inventario_total"/>
+                    </td>
+                    <td colspan='8'>
+                    </td>
+                  </tr>
+                </t>
+                <tr>
+                    <td align="right">
+                      TOTAL:
+                    </td>
+                    <td align="right"><t t-esc="o.float_format(acum_total_inv)"/></td>
+                    <td colspan="8"></td>
+                  </tr>
+                </tbody>
+               </table>
+            </div>
+          </t>
+         </t>
+       </t>
+
+     </template>
+  
+  </data>
+</odoo>

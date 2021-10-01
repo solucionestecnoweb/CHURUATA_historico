@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="journal_inherit_view_form_igtf" model="ir.ui.view">
+        <field name="name">journal.inherit.view.form3</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='bank_id']" position="after">
+                    <field name="tipo_bank" string="Nacionalidad del Banco"/>                
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

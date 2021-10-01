@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="template_vat_wh_voucher">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.basic_layout" t-lang="es_VE">
+                        <div class="header">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div  style="height:50px">
+                                    <!--  -->
+                                    </div>  
+                                    <t t-if="o.type in ('in_invoice','in_refund','in_receipt')"  >                                  
+                                    <table>
+                                        <tr>
+                                            <td style="width:30%;text-align:center;">
+                                                <t t-if="o.company_id.logo">  
+                                                    <img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:auto; height:60px;"/>
+                                                </t>
+                                            </td>
+                                            <td style="width:70%;">
+                                                <p style="text-align:center;">
+                                                    <b>COMPROBANTE DE RETENCIÓN DEL IMPUESTO AL VALOR AGREGADO</b>
+                                                </p>
+                                                <p style="font-size:8px;text-align:center;">
+                                                    LEY IVA – ART. 11: “SERAN RESPONSABLES DEL PAGO DE IMPUESTO EN CALIDAD DE AGENTES DE RETENCION, LOS COMPRADORES O ADQUIRIENTES DE DETERMINADOS BIENES MUEBLES Y LOS RECEPTORES DE CIERTOS SERVICIOS A QUIENES LA ADMINISTRACION TRIBUTARIA DESIGNE COMO TAL”
+                                                </p>
+                                            </td>
+                                            </tr>
+                                            <tr>
+                                             <td>Nro Comprobante:
+                                             
+								<span t-esc="o.retention_line_ids.retention_id.name"/>
+								<!--span t-esc="line.invoice_id.invoice_number"/-->
+                                             </td>
+                                             <td style="width:70%;">
+                                                <p  style="text-align:right;">
+                                                    Período Fiscal:
+                                                <span t-esc="o.periodo()" />
+                                               </p>
+                                             </td>
+                                            </tr>
+
+                                             <tr><td>Fecha:
+                                             <span t-esc="o.formato_fecha2()" />
+											<!--span t-esc="o.retention_line_ids.retention_id.voucher_delivery_date"  t-option='{"format":"d MMMM y"}'/-->
+                                              </td>
+                                             <td></td>
+                                            </tr>
+                                    </table>
+                                </t>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page">
+                            <div class="row">
+                                
+                            </div>
+                            <!--Datos para Proveedores-->
+                            <div class="page" t-if="o.type">
+                                <t t-if="o.type in ('in_invoice','in_refund','in_receipt')"  >
+                                    <div class="row">
+                                        <table style="width:100%;margin-top:70px;">
+                                            <tr>
+                                                <td colspan="3" style="text-align:center;">
+                                                    <b>AGENTE DE RETENCIÓN</b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;width:40%;">
+                                                    NOMBRE O RAZÓN SOCIAL
+                                                </th>
+                                                <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;width:20%;">
+                                                    RIF
+                                                </th>
+                                                <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;width:40%;">
+                                                    DIRECCIÓN FISCAL
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border:1px solid #000;">
+                                                    <span t-esc="o.company_id.name"/>
+                                                </td>
+                                                <td style="text-align:center;border:1px solid #000;">                               	
+                                                    <span t-esc="o.doc_cedula(o.company_id.id)"/>
+                                                </td>
+                                                <td style="text-align:center;border:1px solid #000;">
+                                                    <span t-esc="o.get_company_address()"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <!-- Table 2 -->
+                                    <div class="row">
+                                        <table style="width:100%;margin-top:30px;">
+                                            <tr>
+                                                <td colspan="3" style="text-align:center;">
+                                                    <b>DATOS DEL AGENTE BENEFICIARIO</b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;width:40%;">
+                                                    NOMBRE O RAZÓN SOCIAL
+                                                </th>
+                                                <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;width:20%;">
+                                                    RIF
+                                                </th>
+                                                <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;width:40%;">
+                                                    DIRECCIÓN FISCAL
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border:1px solid #000;">
+                                                    <span t-esc="o.partner_id.name"/>
+                                                </td>
+                                                <td style="text-align:center;border:1px solid #000;">
+                                                	<span t-esc="o.doc_cedula(o.partner_id.id)"/>
+                                                </td>
+                                                <td style="text-align:center;border:1px solid #000;">
+                                                    <span t-esc="o.get_address_partner()"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </t>
+                            </div>
+
+                            <!--Para Clientes-->
+                            <div class="page" t-if="o.type">
+                                <t t-if="o.type == 'out_invoice'">
+                                    <b>NO HAY NADA QUE REPORTAR</b>
+                                </t>
+                            </div>
+                            <!--**********************************************-->
+                            <br/>
+                            <div class="row">
+                            	<t t-if="o.type in ('in_invoice','in_refund','in_receipt')"  > 
+                                <table width="100%;margin-top:30px;">
+                                    <tr>
+                                        <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;">
+                                            Fecha Factura
+                                        </th>
+                                        <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;">
+                                            N° de Factura
+                                        </th>
+                                        <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;">
+                                            N° Control
+                                        </th>
+                                        <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;">
+                                            N° Nota de Débito
+                                        </th>
+                                        <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;">
+                                            N° Nota de Crédito
+                                        </th>
+                                        <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;">
+                                            Tipo Trans
+                                        </th>
+                                        <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;">
+                                            N° Factura Afectada
+                                        </th>
+                                        <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;">
+                                            Total Compras con IVA
+                                        </th>
+                                        <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;">
+                                            Compras Exentas
+                                        </th>
+                                        <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;">
+                                            Base Imponible
+                                        </th>
+                                        <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;">
+                                            % Alicuota
+                                        </th>
+                                        <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;">
+                                            Impuesto IVA
+                                        </th>
+                                        <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;">
+                                            % Retención
+                                        </th>
+                                        <th style="text-align:center;background-color:#FFFFFF;border:1px solid #000;">
+                                            IVA Retenido
+                                        </th>
+                                    </tr>
+                                    <t t-set="por_iva" t-value="0" />
+                                    <tr  t-foreach="o.retention_line_ids" t-as="line">
+                                      <t t-if="line.tax_id.amount!=0">
+                                        <td style="text-align:center;border:1px solid #000;">
+                                            <span t-esc="line.formato_fecha()"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid #000;">
+                                          <strong t-if="line.invoice_id.type == 'in_invoice'">
+                                            <span t-esc="line.invoice_id.invoice_number"/>
+                                          </strong>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid #000;">
+                                            <span t-esc="line.invoice_id.invoice_ctrl_number"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid #000;">
+                                         <strong t-if="line.invoice_id.type == 'in_receipt'">
+                                            <span t-esc="line.invoice_id.invoice_number"/>
+                                         </strong>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid #000;">
+                                          <strong t-if="line.invoice_id.type == 'in_refund'">
+                                            <span t-esc="line.invoice_id.invoice_number"/>
+                                          </strong>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid #000;">
+                                            <strong t-if="line.invoice_id.type == 'in_invoice'">1</strong>
+                                            <strong t-if="line.invoice_id.type in ('in_refund','in_receipt')">2</strong>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid #000;">
+                                            <span t-esc="line.invoice_id.ref"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid #000;">
+                                            <!--CAMPO TOTAL COMPRAS CON IVA /-->
+                                            <span t-esc="line.float_format(abs(line.invoice_id.amount_total_signed))" />
+                                            <!--span t-esc="line.float_format(line.amount_untaxed+line.amount_vat_ret)" /-->
+                                        </td>
+                                        <td style="text-align:center;border:1px solid #000;">
+                                            <!-- campo Compras exentas-->
+                                            <!--span t-esc="line.float_format(line.amount_untaxed)"/-->
+                                            <span t-esc="line.valida_excento(line.tax_id.id,line.retention_id.id)"/>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid #000;">
+                                            <t t-if="line.tax_id.amount!=0"  >
+                                            <!--span t-esc="line.float_format(line.invoice_id.amount_untaxed)"/ OJO -->
+                                            <span t-esc="line.float_format(line.amount_untaxed)"/>
+                                            </t>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid #000;">
+                                            <!-- <span t-esc="'%.2f'%(line.invoice_id.invoice_line_ids.tax_ids.amount)"/>% -->
+                                            <!--t t-set="por_iva" t-value="line.amount_vat_ret*100/line.amount_untaxed" /-->
+                                            <t t-set="por_iva" t-value="line.tax_id.amount" />
+                                            <t t-if="line.tax_id.amount!=0"  >
+                                            <span>
+											<p t-raw="line.float_format(por_iva)" ></p>
+                                            </span>
+                                            </t>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid #000;">
+                                            <t t-if="line.tax_id.amount!=0"  >
+                                            <span t-esc="line.float_format(line.amount_vat_ret)"/>
+                                            </t>
+                                        </td>
+                                        <td style="text-align:center;border:1px solid #000;">
+                                            <t t-if="line.tax_id.amount!=0"  >
+                                            <span t-esc="line.float_format(line.retention_rate)"/>
+                                            </t>
+                                            
+                                        </td>
+                                        <td style="text-align:center;border:1px solid #000;">
+                                            <t t-if="line.tax_id.amount!=0"  >
+                                            <span t-esc="line.float_format(line.retention_amount)"/>
+                                            </t>
+                                        </td>
+                                       </t>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="12" style="text-align:right;">
+                                            <b>Total Impuesto Retenido:</b>
+                                        </td>
+                                        <td style="text-align:right;" colspan='2'>
+                                            <b><span t-esc="o.float_format2(o.vat_retentioned)"/></b>
+                                        </td>
+                                    </tr>
+                                    </table>
+                                  </t>
+                                </div>
+                            
+                            <!-- <br/> -->
+                            <style>
+                                hr {
+                                    border-color: #000;
+                                    width: 60%;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    margin-top: 0px;
+                                    margin-bottom: 0px;
+                                }
+                            </style>
+                            <div class="row">
+                            	<t t-if="o.type in ('in_invoice','in_refund','in_receipt')"  > 
+                                <table border="1" style="width:100%;margin-top:50px;" name="firmas">
+                                    <tr>
+                                        <td style="width:50%;text-align:center;padding:0px;margin:0px;">
+                                            <br/>
+                                            <hr/>
+                                            <b><span t-esc="o.retention_line_ids.create_uid.partner_id.name"/></b>
+                                            <br/>
+                                            <b><span t-esc="o.company_id.name"/></b>
+                                            <br/>
+                                            <b>Firma Sello</b>
+                                        </td>
+                                        <td style="width:50%;text-align:center;padding:0px;margin:0px;">
+                                            <br/>
+                                            <hr/>                                            
+                                                <b><span t-esc="o.partner_id.name"/></b>
+                                            <br/>
+                                            <b>Firma Sello</b>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </t>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+    </template>
+
+
+
+
+
+
+
+
+<!-- Paper format -->
+    <record id="paperformat_vat_retention" model="report.paperformat">
+        <field name="name">VAT Retention Report</field>
+        <field name="orientation">Landscape</field>
+        <field name="header_line" eval="False"/>
+    </record>
+
+
+<!-- Report action -->
+    <report
+            id="action_vat_report"
+            string="Comprobante de IVA"
+            model="vat.retention"
+            report_type="qweb-pdf"
+            name="vat_retention.template_vat_wh_voucher"
+            file="vat_retention.template_vat_wh_voucher"
+            paperformat="vat_retention.paperformat_vat_retention"
+            />
+
+
+</odoo>

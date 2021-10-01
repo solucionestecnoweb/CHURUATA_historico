@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+    
+    <!--menuitem 
+        id="menu_vendor_isrl_retention"
+        name="Retención de ISLR Proveedores"
+        action="action_isrl_vendors_retention"
+        parent="account.menu_finance_payables"
+    />
+
+
+    <menuitem 
+        id="action_isrl_vendors_retention"
+        name="Retención de ISLR Cliente"
+        action="action_isrl_customers_retention"
+        parent="account.menu_finance_receivables"
+    /--> 
+    </data> 
+</odoo>

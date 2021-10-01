@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- <record model="ir.ui.view" id="view_account_move_form_inherit">
+            <field name="name">account.move.form.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@id='aml_tab']" position="after">
+                    <page id="pickings_tab" string="Pickings" attrs="{'invisible': [('type', '=', ['in_invoice'])]}">
+                        <field name="picking_ids" widget="many2many" domain="['|',('purchase_id','=',purchase_id),('origin','=',invoice_origin),('state','=','done')]"/>
+                    </page>
+                </xpath>
+            </field>
+        </record> -->
+        <record model="ir.ui.view" id="purchase_order_view_form_inherit">
+            <field name="name">purchase.order.form.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase_stock.purchase_order_view_form_inherit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='picking_type_id']" position="replace">
+                    <field name="picking_type_id" domain="[('code','=','incoming'),('type_operation_sunat_id.code','=','02'), '|', ('warehouse_id', '=', False), ('warehouse_id.company_id', '=', company_id)]" options="{'no_create': True}" groups="stock.group_stock_multi_locations"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

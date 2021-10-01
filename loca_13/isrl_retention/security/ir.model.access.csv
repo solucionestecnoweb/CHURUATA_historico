@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_isrl_retention,isrl.retention,model_isrl_retention,account.group_account_user,1,0,0,0
+access_isrl_retention,isrl.retention,model_isrl_retention,account.group_account_manager,1,1,1,1
+access_isrl_retention,isrl.retention,model_isrl_retention,base.group_user,1,0,0,0
+access_isrl_retention,isrl.retention,model_isrl_retention,base.group_partner_manager,1,0,0,0
+access_isrl_retention,isrl.retention,model_isrl_retention,account.group_account_user,1,0,0,0
+access_isrl_retention,isrl.retention,model_isrl_retention,account.group_account_invoice,1,1,1,1
+access_isrl_retention_invoice_line,isrl.retention.invoice.line,model_isrl_retention_invoice_line,account.group_account_user,1,0,0,0
+access_isrl_retention_invoice_line,isrl.retention.invoice.line,model_isrl_retention_invoice_line,account.group_account_manager,1,1,1,1
+access_isrl_retention_invoice_line,isrl.retention.invoice.line,model_isrl_retention_invoice_line,base.group_user,1,0,0,0
+access_isrl_retention_invoice_line,isrl.retention.invoice.line,model_isrl_retention_invoice_line,base.group_partner_manager,1,0,0,0
+access_isrl_retention_invoice_line,isrl.retention.invoice.line,model_isrl_retention_invoice_line,account.group_account_user,1,0,0,0
+access_isrl_retention_invoice_line,isrl.retention.invoice.line,model_isrl_retention_invoice_line,account.group_account_invoice,1,1,1,1

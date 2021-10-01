@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- This view replace the totals showed in the view -->
+    <record id="sale_order_crypto_view" model="ir.ui.view">
+       <field name="name">sale.order.crypto.view</field>
+       <field name="model">sale.order</field>
+       <field name="inherit_id" ref="sale.view_order_form"/>
+       <field name="arch" type="xml">
+            <xpath expr="//field[@name='pricelist_id']" position="after">
+                <field name="aux_currency_id" readonly="True"/>
+            </xpath>
+
+            <xpath expr="//group[@name='note_group']" position="replace">
+                <group col="2">
+                    <group>
+			    <button string="Crypto / Fiat  Calculator" class="oe_highlight" type="action" name="%(compute_cryptocurrency_value_wizard_action)d"/>
+                       <group>
+                            <div class="o_row oe_right">
+                                <strong><field name="crypto_total"/></strong>
+                                <field name="aux_currency_id" readonly="True" options="{'no_open':True,'no_create': True}"/>
+                            </div>
+                        </group>
+                    </group>
+                    <group name="note_group" col="6">
+                        <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                            <field name="amount_untaxed" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="amount_tax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                <label for="amount_total"/>
+                            </div>
+                            <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                        <div class="oe_clear"/>
+                    </group>
+                </group>
+                <group colspan="2">
+                    <group>
+                        <field name="note" nolabel="1" placeholder="Terms and conditions..."/>
+                    </group>
+                </group>
+            </xpath>
+            
+       </field>
+    </record>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data>
+        <record id="res_company_wh_itf" model="ir.ui.view">
+            <field name="name">res.company.wh.itf</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='social_media']" position="after">
+                    <group string="Retención de Impuestos de Grandes Transacciones Financieras" aling="center">
+                        <field name="calculate_wh_itf"/>
+                        <field name="wh_porcentage" attrs="{'invisible': [('calculate_wh_itf', '=', False)]}"/>
+                        <field name="account_wh_itf_id" attrs="{'invisible':[('calculate_wh_itf','=',False)]}"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <!--record id="view_l10n_ve_igtf" model="ir.ui.view" >
+            <field name="name">view.l10n.ve.igtf</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//form/header/button[@name='post']" position="before">
+                        <button name="button_organizar_ref"
+                                type='object'
+                                attrs="{'invisible': [('state', '=', 'draft')]}"
+                                string='Realizar Asiento IGTF'/>
+                </xpath>
+            </field>
+        </record-->
+
+    </data>
+</odoo>

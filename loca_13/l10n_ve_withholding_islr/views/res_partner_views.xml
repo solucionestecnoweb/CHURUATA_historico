@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+
+    <!--
+    =====================================================
+    Partners Extension Income
+    =====================================================
+    -->
+
+        <!--record id="res_partner_wh_islr" model="ir.ui.view">
+            <field name="name">res.partner.wh.islr</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="l10n_ve_fiscal_requirements.partner_inherit_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page/group[@name='vat_retention']" position="before">
+                    <group string="Income Withholding" col="6" colspan="2">
+                        <field name="islr_agent"/>
+                        <field name="spn"/>
+                        <field name="islr_exempt"/>
+                    </group>
+                </xpath>
+            </field>
+        </record-->
+
+        <!--record model="ir.ui.view" id="partner_ext_islr_view">
+            <field name="name">partner_ext_islr_view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+            <xpath expr="//group[@name='accounting_entries']" position="after">
+                <group string="Diarios de Retención de ISLR">
+                        <separator string="Journal ISLR de Purchase " name="purchase_ISLR_journal"/>
+                        <field name="purchase_islr_journal_id"/>
+                        <separator string="Journal ISLR Sales" name="sales_ISLR_journal"/>
+                        <field name="sale_islr_journal_id"/>
+                    </group>
+                </xpath>
+            </field>
+        </record-->
+
+</odoo>

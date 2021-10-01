@@ -1,0 +1,42 @@
+<odoo>
+  <data>
+     <record id="herencia_vista_pos_order" model="ir.ui.view">
+        <field name="name">vista.pos.order</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">  
+                      
+                <field name="nro_nc_seniat" string="Nro NC" invisible="0"/>
+                <field name="nro_fact_seniat" string="Nr Factura" invisible="0" readonly="1"/>
+                <field name="nb_caja_comp" string="Nombre Caja" invisible="1"/>
+                <field name="nb_caja" string="Nombre Caja" invisible="0" readonly="1"/>
+              
+            </xpath>
+            
+        </field>
+     </record>   
+
+     <record id="herencia_vista_pos_order_tree" model="ir.ui.view">
+        <field name="name">vista.pos.order.tree</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">  
+                      
+                <field name="nro_fact_seniat" string="Nro Factura" invisible="0"/>
+                <field name="nro_nc_seniat" string="Nro NC" invisible="0"/>
+                
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="after">  
+                      
+                <field name="status_impresora" string="Impreso Fiscal"/>
+              
+            </xpath>
+            
+        </field>
+     </record>   
+    	 
+
+  </data>
+</odoo>

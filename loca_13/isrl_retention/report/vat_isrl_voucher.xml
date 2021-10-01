@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_isrl_retention" model="report.paperformat">
+        <field name="name">ISLR Retention Report</field>
+        <field name="format">custom</field>
+        <field name="orientation">Landscape</field>
+        <field name="page_height">219</field>
+        <field name="page_width">330</field>
+        <field name="margin_top">30</field>
+        <field name="margin_bottom">5</field>
+        <field name="header_line" eval="False"/>
+    </record>
+
+    <record id="paperformat_isrl_arc" model="report.paperformat">
+        <field name="name">ISLR ARC</field>
+        <field name="orientation">Landscape</field>
+         <field name="margin_top">44</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False"/>
+    </record>
+
+
+    <template id="template_vat_isrl_voucher">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.basic_layout" t-lang="es_VE">
+                        <div class="header">
+                            <div class="row">
+                                <div class="col-12">
+                                    <table style="width:100%;">
+                                        <tr>
+                                            <td style="width:30%;text-align:center;">
+                                                <t t-if="o.invoice_id.company_id.logo">  
+                                                    <img t-attf-src="data:image/*;base64,{{o.invoice_id.company_id.logo}}" style="width:auto; height:50px;"/>
+                                                </t>
+                                            </td>
+                                            <td style="width:70%;">
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page">
+                            <h2 style="font-size:20px;">Comprobante de Retención de ISLR Nº <small><t t-esc="o.name"/></small></h2>
+                            <h2 style="font-size:20px;" ><small> Fecha : <span t-field="o.invoice_id.date"/></small></h2>
+                            <div class=" border border-dark p-2">
+                                <table  style="width:97%;">
+                                    <colgroup>
+                                        <col span="1" style="width: 40%;"/>
+                                        <col span="1" style="width: 40%;"/>
+                                        <col span="1" style="width: 20%;"/>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr style="height:30px " >
+                                            <td ><b>Nombre o razón social del agente de retención. </b></td>
+                                            <td ><b>Registro de la información fiscal del agente de retención </b></td>
+                                            <td ><b>Periodo Fiscal</b></td>
+                                        </tr>
+                                        <tr style=" height:30px " >
+                                            <td ><span t-field="o.invoice_id.company_id.name"/></td>
+                                            <td ><!--span t-field="o.invoice_id.company_id.vat"/-->
+                                            <span t-esc="o.doc_cedula(o.invoice_id.company_id.id)"/>
+                                        </td>
+                                            <td > <t t-esc="o.invoice_id.date.year"/>-
+                                            <t t-if="o.invoice_id.date.month>9">
+                                                <t t-esc="o.invoice_id.date.month"/>
+                                            </t>
+                                            <t t-if="not o.invoice_id.date.month>9">
+                                                0<t t-esc="o.invoice_id.date.month"/>
+                                            </t>
+                                            </td>
+                                        </tr>
+
+                                        <tr style=" height:30px ">
+                                            <td colspan="3"><b>Dirección Fiscal</b></td>
+                                        </tr>
+                                        <tr style=" height:30px ">
+                                            <td colspan="3"> <span t-esc="o.get_company_address()"/> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br/>
+                            <div class=" border border-dark p-2">
+                            <table  style="width:97%;">
+                                <colgroup>
+                                    <col span="1" style="width: 40%;"/>
+                                    <col span="1" style="width: 40%;"/>
+                                    <col span="1" style="width: 20%;"/>
+                                </colgroup>
+                                <tbody>
+                                    <tr style=" height:30px ">
+                                        <td > <b>Nombre o razón social del agente  retenido.</b></td>
+                                        <td colspan="2"> <b>Registro de la información fiscal del agente  retenido</b></td>  
+
+                                    </tr>
+                                    <tr style=" height:30px ">
+                                        <td><span t-field="o.partner_id.name"/></td>
+                                        <td colspan="2" >
+                                            <!--span t-field="o.partner_id.vat"/-->
+                                            <span t-esc="o.doc_cedula(o.partner_id.id)"/>
+                                        </td>
+
+                                    </tr>
+                                    <tr style=" height:30px ">
+                                        <td colspan="3"><b>Dirección Fiscal</b></td>
+                                        <!-- <td ><b>Teléfono </b></td> -->
+                                    </tr>
+                                    <tr style=" height:30px ">
+                                        <td colspan="3">  <span t-esc="o.get_address_partner()"/> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                            <br/>
+                            <div class="container">
+                                <div class="row text-center" style="background-color:#FFFFFF; font-size:12px;">
+                                    <div class="col-1 border border-dark p-2" >
+                                        Código 
+                                    </div>
+                                    <div class="col-1 border border-dark p-2" >
+                                        Fecha Factura 
+                                    </div>
+                                    <div class="col-1 border border-dark p-2" >
+                                        Nº de Factura 
+                                    </div>
+                                    <div class="col-1 border border-dark p-2" >
+                                        Nº de Control 
+                                    </div>
+                                    <div class="col-3 border border-dark p-2" >
+                                        Concepto de la Rentención 
+                                    </div>
+                                    <div class="col-1 border border-dark p-2" >
+                                       Total Facturado 
+                                    </div>
+                                    <div class="col-1 border border-dark p-2" >
+                                       Monto Base 
+                                    </div>
+                                    <div class="col-1 border border-dark p-2" >
+                                      % Rentención 
+                                    </div>
+                                    <div class="col-1 border border-dark p-2" >
+                                       Sustraendo 
+                                    </div>
+                                    <div class="col-1  border border-dark p-2" >
+                                       ISLR Monto Retenido 
+                                    </div>
+                                </div>
+                                <t t-set="total_ret" t-value="0"/>
+                                <div class="row" t-foreach="o.lines_id" t-as="line" >
+                                    <div class="col-1 border border-dark p-2 text-center" >
+                                        <span style="font-size:11px;" t-field="line.code"/>
+                                    </div>
+                                    <div class="col-1 border border-dark p-2 text-center" >
+                                       <span style="font-size:11px;" t-field="o.invoice_id.invoice_date"/>
+                                    </div>
+                                    <div class="col-1 border border-dark p-2 text-center" >
+                                         <span style="font-size:11px;" t-field="o.invoice_id.invoice_number"/>
+                                    </div>
+                                    <div class="col-1 border border-dark p-2 text-center" >
+                                        <span style="font-size:11px;" t-field="o.invoice_id.invoice_ctrl_number"/>
+                                    </div>
+                                    <div class="col-3 border border-dark p-2 text-center" >
+                                        <span style="font-size:11px;" t-field="line.name.name"/>
+                                    </div>
+                                    <div class="col-1 border border-dark p-2 text-center" >
+                                        <span style="font-size:11px;" t-esc="o.float_format(abs(o.invoice_id.amount_total_signed))" />
+                                    </div>
+                                    <div class="col-1 border border-dark p-2 text-center" >
+                                        <span  style="font-size:11px;"  t-esc="o.float_format(line.base)" />
+                                    </div>
+                                    <div class="col-1 border border-dark p-2 text-right" >
+                                        <span  style="font-size:11px;" t-esc="o.float_format(line.cantidad)"/> 
+                                    </div>
+                                    <div class="col-1 border border-dark p-2 text-right" >
+                                        <span style="font-size:11px;"  t-esc="o.float_format(line.sustraendo)" /> 
+                                    </div>
+                                    <div class="col-1 border border-dark p-2 text-right" >
+                                       <span  style="font-size:11px;"  t-esc="o.float_format(line.total)"  /> 
+                                       <t t-set="total_ret" t-value="total_ret+line.total"/> 
+                                    </div>
+                                </div>
+                                <div class="row"> <!-- style="background-color:#FFFFFF;"-->
+                                    <div class="col-11 text-right" >
+                                       <span style="font-size:11px;"> Total:  </span>
+                                    </div>
+                                    <div class="col-1 text-right" >
+                                       <span style="font-size:11px;"><t t-esc="o.float_format(total_ret)"/></span>
+                                    </div>
+
+                                </div>
+                                <br/>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-5 text-center">
+                                        _______________________________
+                                    </div>
+                                    <div class="col-5 text-center" name="firma1">  
+                                        _______________________________
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5 text-center">
+                                        <span t-field="o.partner_id.name"/>
+                                        <br/>
+                                        Firma y Sello
+                                    </div>
+                                    <div class="col-5 text-center" name="firma2">  
+                                        Usuario:<span t-field="o.write_uid.name"/> 
+                                        <br/>
+                                        <span t-field="o.invoice_id.company_id.name"/>
+                                        <br/>
+                                        Firma y Sello
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+    </template>
+
+
+    <template id="external_layout_report_arc">
+        
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3 mb4">
+                        <img t-if="res_company.logo" t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)" style="max-height: 45px;"/>
+                    </div>
+                    <div class="col-xs-9 text-right" style="margin-top:22px;" t-field="res_company.report_header" name="moto"/>
+                </div>
+                <div t-if="res_company.logo or res_company.report_header" class="row zero_min_height">
+                    <div class="col-xs-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 mb4">
+                        <span style="font-size:17px;" t-field="res_company.name"/>
+                    </div>
+                    <div class="col-4 mb4 text-right">
+                        <span>Fecha: &amp;nbsp;&amp;nbsp; <span t-field="o.date_today"/></span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 mb4">
+                        <span style="font-size:17px;">RIF: <span style="font-size:17px;" t-field="res_company.vat"/></span>
+                    </div>
+                    <div class="col-4 mb4 text-right">
+                        <span style="font-size:17px;">Página:</span> <span class="page" style="font-size:17px;"/> / <span class="topage" style="font-size:17px;"/>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <span style="font-size: 20px; color: #0406b3;">RELACIÓN ANUAL DE RETENCIONES DE ISLR</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="article o_report_layout_standard">
+            <t t-raw="0"/>
+        </div>
+
+        <div class="footer">
+            <div class="text-center" style="border-top: 1px solid black;">
+                
+            </div>
+        </div>
+    </template>
+
+
+    <template id="report_arc">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="isrl_retention.external_layout_report_arc">
+                    <t t-set="o" t-value="o.with_context(lang=o.name.lang)"/>
+                    <div class="page">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <span style="font-size:12px;">DESDE:  <span t-field="o.date_from"/> &amp;nbsp;&amp;nbsp;HASTA: <span t-field="o.date_to" /> </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                    <p>Proveedor&amp;nbsp;&amp;nbsp;&amp;nbsp;:&amp;nbsp;&amp;nbsp;&amp;nbsp;<span t-field="o.name.name"/></p>
+                                </div>
+                                <div class="col-1">
+
+                                </div>
+                                <div class="col-5">
+                                    <p>RIF:&amp;nbsp;<span t-field="o.name.doc_type"/>-<span t-field="o.name.vat"/></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="container">
+                            <div class="row">    
+                                <table class="table table-bordered table-responsive" style="width:100%;">
+                                        <colgroup>
+                                            <col style="width:10%;"/>
+                                            <col style="width:9%;"/>
+                                            <col style="width:9%;"/>
+                                            <col style="width:9%;"/>
+                                            <col style="width:20%;"/>
+                                            <col style="width:10%;"/>
+                                            <col style="width:10%;"/>
+                                            <col style="width:7%;"/>
+                                            <col style="width:10%;"/>
+                                        </colgroup>
+                                          
+                                                <tr>
+                                                    <th class="text-center" style="font-size:12px;">NRO COMPROBANTE</th>
+                                                    <th class="text-center" style="font-size:12px;">FECHA FACT.</th>
+                                                    <th class="text-center" style="font-size:12px;">NRO FACT.</th>
+                                                    <th class="text-center" style="font-size:12px;">NRO CONTROL</th>
+                                                    <th class="text-center" style="font-size:12px;">CONCEPTO</th>
+                                                    <th class="text-center" style="font-size:12px;">TOTAL FACTURA</th>
+                                                    <th class="text-center" style="font-size:12px;">MONTO BASE</th>
+                                                    <th class="text-center" style="font-size:12px;">% ISLR</th>
+                                                    <th class="text-center" style="font-size:12px;">MONTO RETENIDO</th>
+                                                </tr>
+                                           
+                                                <t t-set="amount_total" t-value="0"/>
+                                                <t t-set="base" t-value="0"/>
+                                                <t t-set="total" t-value="0"/>
+                                                <t t-foreach="o.isrl_id" t-as="line">
+                                                    <tr t-foreach="line.lines_id" t-as="concep" > 
+                                                    
+                                                        <td class="text-center" style="font-size:12px;"><span t-field="line.name"/></td>
+                                                        <td class="text-center" style="font-size:12px;"><span t-field="line.date_isrl"/></td>
+                                                        <td class="text-center" style="font-size:12px;"><span t-field="line.invoice_id.invoice_number"/></td>
+                                                        <td class="text-center" style="font-size:12px;"><span t-field="line.invoice_id.invoice_ctrl_number"/></td>
+                                                        <td class="text-center" style="font-size:12px;"><span t-field="concep.name.name"/></td>
+                                                        <t t-if="line.invoice_id.journal_id.tipo_doc == 'nc'">
+                                                            <td class="text-right" style="font-size:12px;">-<t t-esc="line.invoice_id.amount_total" t-options='{"widget": "float", "decimal_precision": "ISRL"}'/></td>
+                                                            <td class="text-right" style="font-size:12px;">-<t t-esc="concep.base" t-options='{"widget": "float", "decimal_precision": "ISRL"}'/></td>
+                                                            <td class="text-right" style="font-size:12px;"><t t-esc="concep.cantidad" /> %</td>
+                                                            <td class="text-right" style="font-size:12px;">-<t t-esc="concep.total" t-options='{"widget": "float", "decimal_precision": "ISRL"}'/></td>  
+                                                            <t t-set="base" t-value="base - concep.base"/>
+                                                            <t t-set="amount_total" t-value="amount_total - line.invoice_id.amount_total"/>
+                                                            <t t-set="total" t-value="total - concep.total"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <td class="text-right" style="font-size:12px;"><t t-esc="line.invoice_id.amount_total" t-options='{"widget": "float", "decimal_precision": "ISRL"}'/></td>
+                                                            <td class="text-right" style="font-size:12px;"><t t-esc="concep.base" t-options='{"widget": "float", "decimal_precision": "ISRL"}'/></td>
+                                                            <td class="text-right" style="font-size:12px;"><t t-esc="concep.cantidad" /> %</td>
+                                                            <td class="text-right" style="font-size:12px;"><t t-esc="concep.total" t-options='{"widget": "float", "decimal_precision": "ISRL"}'/></td>  
+                                                            <t t-set="base" t-value="base + concep.base"/>
+                                                            <t t-set="amount_total" t-value="amount_total + line.invoice_id.amount_total"/>
+                                                            <t t-set="total" t-value="total + concep.total"/>
+                                                        </t>
+
+                                                    </tr>
+                                                </t>
+                                           
+                                                <div style="page-break-after: always"></div>
+                                                <tr style="font-size:12px;">
+                                                    <td colspan="5" class="text-right"> Total</td>
+                                                    <td class="text-right"><t t-esc="amount_total" t-options='{"widget": "float", "decimal_precision": "ISRL"}'/></td>
+                                                    <td class="text-right"><t t-esc="base" t-options='{"widget": "float", "decimal_precision": "ISRL"}'/></td>
+                                                    <td></td>
+                                                    <td class="text-right"><t t-esc="total" t-options='{"widget": "float", "decimal_precision": "ISRL"}'/></td>
+                                                </tr>
+                                    </table>
+
+                        </div>
+                       
+                        </div> 
+                        <!-- Nuevo codigo para las firmas -->
+                        <br/><br/>
+                                <div class="row">
+                                    <div class="col-5 text-center">
+                                            _______________________________________
+                                    </div>
+                                    <div class="col-5 text-center">
+                                            _______________________________________
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-5 text-center">
+                                        <span t-field="o.isrl_id.partner_id.name"/>
+                                        <br/>
+                                        Firma y Sello
+                                    </div>
+
+                                    <div class="col-5 text-center" name="firma2">  
+                                        Usuario:<span t-field="o.write_uid.name"/> 
+                                        <br/>
+                                        <span t-field="o.company_id.name"/>
+                                        <br/>
+                                        Firma y Sello
+                                    </div>
+                                </div>
+                        <!--Fin Nuevo codigo para las firmas -->
+
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+<!-- Report action -->
+    <report
+            id="action_vat_report"
+            string="Comprobante de ISLR"
+            model="isrl.retention"
+            report_type="qweb-pdf"
+            name="isrl_retention.template_vat_isrl_voucher"
+            file="isrl_retention.template_vat_isrl_voucher"
+            paperformat="isrl_retention.paperformat_isrl_retention"
+            /><!--paperformat="isrl_retention.paperformat_isrl_retention"-->
+    <report
+            id="action_report_arc"
+            string="ARC "
+            model="account.arc.wizard"
+            report_type="qweb-pdf"
+            name="isrl_retention.report_arc"
+            file="isrl_retention.report_arc"
+            paperformat="isrl_retention.paperformat_isrl_arc"
+            /><!-- paperformat="isrl_retention.paperformat_isrl_arc" -->
+
+
+</odoo>

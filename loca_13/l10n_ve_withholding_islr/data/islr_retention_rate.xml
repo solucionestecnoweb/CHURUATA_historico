@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        
+       <record id="islr_rates_002" model="islr.rates">
+           <field name="code">002</field>
+           <field eval="1" name="natural_person"/>
+           <field eval="1" name="residence"/>
+           <field eval="125000.00" name="min"/>
+           <field eval="100.00" name="subtotal"/>
+           <field eval="3.00" name="retention_percentage"/>
+           <field eval="3750" name="subtract"/>
+           <field name="people_type">resident_nat_people</field>
+           <field name="islr_concept_id" ref="islr_concept_2"/>
+       </record>
+       <record id="islr_rates_003" model="islr.rates">
+           <field name="code">003</field>
+           <field eval="1" name="natural_person"/>
+           <field eval="0" name="residence"/>
+           <field eval="0.00" name="min"/>
+           <field eval="90.00" name="subtotal"/>
+           <field eval="34.00" name="retention_percentage"/>
+           <field eval="0.00" name="subtract"/>
+           <field  name="people_type">non_resit_nat_people</field>
+           <field name="islr_concept_id" ref="islr_concept_2"/>
+       </record>
+       <record id="islr_rates_004" model="islr.rates">
+           <field name="code">004</field>
+           <field eval="0" name="natural_person"/>
+           <field eval="1" name="residence"/>
+           <field eval="25" name="min"/>
+           <field eval="100.00" name="subtotal"/>
+           <field eval="5.00" name="retention_percentage"/>
+           <field eval="0.00" name="subtract"/>
+           <field  name="people_type">domi_ledal_entity</field>
+           <field name="islr_concept_id" ref="islr_concept_2"/>
+       </record>
+       <record id="islr_rates_005" model="islr.rates">
+           <field name="code">005</field>
+           <field eval="0" name="natural_person"/>
+           <field eval="0" name="residence"/>
+           <field eval="0.01" name="min"/>
+           <field eval="90.00" name="subtotal"/>
+           <field eval="0" name="retention_percentage"/>
+           <field eval="0" name="subtract"/>
+           <field eval="1" name="rate2"/>
+           <field  name="people_type">legal_ent_not_domicilied</field>
+           <field name="islr_concept_id" ref="islr_concept_2"/>
+       </record>
+       <record id="islr_rates_018" model="islr.rates">
+           <field name="code">018</field>
+           <field eval="1" name="natural_person"/>
+           <field eval="1" name="residence"/>
+           <field eval="125000.00" name="min"/>
+           <field eval="100.00" name="subtotal"/>
+           <field eval="3.00" name="retention_percentage"/>
+           <field eval="3750.00" name="subtract"/>
+           <field  name="people_type">resident_nat_people</field>
+           <field name="islr_concept_id" ref="islr_concept_3"/>
+       </record>
+       <record id="islr_rates_019" model="islr.rates">
+           <field name="code">019</field>
+           <field eval="1" name="natural_person"/>
+           <field eval="0" name="residence"/>
+           <field eval="0.01" name="min"/>
+           <field eval="100.00" name="subtotal"/>
+           <field eval="34.00" name="retention_percentage"/>
+           <field eval="0.00" name="subtract"/>
+           <field  name="people_type">non_resit_nat_people</field>
+           <field name="islr_concept_id" ref="islr_concept_3"/>
+       </record>
+       <record id="islr_rates_020" model="islr.rates">
+           <field name="code">020</field>
+           <field eval="1" name="natural_person"/>
+           <field eval="1" name="residence"/>
+           <field eval="25.00" name="min"/>
+           <field eval="100.00" name="subtotal"/>
+           <field eval="5.00" name="retention_percentage"/>
+           <field eval="0.00" name="subtract"/>
+           <field  name="people_type">domi_ledal_entity</field>
+           <field name="islr_concept_id" ref="islr_concept_3"/>
+       </record>
+       <record id="islr_rates_021" model="islr.rates">
+           <field name="code">021</field>
+           <field eval="1" name="natural_person"/>
+           <field eval="1" name="residence"/>
+           <field eval="0.01" name="min"/>
+           <field eval="100.00" name="subtotal"/>
+           <field eval="5.00" name="retention_percentage"/>
+           <field eval="0.00" name="subtract"/>
+           <field eval="1" name="rate2"/>
+           <field  name="people_type">legal_ent_not_domicilied</field>
+           <field name="islr_concept_id" ref="islr_concept_3"/>
+       </record>
+
+        <record id="islr_rates_064" model="islr.rates">
+            <field name="code">064</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.1" name="min"/>
+            <field eval="100.0" name="subtotal"/>
+            <field eval="5.0" name="retention_percentage"/>
+            <field eval="0" name="subtract"/>
+            <field  name="people_type">legal_ent_not_domicilied</field>
+            <field name="islr_concept_id" ref="islr_concept_25"/>
+        </record>
+        <record id="islr_rates_071" model="islr.rates">
+            <field name="code">071</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="125000" name="min"/>
+            <field eval="100.0" name="subtotal"/>
+            <field eval="1.0" name="retention_percentage"/>
+            <field eval="1250" name="subtract"/>
+            <field  name="people_type">resident_nat_people</field>
+            <field name="islr_concept_id" ref="islr_concept_5"/>
+        </record>
+        <record id="islr_rates_072" model="islr.rates">
+            <field name="code">072</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="25.00" name="min"/>
+            <field eval="100.0" name="subtotal"/>
+            <field eval="3.0" name="retention_percentage"/>
+            <field eval="0" name="subtract"/>
+            <field  name="people_type">domi_ledal_entity</field>
+            <field name="islr_concept_id" ref="islr_concept_5"/>
+        </record>
+        <record id="islr_rates_083" model="islr.rates">
+            <field name="code">083</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="125000.00" name="min"/>
+            <field eval="100.0" name="subtotal"/>
+            <field eval="3.0" name="retention_percentage"/>
+            <field eval="3750.00" name="subtract"/>
+            <field  name="people_type">resident_nat_people</field>
+            <field name="islr_concept_id" ref="islr_concept_6"/>
+        </record>
+        <record id="islr_rates_084" model="islr.rates">
+            <field name="code">084</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="25.00" name="min"/>
+            <field eval="100.0" name="subtotal"/>
+            <field eval="5.0" name="retention_percentage"/>
+            <field eval="0.01" name="subtract"/>
+            <field  name="people_type">domi_ledal_entity</field>
+            <field name="islr_concept_id" ref="islr_concept_6"/>
+        </record>
+        <record id="islr_rates_085" model="islr.rates">
+            <field name="code">085</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.01" name="min"/>
+            <field eval="100.0" name="subtotal"/>
+            <field eval="3.0" name="retention_percentage"/>
+            <field eval="0" name="subtract"/>
+            <field  name="people_type">legal_ent_not_domicilied</field>
+            <field name="islr_concept_id" ref="islr_concept_6"/>
+        </record>
+        <record id="islr_rates_086" model="islr.rates">
+            <field name="code">086</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="0.01" name="min"/>
+            <field eval="100.0" name="subtotal"/>
+            <field eval="3.0" name="retention_percentage"/>
+            <field eval="0" name="subtract"/>
+            <field  name="people_type">domi_ledal_entity</field>
+            <field name="islr_concept_id" ref="islr_concept_32"/>
+        </record>
+        
+        <record id="islr_rates_062" model="islr.rates">
+            <field name="code">062</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.01" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0" name="subtract"/>
+            <field  name="people_type">non_resit_nat_people</field>
+            <field name="islr_concept_id" ref="islr_concept_25"/>
+        </record>
+        <record id="islr_rates_063" model="islr.rates">
+            <field name="code">063</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="25" name="min"/>
+            <field eval="100.0" name="subtotal"/>
+            <field eval="5.0" name="retention_percentage"/>
+            <field eval="0" name="subtract"/>
+            <field  name="people_type">domi_ledal_entity</field>
+            <field name="islr_concept_id" ref="islr_concept_25"/>
+        </record>
+        <record id="islr_rates_059" model="islr.rates">
+            <field name="code">059</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="25.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="5.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field  name="people_type">domi_ledal_entity</field>
+            <field name="islr_concept_id" ref="islr_concept_7"/>
+        </record>
+        <record id="islr_rates_060" model="islr.rates">
+            <field name="code">060</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.01" name="min"/>
+            <field eval="90.0" name="subtotal"/>
+            <field eval="0" name="retention_percentage"/>
+            <field eval="0" name="subtract"/>
+            <field eval="1" name="rate2"/>
+            <field  name="people_type">legal_ent_not_domicilied</field>
+            <field name="islr_concept_id" ref="islr_concept_7"/>
+        </record>
+        <record id="islr_rates_061" model="islr.rates">
+            <field name="code">061</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="125000.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="3.00" name="retention_percentage"/>
+            <field eval="3750.00" name="subtract"/>
+            <field  name="people_type">resident_nat_people</field>
+            <field name="islr_concept_id" ref="islr_concept_25"/>
+        </record>
+        <record id="islr_rates_058" model="islr.rates">
+            <field name="code">058</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="0.01" name="min"/>
+            <field eval="90.0" name="subtotal"/>
+            <field eval="34.0" name="retention_percentage"/>
+            <field eval="0" name="subtract"/>
+            <field  name="people_type">non_resit_nat_people</field>
+            <field name="islr_concept_id" ref="islr_concept_7"/>
+        </record>
+        <record id="islr_rates_057" model="islr.rates">
+            <field name="code">057</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="125000.00" name="min"/>
+            <field eval="100" name="subtract"/>
+            <field eval="3" name="retention_percentage"/>
+            <field eval="3750" name="subtotal"/>
+            <field  name="people_type">resident_nat_people</field>
+            <field name="islr_concept_id" ref="islr_concept_7"/>
+        </record>
+        <record id="islr_rates_50" model="islr.rates">
+            <field name="code">006</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="125000.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="3.00" name="retention_percentage"/>
+            <field eval="3750" name="subtract"/>
+            <field  name="people_type">resident_nat_people</field>
+            <field name="islr_concept_id" ref="islr_concept_9"/>
+        </record>
+        <record id="islr_rates_51" model="islr.rates">
+            <field name="code">007</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="90.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_9"/>
+        </record>
+        <record id="islr_rates_52" model="islr.rates">
+            <field name="code">008</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="25" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="5.00" name="retention_percentage"/>
+            <field  name="people_type">domi_ledal_entity</field>
+            <field eval="0.00" name="subtract"/>
+            
+            <field name="islr_concept_id" ref="islr_concept_9"/>
+        </record>
+        <record id="islr_rates_053" model="islr.rates">
+           <field name="code">053</field>
+           <field eval="1" name="natural_person"/>
+           <field eval="1" name="residence"/>
+           <field eval="125000.00" name="min"/>
+           <field eval="100.00" name="subtotal"/>
+           <field eval="3.00" name="retention_percentage"/>
+           <field eval="3750.00" name="subtract"/>
+           <field  name="people_type">resident_nat_people</field>
+           <field name="islr_concept_id" ref="islr_concept_4"/>
+       </record>
+        <record id="islr_rates_054" model="islr.rates">
+           <field name="code">054</field>
+           <field eval="1" name="natural_person"/>
+           <field eval="0" name="residence"/>
+           <field eval="0.01" name="min"/>
+           <field eval="100.00" name="subtotal"/>
+           <field eval="34.00" name="retention_percentage"/>
+           <field eval="0.00" name="subtract"/>
+           <field  name="people_type">non_resit_nat_people</field>
+           <field name="islr_concept_id" ref="islr_concept_4"/>
+       </record>
+        <record id="islr_rates_055" model="islr.rates">
+           <field name="code">055</field>
+           <field eval="1" name="natural_person"/>
+           <field eval="1" name="residence"/>
+           <field eval="25.00" name="min"/>
+           <field eval="100.00" name="subtotal"/>
+           <field eval="5.00" name="retention_percentage"/>
+           <field eval="0.00" name="subtract"/>
+           <field  name="people_type">domi_ledal_entity</field>
+           <field name="islr_concept_id" ref="islr_concept_4"/>
+       </record>
+        <record id="islr_rates_056" model="islr.rates">
+           <field name="code">056</field>
+           <field eval="1" name="natural_person"/>
+           <field eval="1" name="residence"/>
+           <field eval="0.01" name="min"/>
+           <field eval="100.00" name="subtotal"/>
+           <field eval="0.00" name="retention_percentage"/>
+           <field eval="0.00" name="subtract"/>
+           <field eval="1" name="rate2"/>
+           <field  name="people_type">legal_ent_not_domicilied</field>
+           <field name="islr_concept_id" ref="islr_concept_4"/>
+       </record>
+        <record id="islr_rates_46" model="islr.rates">
+            <field name="code">014</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="125000.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="3.00" name="retention_percentage"/>
+            <field eval="2.50" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_12"/>
+        </record>
+        <record id="islr_rates_47" model="islr.rates">
+            <field name="code">015</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_12"/>
+        </record>
+        <record id="islr_rates_48" model="islr.rates">
+            <field name="code">016</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="0.33" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="5.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_12"/>
+        </record>
+        <record id="islr_rates_49" model="islr.rates">
+            <field name="code">017</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="5.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_12"/>
+        </record>
+        <record id="islr_rates_45" model="islr.rates">
+            <field name="code">022</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="95.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_13"/>
+        </record>
+        <record id="islr_rates_44" model="islr.rates">
+            <field name="code">023</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="4.95" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_14"/>
+        </record>
+        <record id="islr_rate_42" model="islr.rates">
+            <field name="code">025</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="125000.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="3.00" name="retention_percentage"/>
+            <field eval="2.50" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_15"/>
+        </record>
+        <record id="islr_rates_43" model="islr.rates">
+            <field name="code">026</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="95.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_15"/>
+        </record>
+        <record id="islr_rates_44" model="islr.rates">
+            <field name="code">027</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="0.33" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="5.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_15"/>
+        </record>
+        <record id="islr_rates_41" model="islr.rates">
+            <field name="code">032</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="25.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_16"/>
+        </record>
+        <record id="islr_rates_40" model="islr.rates">
+            <field name="code">034</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="90.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_17"/>
+        </record>
+        <record id="islr_rates_39" model="islr.rates">
+            <field name="code">036</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="30.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_18"/>
+        </record>
+        <record id="islr_rates_38" model="islr.rates">
+            <field name="code">038</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="50.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_19"/>
+        </record>
+        <record id="islr_rates_37" model="islr.rates">
+            <field name="code">040</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="30.00" name="subtotal"/>
+            <field eval="10.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_20"/>
+        </record>
+        <record id="islr_rates_33" model="islr.rates">
+            <field name="code">041</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_21"/>
+        </record>
+        <record id="islr_rates_34" model="islr.rates">
+            <field name="code">042</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_21"/>
+        </record>
+        <record id="islr_rates_35" model="islr.rates">
+            <field name="code">043</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_21"/>
+        </record>
+        <record id="islr_rates_36" model="islr.rates">
+            <field name="code">044</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_21"/>
+        </record>
+        <record id="islr_rates_29" model="islr.rates">
+            <field name="code">045</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="16.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_22"/>
+        </record>
+        <record id="islr_rates_30" model="islr.rates">
+            <field name="code">046</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="16.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_22"/>
+        </record>
+        <record id="islr_rates_31" model="islr.rates">
+            <field name="code">047</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="16.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_22"/>
+        </record>
+        <record id="islr_rates_32" model="islr.rates">
+            <field name="code">048</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="16.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_22"/>
+        </record>
+        <record id="islr_rates_25" model="islr.rates">
+            <field name="code">049</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="125000.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="3.00" name="retention_percentage"/>
+            <field eval="2.50" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_23"/>
+        </record>
+        <record id="islr_rates_26" model="islr.rates">
+            <field name="code">050</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_23"/>
+        </record>
+        <record id="islr_rates_27" model="islr.rates">
+            <field name="code">051</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="25" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="5.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field  name="people_type">domi_ledal_entity</field>
+            <field name="islr_concept_id" ref="islr_concept_23"/>
+        </record>
+        <record id="islr_rates_28" model="islr.rates">
+            <field name="code">052</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="5.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_23"/>
+        </record>
+        <record id="islr_rates_22" model="islr.rates">
+            <field name="code">057</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="125000.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="3.00" name="retention_percentage"/>
+            <field eval="2.50" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_24"/>
+        </record>
+        <record id="islr_rates_23" model="islr.rates">
+            <field name="code">058</field>
+            <field eval="1" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_24"/>
+        </record>
+        <record id="islr_rates_24" model="islr.rates">
+            <field name="code">059</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="1" name="residence"/>
+            <field eval="0.33" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="5.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_24"/>
+        </record>
+        <record id="islr_rates_18" model="islr.rates">
+            <field name="code">061</field>
+            <field name="natural_person" eval="1"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="125000.00"/>
+            <field name="residence" eval="1"/>
+            <field name="retention_percentage" eval="3.00"/>
+            <field name="subtract" eval="2.50"/>
+            <field name="islr_concept_id" ref="islr_concept_25"/>
+        </record>
+        <record id="islr_rates_19" model="islr.rates">
+            <field name="code">062</field>
+            <field name="natural_person" eval="1"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="0.00"/>
+            <field name="residence" eval="0"/>
+            <field name="retention_percentage" eval="34.00"/>
+            <field name="subtract" eval="0.00"/>
+            <field name="islr_concept_id" ref="islr_concept_25"/>
+        </record>
+        <record id="islr_rates_20" model="islr.rates">
+            <field name="code">063</field>
+            <field name="natural_person" eval="0"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="0.33"/>
+            <field name="residence" eval="1"/>
+            <field name="retention_percentage" eval="5.00"/>
+            <field name="subtract" eval="0.00"/>
+            <field name="islr_concept_id" ref="islr_concept_25"/>
+        </record>
+        <record id="islr_rates_21" model="islr.rates">
+            <field name="code">064</field>
+            <field eval="0" name="natural_person"/>
+            <field eval="0" name="residence"/>
+            <field eval="0.00" name="min"/>
+            <field eval="100.00" name="subtotal"/>
+            <field eval="5.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_25"/>
+        </record>
+        <record id="islr_rates_14" model="islr.rates">
+            <field name="code">065</field>
+            <field name="natural_person" eval="1"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="125000.00"/>
+            <field name="residence" eval="1"/>
+            <field name="retention_percentage" eval="3.00"/>
+            <field name="subtract" eval="2.50"/>
+            <field name="islr_concept_id" ref="islr_concept_26"/>
+        </record>
+        <record id="islr_rates_15" model="islr.rates">
+            <field name="code">066</field>
+            <field name="natural_person" eval="1"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="0.00"/>
+            <field name="residence" eval="0"/>
+            <field name="retention_percentage" eval="34.00"/>
+            <field name="subtract" eval="0.00"/>
+            <field name="islr_concept_id" ref="islr_concept_26"/>
+        </record>
+        <record id="islr_rates_16" model="islr.rates">
+            <field name="code">067</field>
+            <field name="natural_person" eval="0"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="0.00"/>
+            <field name="residence" eval="1"/>
+            <field name="retention_percentage" eval="5.00"/>
+            <field name="subtract" eval="0.00"/>
+            <field name="islr_concept_id" ref="islr_concept_26"/>
+        </record>
+        <record id="islr_rates_17" model="islr.rates">
+            <field name="code">068</field>
+            <field name="natural_person" eval="0"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="0.00"/>
+            <field name="residence" eval="0"/>
+            <field name="retention_percentage" eval="5.00"/>
+            <field name="subtract" eval="0.00"/>
+            <field name="islr_concept_id" ref="islr_concept_26"/>
+        </record>
+        <record id="islr_rates_12" model="islr.rates">
+            <field name="code">069</field>
+            <field name="natural_person" eval="1"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="125000.00"/>
+            <field name="residence" eval="1"/>
+            <field name="retention_percentage" eval="1.00"/>
+            <field name="subtract" eval="0.83"/>
+            <field name="islr_concept_id" ref="islr_concept_27"/>
+        </record>
+        <record id="islr_rates_13" model="islr.rates">
+            <field name="code">070</field>
+            <field name="natural_person" eval="0"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="0.00"/>
+            <field name="residence" eval="1"/>
+            <field name="retention_percentage" eval="1.00"/>
+            <field name="subtract" eval="0.00"/>
+            <field name="islr_concept_id" ref="islr_concept_27"/>
+        </record>
+        <record id="islr_rates_10" model="islr.rates">
+            <field name="code">073</field>
+            <field name="natural_person" eval="1"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="125000.00"/>
+            <field name="residence" eval="1"/>
+            <field name="retention_percentage" eval="3.00"/>
+            <field name="subtract" eval="2.50"/>
+            <field name="islr_concept_id" ref="islr_concept_28"/>
+        </record>
+        <record id="islr_rates_11" model="islr.rates">
+            <field name="code">074</field>
+            <field name="natural_person" eval="0"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="0.33"/>
+            <field name="residence" eval="1"/>
+            <field name="retention_percentage" eval="5.00"/>
+            <field name="subtract" eval="0.00"/>
+            <field name="islr_concept_id" ref="islr_concept_28"/>
+        </record>
+        <record id="islr_rates_8" model="islr.rates">
+            <field name="code">075</field>
+            <field name="natural_person" eval="1"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="125000.00"/>
+            <field name="residence" eval="1"/>
+            <field name="retention_percentage"  eval="3.00"/>
+            <field name="subtract" eval="2.50"/>
+            <field name="islr_concept_id" ref="islr_concept_29"/>
+        </record>
+        <record id="islr_rates_9" model="islr.rates">
+            <field name="code">076</field>
+            <field name="natural_person" eval="0"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="0.33"/>
+            <field name="residence" eval="1"/>
+            <field name="retention_percentage" eval="5.00"/>
+            <field name="subtract" eval="0.00"/>
+            <field name="islr_concept_id" ref="islr_concept_29"/>
+        </record>
+        <record id="islr_rates_6" model="islr.rates">
+            <field name="code">077</field>
+            <field name="natural_person" eval="1"/>
+            <field eval="100.00" name="subtotal"/>
+            <field name="min" eval="125000.00"/>
+            <field name="residence" eval="1"/>
+            <field eval="3.00" name="retention_percentage"/>
+            <field eval="2.50" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_30"/>
+        </record>
+         <record id="islr_rates_7" model="islr.rates">
+            <field name="code">078</field>
+            <field name="natural_person" eval="0"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="0.33"/>
+            <field name="residence" eval="1"/>
+            <field eval="5.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_30"/>
+        </record>
+        <record id="islr_rates_2" model="islr.rates">
+            <field name="code">079</field>
+            <field name="natural_person" eval="1"/>
+            <field name="subtotal" eval="100.00"/>
+            <field name="min" eval="125000.00"/>
+            <field name="residence" eval="1"/>
+            <field eval="3.00" name="retention_percentage"/>
+            <field eval="2.50" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_31"/>
+        </record>
+        <record id="islr_rates_3" model="islr.rates">
+            <field name="code">080</field>
+            <field name="natural_person" eval="1"/>
+            <field eval="100.00" name="subtotal"/>
+            <field name="min" eval="0.00"/>
+            <field name="residence" eval="0"/>
+            <field eval="34.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_31"/>
+        </record>
+        <record id="islr_rates_4" model="islr.rates">
+            <field name="code">081</field>
+            <field name="natural_person" eval="0"/>
+            <field eval="100.00" name="subtotal"/>
+            <field name="min" eval="0.33"/>
+            <field name="residence" eval="1"/>
+            <field eval="5.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_31"/>
+        </record>
+        <record id="islr_rates_5" model="islr.rates">
+            <field name="code">082</field>
+            <field name="natural_person" eval="0"/>
+            <field eval="100.00" name="subtotal"/>
+            <field name="min" eval="0.00"/>
+            <field name="residence" eval="0"/>
+            <field eval="5.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_31"/>
+        </record>
+        <record id="islr_rates_1" model="islr.rates">
+            <field name="code">086</field>
+            <field name="natural_person" eval="0"/>
+            <field eval="100.00" name="subtotal"/>
+            <field name="min" eval="0.33"/>
+            <field name="residence" eval="1"/>
+            <field eval="3.00" name="retention_percentage"/>
+            <field eval="0.00" name="subtract"/>
+            <field name="islr_concept_id" ref="islr_concept_32"/>
+        </record>
+
+    </data>
+</odoo>

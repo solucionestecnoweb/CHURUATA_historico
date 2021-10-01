@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Tax units -->
+        <record id="tax_unit_2014" model="tax.unit">
+            <field name="name">40.359</field>
+            <field name="date">2014-03-01</field>
+            <field name="tax_unit_amount">127.00</field>
+            </record> 
+            <record id="tax_unit_2013" model="tax.unit">
+            <field name="name">40.106</field>
+            <field name="date">2013-02-06</field>
+            <field name="tax_unit_amount">107.00</field>
+            </record> 
+            <record id="tax_unit_2012" model="tax.unit">
+            <field name="name">39.866</field>
+            <field name="date">2012-03-01</field>
+            <field name="tax_unit_amount">90.00</field>
+            </record>
+            <record id="tax_unit_2011" model="tax.unit">
+            <field name="name">39.623</field>
+            <field name="date">2011-03-01</field>
+            <field name="tax_unit_amount">76.00</field>
+            </record>
+            <record id="tax_unit_2010" model="tax.unit">
+            <field name="name">39.361</field>
+            <field name="date">2010-03-01</field>
+            <field name="tax_unit_amount">65.00</field>
+            </record>
+            <record id="tax_unit_2009" model="tax.unit">
+            <field name="name">39.127</field>
+            <field name="date">2009-03-01</field>
+            <field name="tax_unit_amount">55.00</field>
+            </record>
+            <record id="tax_unit_2008" model="tax.unit">
+            <field name="name">38.855</field>
+            <field name="date">2008-02-01</field>
+            <field name="tax_unit_amount">46.00</field>
+            </record>
+            <record id="tax_unit_2007" model="tax.unit">
+            <field name="name">38.603</field>
+            <field name="date">2007-01-01</field>
+            <field name="tax_unit_amount">37.632</field>
+            </record>
+            <record id="tax_unit_2006" model="tax.unit">
+            <field name="name">38.350</field>
+            <field name="date">2006-01-01</field>
+            <field name="tax_unit_amount">33.60</field>
+            </record>
+    </data>
+</odoo>

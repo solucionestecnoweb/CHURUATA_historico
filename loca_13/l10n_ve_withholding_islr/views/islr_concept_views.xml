@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="islr_concept_view_form" model="ir.ui.view">
+        <field name="name">islr.concept.view.form</field>
+        <field name="model">islr.concept</field>
+        <field name="arch" type="xml">
+           <form string="ISLR Concepts">
+               <sheet>
+                   <group>
+                        <field name="name"/>
+                        <field name="retentioned"/>
+                    </group>
+                    <group string="Accounts">
+                        <field name="purchase_account_id"/>
+                        <!-- <field name="sales_accountt_id"/> -->
+                    </group>
+                   <group string="Rates">
+                       <field name="rate_ids">
+                            <tree string="Rates List">
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="subtotal"/>
+                                <field name="min"/>
+                                <field name="retention_percentage"/>
+                                <field name="subtract"/>
+                                <field name="natural_person"/>
+                                <field name="residence"/>
+                                <field name="rate2"/>
+                                <field name="people_type"/>
+                          </tree>
+                          <form string="Rates Form">
+                                <sheet>
+                                    <div class="oe_title">
+                                        <h2>
+                                            <field name="name"/>
+                                        </h2>
+                                    </div>
+                                    <group col="4">
+                                        <field name="code"/>
+                                        <field name="natural_person"/>
+                                        <field name="residence"/>
+                                        <field name="rate2"/>
+                                    </group>
+                                    <group>
+                                        <field name="subtotal"/>
+                                        <field name="min"/>
+                                        <field name="retention_percentage"/>
+                                        <field name="subtract"/>
+                                        <field name="people_type"/>
+                                    </group>
+                                </sheet>
+                          </form>
+                       </field>
+                    </group>
+               </sheet>
+           </form>
+        </field>
+    </record>
+
+   <record id="islr_concept_view_tree" model="ir.ui.view">
+        <field name="name">islr.concept.view.form</field>
+        <field name="model">islr.concept</field>
+        <field name="arch" type="xml"> 
+            <tree>
+                <field name="name"/>
+                <field name="retentioned"/>
+                <field name="purchase_account_id"/>
+                <field name="purchase_account_id"/>
+                <!-- <field name="sales_accountt_id"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_islr_concept" model="ir.actions.act_window">
+        <field name="name">ISLR Concepts</field>
+        <field name="res_model">islr.concept</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <record id="islr_rates_view_tree" model="ir.ui.view">
+       <field name="name">islr.rates.view.tree</field>
+       <field name="model">islr.rates</field>
+       <field name="arch" type="xml">
+            <tree string="Rates List">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="subtotal"/>
+                <field name="min"/>
+                <field name="retention_percentage"/>
+                <field name="subtract"/>
+                <field name="natural_person"/>
+                <field name="residence"/>
+                <field name="rate2"/>
+                <field name="people_type"/>
+            </tree>
+        </field>
+    </record>
+    <record id="islr_rates_view_form" model="ir.ui.view">
+       <field name="name">islr.rates.view.form</field>
+       <field name="model">islr.rates</field>
+       <field name="arch" type="xml">
+            <form string="Rates List">
+                <group col="4">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="subtotal"/>
+                    <field name="min"/>
+                    <field name="retention_percentage"/>
+                    <field name="subtract"/>
+                    <field name="natural_person"/>
+                    <field name="residence"/>
+                    <field name="rate2"/>
+                    <field name="people_type"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="action_islr_rates" model="ir.actions.act_window">
+        <field name="name">Income Withholding Rates</field>
+        <field name="res_model">islr.rates</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Menu zone -->
+
+    <menuitem 
+        id="menu_islr" 
+        name="ISLR"
+        parent="account_accountant.menu_accounting" 
+    />
+
+    <menuitem
+        id="menu_isrl_concept"
+        action="action_islr_concept"
+        name="ISLR Retention Concepts"
+        parent="menu_islr"
+    />
+
+    <!-- switch the Tax Unit menu -->
+    <menuitem
+        id="menu_tax_unit"
+        action="l10n_ve_fiscal_requirements.action_tax_unit"
+        name="Tax Unit"
+        parent="menu_islr"
+    />
+
+    <menuitem
+        id="menu_isrl_ratest"
+        action="action_islr_rates"
+        name="Income Withholding Rates"
+        parent="menu_islr"
+    />
+</odoo>

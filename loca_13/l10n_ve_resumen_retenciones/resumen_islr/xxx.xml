@@ -1,0 +1,36 @@
+<td>Monto 1</td>
+                                    <td>Monto 2</td>
+                                    <td colspan='2'>Monto 3</td>
+
+<table width="100%"  class="table table-condensed ">
+                  <t t-set="pos" t-value="0" />
+                  <t t-set="acum_purchase" t-value="0"/>
+                  <t t-set="acum_base" t-value="0"/>
+                  <t t-set="acum_retenido" t-value="0"/>
+
+                  <t t-foreach="o.line" t-as="line" >
+                    <tbody class="table table-bordered">
+                    <tr>
+                    <td>
+                      <t t-set="pos" t-value="pos+1" />
+                      <t t-esc="pos"/>
+                    </td>
+                    <td>
+                      <t t-esc="line.rif2(line.partner_id.id)"/>
+                    </td>
+                    <td>
+                      <t t-esc="line.partner_id.name"/>
+                    </td>   
+                  </tr>
+                  </tbody>
+                </t>
+                <tbody class="table table-bordered">
+                  <tr>
+                    <td colspan="7"><div align="right">Totales:</div></td>
+                    <td><div align="right"><t t-esc="o.float_format2(acum_purchase)"/></div></td>
+                    <td><div align="right"><t t-esc="o.float_format2(acum_base)"/></div></td>
+                    <td><div align="right"><t t-esc="o.float_format2(acum_retenido)"/></div></td>
+                    <td colspan="2"> </td>
+                  </tr>
+                </tbody>
+              </table>

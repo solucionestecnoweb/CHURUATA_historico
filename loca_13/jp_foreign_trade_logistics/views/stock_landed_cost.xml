@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- STOCK.LANDED.COST -->
+        <record id='view_stock_landed_cost_form_inherit' model='ir.ui.view'>
+            <field name="name">stock.landed.cost.form.inherit</field>
+            <field name="model">stock.landed.cost</field>
+            <field name="inherit_id" ref="stock_landed_costs.view_stock_landed_cost_form"/>
+            <field name="arch" type="xml">
+                <button name='button_cancel' position='before'>
+                    <button name='populate_expenses_bill_ids' type="object"
+                        string="Get Expenses Lines"
+                        attrs="{'invisible': [('expenses_bill_ids', '=', [])]}"/>
+                    <!-- <button name='mensaje' type="object"
+                        string="Mensaje"
+                        attrs="{'invisible': [('expenses_bill_ids', '=', [])]}"/> -->
+                </button>
+                <field name='date' position='after'>
+                    <field name='foreign_currency_id' force_save="1" attrs="{'readonly':['|',('state','not in','draft'),('vendor_bill_ids','!=',[])]}" groups="base.group_multi_currency"/>
+                    <field name='company_currency_id' invisible="1"/>
+                    <field name='many_products' invisible="1"/>
+                    <field name='total_quantity' force_save="1" readonly="1"/>
+                </field>
+                <xpath expr="//group[2]" position="after">
+                    <group string="Foreign Currency" groups="base.group_multi_currency">
+                        <!-- <group> -->
+                            <field name='amount_total_vendor' force_save="1" readonly="1"/>
+                        <!-- </group>
+                        <group> -->
+                            <field name='amount_total_expenses' force_save="1" readonly="1"/>
+                            <field name='amount_total_landed' force_save="1" readonly="1"/>
+                            <field name='unit_cost' force_save="1" readonly="1" widget='monetary' options="{'currency_field': 'foreign_currency_id'}" attrs="{'invisible':[('many_products','=',True)]}"/>
+                        <!-- </group> -->
+                    </group>
+                    <group string="Company Currency">
+                        <!-- <group> -->
+                            <field name='amount_total_vendor_signed' force_save="1" readonly="1"/>
+                        <!-- </group>
+                        <group> -->
+                            <field name='amount_total_expenses_signed' force_save="1" readonly="1"/>
+                            <field name='amount_total_landed_signed' force_save="1" readonly="1"/>
+                            <field name='unit_cost_signed' force_save="1" readonly="1" widget='monetary' options="{'currency_field': 'company_currency_id'}" attrs="{'invisible':[('many_products','=',True)]}"/>
+                        <!-- </group> -->
+                    </group>
+                </xpath>
+                <field name='vendor_bill_id' position='attributes'>
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name='picking_ids' position='attributes'>
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <xpath expr="//page[1]" position="before">
+                    <page string="Vendor Bills">
+                        <field name="vendor_bill_ids" required="1" attrs="{'readonly':[('state','not in','draft')]}" domain="[('state','=','posted'),('type','in',['in_invoice']),('vendor_landed_cost_id','=',False),('expenses_landed_cost_id','=',False)]" widget="many2many">
+                            <tree>
+                                <field name="state" invisible="1"/>
+                                <field name="invoice_date"/>
+                                <field name="invoice_date_due"/>
+                                <field name="partner_id"/>
+                                
+                                <field name="ref"/>
+                                <field name="currency_id" groups="base.group_multi_currency" required="0" readonly="1"/>
+                                
+                                <field name="amount_untaxed"/>
+                                <!-- <field name="amount_untaxed_signed"/>
+                                    <field name="type_document_id"/>  
+                                    <field name="currency_rate" groups="base.group_multi_currency"/>-->
+                                <!-- <field name="currency_rate"/> -->
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Expenses Bills">
+                        <field name="expenses_bill_ids" required="1" attrs="{'readonly':[('state','not in','draft')]}" domain="[('state','=','posted'),('type','in',['in_invoice','in_refund']),('vendor_landed_cost_id','=',False),('expenses_landed_cost_id','=',False)]" widget="many2many">
+                            <tree>
+                                <field name="state" invisible="1"/>
+                                <field name="invoice_date"/>
+                                <field name="invoice_date_due"/>
+                                <field name="partner_id"/>
+                               
+                                <field name="ref"/>
+                                <field name="currency_id" groups="base.group_multi_currency" required="0" readonly="1"/>
+                                
+                                <field name="amount_untaxed"/>
+                                <!-- <field name="amount_untaxed_signed"/> 
+                                <field name="currency_rate" groups="base.group_multi_currency"/
+                                 <field name="type_document_id"/>>-->
+                                <!-- <field name="currency_rate"/> -->
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Pickings">
+                        <field name="picking_ids" force_save="1" readonly="1" widget="many2many"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+<!-- 
+        <record id='view_stock_landed_cost_form_inherit' model='ir.ui.view'>
+            <field name="name">stock.landed.cost.form.inherit</field>
+            <field name="model">stock.landed.cost</field>
+            <field name="inherit_id" ref="stock_landed_costs.view_stock_landed_cost_form"/>
+            <field name="arch" type="xml"> -->
+        <record id='view_stock_landed_cost_tree_inherit' model='ir.ui.view'>
+            <field name="name">stock.landed.cost.tree.inherit</field>
+            <field name="model">stock.landed.cost</field>
+            <field name="inherit_id" ref="stock_landed_costs.view_stock_landed_cost_tree"/>
+            <field name="arch" type="xml">
+                <field name="state" position='after'>
+                    <field name="total_quantity" optional='show'/>
+                    <field name="foreign_currency_id" optional='show'/>
+                    <field name="amount_total_landed" optional='show'/>
+                    <field name="unit_cost" optional='show'/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

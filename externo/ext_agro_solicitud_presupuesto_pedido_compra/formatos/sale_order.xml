@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="orden_venta_solicitud_form_inherit" model="ir.ui.view">
+			<field name="name">orden.venta.solicitudform.inherit</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="ext_personalizacion_lanta.herencia_rif_order_sale"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='rif']" position="after">
+                    <field name="partner_ref" string="Persona de Contacto"/>
+ 	 			</xpath>
+
+
+				
+
+ 	 			<!--xpath expr="//notebook" position="inside">
+					<page string="Detalle Bancario" name="detal_bank">
+                    	<group string="Descripcion de las cuentas bancarias para realizar los pagos">
+                    		
+		                    <field name="nota_proveedor" string="Notas Internas"/>
+		                    
+		                    
+                    	</group>						
+					</page>
+				</xpath-->
+
+				
+
+			</field>
+		</record>
+	</data>	
+</odoo>

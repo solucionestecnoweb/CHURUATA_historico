@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="config_approval_form_purchase" model="ir.ui.view">
+		<field name="name">config.approval.form.purchase</field>
+		<field name="model">purchase.conf.approve</field>
+		<field name="arch" type="xml">
+			<form string="Configuracion de Permisos de aprovaciones">
+                <sheet>
+				    <group>						
+				        <field name="name" readonly="True"></field>
+				        <field name="one_approve_by"></field>
+				        <field name="two_approve_by"></field>
+				    </group>
+                </sheet>		
+			</form>
+		</field>
+	</record>
+		
+	<!-- For display the quotation cancel reason menu  -->
+	<record id="config_approval_tree_purchase" model="ir.ui.view">
+		<field name="name">config.approval.tree.purchase</field>
+		<field name="model">purchase.conf.approve</field>
+		<field name="arch" type="xml">
+			<tree string="Configuracion de Permisos de aprovaciones" >
+				<field name="name"></field>	
+				<field name="one_approve_by" string="Primer Aprobador"></field>
+				<field name="two_approve_by" string="Segundo Aprobador"></field>		
+			</tree>
+		</field>
+	</record>
+
+	<record id="purchase_order_config_approval_menu" model="ir.actions.act_window">
+		<field name="name">Configuracion de permisos de Aprobaciones de Ordenes</field>
+		<field name="res_model">purchase.conf.approve</field>
+		<field name="view_mode">form,tree</field>
+		<field name="view_id" ref="config_approval_tree_purchase"></field>
+	</record>
+
+	<menuitem
+		id="menu_purchase_config_approval"
+		name="Configuraciones de Aprobaciones de Ordenes" 
+		parent="purchase.menu_purchase_config"
+		action="purchase_order_config_approval_menu"/>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="action_report_unit_cost"
+            string="Determination Unit Cost Report"
+            model="stock.landed.cost" 
+            report_type="qweb-pdf"
+            file="jp_foreign_trade_logistics.report_unit_cost" 
+            name="jp_foreign_trade_logistics.report_unit_cost"
+            print_report_name="(object.state in ('draft', 'done') and 'Unit Cost - %s' % (object.name))"
+        />
+
+    </data>
+</odoo>

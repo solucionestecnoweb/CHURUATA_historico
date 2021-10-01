@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>    
+    <record id="paperformat_resumen_municipal" model="report.paperformat">
+
+      <field name="default" eval="True"/>
+        <field name="name">A4 Landscape Account resumen Municipal</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">243</field>
+        <field name="page_width">399</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">52</field>
+        <field name="margin_bottom">5</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <report id="libr_resumen_municipal"
+        model="wizard.resumen.municipal"
+        name="l10n_ve_resumen_retenciones.libro_resumen_municipal"
+        file="l10n_ve_resumen_retenciones.libro_resumen_municipal"
+        string="Reporte Resumen Impuesto Municipal"
+        report_type="qweb-html"
+        paperformat="l10n_ve_resumen_retenciones.paperformat_resumen_municipal"
+        /><!-- paperformat="l10n_ve_resumen_retenciones.paperformat_resumen_iva"-->
+
+    <template id="libro_resumen_municipal">
+
+       <t t-call="web.html_container" ><!-- realiza llamados a template propio de odoo -->
+         <t t-call="web.basic_layout" ><!-- realiza llamados a template propio de odoo -->
+          <t t-set="pag" t-value="0"/>
+          <t t-foreach="docs" t-as="o">
+            <t t-set="pag" t-value="pag+1"/>
+            <!-- CABECERA -->
+            <div class="header">
+            <table  width="100%"  border="1">
+              <tr>
+                <td>
+                  <strong>
+                    <h2 style="font-size:20px;"> <small><t t-esc="o.company_id.name"/>
+                    <br/> RIF:<t t-esc="o.rif(o.company_id.partner_id.id)"/>
+                    <br/> N.I.T: <t t-esc="o.company_id.nit"/>
+                    </small></h2>
+                  </strong>
+                </td>
+                
+                <td>
+                  <div align="right">
+                  <small>
+                    FECHA: <t t-esc="o.formato_fecha(o.date_actual)"/>
+                    <br/>
+                    Pag: <t t-esc="pag"/>
+                  </small>
+                  </div>
+                </td>
+                
+              </tr>
+              <tr>
+                <td>
+                  <div align="center">
+                    Reporte Retenciones Municipales
+                    <br/>
+                    Período: del <t t-esc="o.formato_fecha(o.date_from)"/> al <t t-esc="o.formato_fecha(o.date_to)"/>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            </div>
+            <!-- CUERPO DEL DOCUMENTO -->
+            <div class="page">
+              <table width="100%"  class="table table-condensed ">
+                <tbody class="table table-bordered">
+                  <tr>
+                    <td>
+                      Nro
+                    </td>
+                    <td>
+                      RIF
+                    </td>
+                    <td>
+                      NOMBRE O RAZÓN SOCIAL
+                    </td>
+                    <td>
+                      FECHA DE <BR/>RETENCIÓN
+                    </td>
+                    <td>
+                      NRO<BR/>COMPROBANTE<BR/>(SUJETO PASIVO)
+                    </td>
+                    <td>
+                      ACTIVIDAD <BR/>ECONÓMICA
+                    </td>
+                    <td>
+                      PORCENTAJE
+                    </td>
+                    <td>
+                     MONTO TOTAL 
+                    </td>
+                    <td>
+                      BASE
+                    </td>
+                    <td>
+                      ISAEICS
+                    </td>
+                    <td>
+                      FACT.<BR/>NÚMERO
+                    </td>
+                    <td>
+                      CONTROL<BR/>NÚMERO
+                    </td>
+                  </tr>
+                  </tbody>
+
+                  <t t-set="pos" t-value="0" />
+                  <t t-set="acum_purchase" t-value="0"/>
+                  <t t-set="acum_base" t-value="0"/>
+                  <t t-set="acum_retenido" t-value="0"/>
+
+                  <t t-foreach="o.line.sorted(key=lambda x: (x.fecha_comprobante,x.invoice_id.id),reverse=False)" t-as="line" >
+                    <tbody class="table table-bordered">
+                    <tr>
+                    <td>
+                      <t t-set="pos" t-value="pos+1" />
+                      <t t-esc="pos"/>
+                    </td>
+                    <td>
+                      <t t-esc="line.rif2(line.partner_id.id)"/>
+                    </td>
+                    <td>
+                      <t t-esc="line.partner_id.name"/>
+                    </td>
+                    <td>
+                      <t t-esc="line.formato_fecha2(line.fecha_comprobante)"/>
+                    </td>
+                    <td>
+                      <t t-esc="line.nro_comp"/>
+                    </td>
+                    <td>
+                      <t t-esc="line.codigo"/>
+                    </td>
+                    <td>
+                      <t t-esc="line.porcentaje"/>
+                    </td>
+                    <td>
+                      <div align="right">
+                      <t t-esc="line.float_format(line.factura_total)"/>
+                      <t t-set="acum_purchase" t-value="acum_purchase+line.factura_total"/>
+                      </div>
+                    </td>
+                    <td>
+                      <div align="right">
+                      <t t-esc="line.float_format(line.base_imponible)"/>
+                      <t t-set="acum_base" t-value="acum_base+line.base_imponible"/>
+                      </div>
+                    </td>
+                    <td>
+                      <div align="right">
+                      <t t-esc="line.float_format(line.retenido)"/>
+                      <t t-set="acum_retenido" t-value="acum_retenido+line.retenido"/>
+                      </div>
+                    </td>
+                    <td>
+                      <t t-esc="line.invoice_number"/>
+                    </td>
+                    <td>
+                      <t t-esc="line.invoice_ctrl_number"/>
+                    </td>
+                  </tr>
+                  </tbody>
+                </t>
+                <tbody class="table table-bordered">
+                  <tr>
+                    <td colspan="7"><div align="right">Totales:</div></td>
+                    <td><div align="right"><t t-esc="o.float_format2(acum_purchase)"/></div></td>
+                    <td><div align="right"><t t-esc="o.float_format2(acum_base)"/></div></td>
+                    <td><div align="right"><t t-esc="o.float_format2(acum_retenido)"/></div></td>
+                    <td colspan="2"> </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </t>
+         </t>
+       </t>
+
+     </template>
+  
+  </data>
+</odoo>

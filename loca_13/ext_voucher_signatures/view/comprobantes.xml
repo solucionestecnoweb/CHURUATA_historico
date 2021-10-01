@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- ************* COMPROBANTE DE RETENCIO IVA *******************************************-->
+    <template id="herencia_iva_retencion" inherit_id="vat_retention.template_vat_wh_voucher">
+        <xpath expr="//table[@name='firmas']" position="replace">
+
+            <table border="1" style="width:100%;margin-top:50px;" name="firmas">
+                                    <tr>
+                                        <td style="width:50%;text-align:center;padding:0px;margin:0px;">
+
+                                        <div style="position: relative;">
+                                            <div style="position: absolute; left: 220px; top: -55px; z-index: 1;">
+                                                <t t-if="o.retention_line_ids.create_uid.firma">  
+                                                  <img t-attf-src="data:image/*;base64,{{o.retention_line_ids.create_uid.firma}}" style="width:auto; height:100px;"/>
+                                                </t>
+                                            </div>
+
+                                            <br/>
+                                            <hr/>
+                                            <b><span t-esc="o.retention_line_ids.create_uid.partner_id.name"/></b>
+                                            <br/>
+                                            <b><span t-esc="o.company_id.name"/></b>
+                                            <br/>
+                                            <b>Firma Sello</b>
+                                        </div> <!-- ojo -->
+                                        </td>
+                                        <td style="width:50%;text-align:center;padding:0px;margin:0px;">
+                                            <br/>
+                                            <hr/>                                            
+                                                <b><span t-esc="o.partner_id.name"/></b>
+                                            <br/>
+                                            <b>Firma Sello</b>
+                                        </td>
+                                    </tr>
+                                </table>
+
+        </xpath>
+    </template>
+
+<!-- ************* COMPROBANTE DE RETENCIO MUNICIPAL *******************************************-->
+    <template id="herencia_municipal_retencion" inherit_id="municipality_tax.template_wh_municipality_tax">
+        <xpath expr="//table[@name='firmas']" position="replace">
+
+            <table border="1" style="width:100%;margin-top:40px;" name="firmas">
+                <tr>
+                      <td style="width:50%;text-align:center; font-size:11pt; padding:0px;margin:0px;">
+                    <div style="position: relative;">
+                            <div style="position: absolute; left: 220px; top: -45px; z-index: 1;">
+                             <t t-if="o.create_uid.firma">  
+                                <img t-attf-src="data:image/*;base64,{{o.create_uid.firma}}" style="width:auto; height:100px;"/>
+                             </t>
+                            </div>
+                        <br/><br/>
+                        <hr/>
+                        <b><span t-esc="o.company_id.name"/></b>
+                        <br/>
+                        <b>Usuario Autorizado</b>
+                        <br/>
+                        <span t-esc="o.create_uid.partner_id.name"/>
+                    </div>
+                      </td>
+                      <td style="width:50%;text-align:center;  font-size:11pt; padding:0px;margin:0px;">
+                        <br/><br/>
+                        <hr/>
+                        <b><span t-esc="o.partner_id.name"/></b>
+                        <br/>
+                        <b>Firma Recepción</b>
+                      </td>
+                </tr>
+            </table>
+        </xpath>
+    </template>
+
+<!-- ************* COMPROBANTE DE RETENCIO ISLR *******************************************-->
+    <template id="herencia_islr_retencion" inherit_id="isrl_retention.template_vat_isrl_voucher">
+        <xpath expr="//div[@name='firma2']" position="replace">
+            <div class="col-5 text-center" name="firma"> 
+
+                <div style="position: relative;">
+                    <div style="position: absolute; left: 150px; top: -65px; z-index: 1;">
+                        <t t-if="o.write_uid.firma">  
+                            <img t-attf-src="data:image/*;base64,{{o.write_uid.firma}}" style="width:auto; height:100px;"/>
+                        </t>
+                    </div>
+
+                </div> 
+                Usuario:<span t-field="o.write_uid.name"/> 
+                <br/>
+                <span t-field="o.invoice_id.company_id.name"/>
+                <br/>
+                Firma y Sello
+            </div>
+        </xpath>
+    </template>
+
+<!-- ************* COMPROBANTE DE RETENCION ARC *******************************************-->
+    <template id="herencia_report_arc" inherit_id="isrl_retention.report_arc">
+        <xpath expr="//div[@name='firma2']" position="replace">
+            <div class="col-5 text-center" name="firma2"> 
+
+                <div style="position: relative;">
+                    <div style="position: absolute; left: 200px; top: -65px; z-index: 1;">
+                        <t t-if="o.write_uid.firma">  
+                            <img t-attf-src="data:image/*;base64,{{o.write_uid.firma}}" style="width:auto; height:100px;"/>
+                        </t>
+                    </div>
+                </div>  
+
+                Usuario:<span t-field="o.write_uid.name"/> 
+                <br/>
+                <span t-field="o.company_id.name"/>
+                <br/>
+                Firma y Sello
+            </div>
+        </xpath>
+    </template>
+</odoo>

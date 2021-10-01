@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="paperformat_libro_ventas" model="report.paperformat">
+
+       <field name="default" eval="True"/>
+        <field name="name">A4 Landscape Account</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">497</field>
+        <field name="page_width">500</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">12</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">9</field>
+        <field name="dpi">110</field>
+      </record>
+
+        <report 
+        id="libro_factura_clientes"
+        model="account.wizard.libro.ventas"
+        string="Libro de ventas"
+        report_type="qweb-html"
+
+        name="libro_ventas.reporte_libro_clientes"
+        file="libro_ventas.reporte_libro_clientes"
+        />
+          <!--paperformat="libro_ventas.paperformat_libro_ventas"-->
+
+      <template id="reporte_libro_clientes">
+
+        <t t-call="web.html_container" ><!-- realiza llamados a template propio de odoo -->
+          <t t-call="web.basic_layout" ><!-- realiza llamados a template propio de odoo -->
+            <t t-foreach="docs" t-as="o">
+
+              <div class="header">
+                <table width="100%"  border="1">
+                <tr>
+                  <td>Hola:<t t-esc="o.company_id.name"/></td>
+                </tr>
+              </table>
+              </div>
+
+            </t>
+          </t>
+        </t>
+      </template>
+
+
+    
+     </data>
+</odoo>

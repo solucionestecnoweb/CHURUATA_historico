@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template id="external_layout_inventario">
+        
+        <div class="header">
+            <!--<div class="container">
+                <div class="row">
+                    <div class="col-xs-3 mb4">
+                        <img t-if="res_company.logo" t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)" style="max-height: 45px;"/>
+                    </div>
+                    <div class="col-xs-9 text-right" style="margin-top:22px;" t-field="res_company.report_header" name="moto"/>
+                </div>
+                <div t-if="res_company.logo or res_company.report_header" class="row zero_min_height">
+                    <div class="col-xs-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+            </div>-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 mb4">
+                        <span style="font-size:17px;" t-field="res_company.name"/>
+                    </div>
+                    <div class="col-4 mb4 text-right">
+                        <span>Fecha: &amp;nbsp;&amp;nbsp; <span t-field="o.date_today"/></span>
+                    </div>
+                </div>
+            </div> 
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 mb4">
+                        <span style="font-size:17px;">RIF: <span style="font-size:17px;" t-field="res_company.vat"/></span>
+                    </div>
+                    <div class="col-4 mb4 text-right">
+                        <span style="font-size:17px;">Página:</span> <span class="page" style="font-size:17px;"/> / <span class="topage" style="font-size:17px;"/>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <span style="font-size: 20px; color: #0406b3;">Reporte de Movimiento de Inventario <span t-esc="o.category_id.name"/> Periodo  <t t-esc="o.date_to.year"/>-
+                                            <t t-if="o.date_to.month>9">
+                                                <t t-esc="o.date_to.month"/>
+                                            </t>
+                                            <t t-if="not o.date_to.month>9">
+                                                0<t t-esc="o.date_to.month"/>
+                                            </t></span>
+						<br/>
+						<span style="font-size: 20px; color: #0406b3;">Desde: <span t-field="o.date_from"/>  Hasta: <span t-field="o.date_to"/></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="article o_report_layout_standard">
+            <t t-raw="0"/>
+        </div>
+
+        <div class="footer">
+            <div class="text-center" style="border-top: 1px solid black;">
+                
+            </div>
+        </div>
+    </template>
+
+	<template id="sales_daybook_template">
+		<t t-call="web.html_container">
+			<t t-foreach="docs" t-as="o">
+				<t t-call="libro_inventario.external_layout_inventario">
+					<div class="page">
+						<div class="oe_structure"/>
+
+						<center>
+							<t t-set="total_general_inicial" t-value="0"/>
+							<t t-set="total_general_entradas" t-value="0"/>
+							<t t-set="total_general_salida" t-value="0"/>
+							<t t-set="total_general" t-value="0"/>
+							
+
+							<t t-set="cat_general_inicial" t-value="0"/>
+							<t t-set="cat_general_entradas" t-value="0"/>
+							<t t-set="cat_general_salida" t-value="0"/>
+							<t t-set="cat_general" t-value="0"/>
+
+
+							<!-- <table width='100%' style="margin-top: ;"  class="table"> -->
+							<table class="table table-sm o_main_table" >
+								<thead>
+									<tr class="margin-top: 50px">
+										<th colspan="14"  >-</th>
+									</tr>
+
+									<tr >
+										<th style="border-top: 1px solid black;" class="text-center"></th>
+										<th style="border-top: 1px solid black;" class="text-center"></th>
+										<th colspan="3" style="border-top: 1px solid black;" class="text-center"><b>Inventario  Inicial</b></th>
+										<th colspan="2" style="border-top: 1px solid black;" class="text-center"><b>Entradas  del  Mes</b></th>
+										<th style="border-top: 1px solid black;" class="text-center"></th>
+										<th colspan="2" style="border-top: 1px solid black;" class="text-center"><b>Salidas  del  Mes</b></th>
+										<th style="border-top: 1px solid black;" class="text-center"></th>
+										<th colspan="2" style="border-top: 1px solid black;" class="text-center"><b>Inventario  Final</b></th>
+										<th style="border-top: 1px solid black;" class="text-center"></th>
+									</tr>
+									<tr>
+										<th style="border-top: 1px solid black;border-bottom: 1px solid black;" class="text-center"><b>Código</b></th>
+										<th style="border-top: 1px solid black;border-bottom: 1px solid black;" class="text-center"><b>Unidad  Descripción</b></th>
+										<th style="border-top: 1px solid black;border-bottom: 1px solid black;" class="text-center"><b>Existencia  Inicial</b></th>
+										<th style="border-top: 1px solid black;border-bottom: 1px solid black;" class="text-center"><b>Costo  Inicial </b></th>
+										<th style="border-top: 1px solid black;border-bottom: 1px solid black;" class="text-center"><b>Total  Bolivares</b></th>
+										<th style="border-top: 1px solid black;border-bottom: 1px solid black;" class="text-center"><b>Cantidad  Entradas</b></th>
+										<th style="border-top: 1px solid black;border-bottom: 1px solid black;" class="text-center"><b>Costo  de  Entradas</b></th>
+										<th style="border-top: 1px solid black;border-bottom: 1px solid black;" class="text-center"><b>Total  Bolivares</b></th>
+										<th style="border-top: 1px solid black;border-bottom: 1px solid black;" class="text-center"><b>Cantidad  Salidas</b></th>
+										<th style="border-top: 1px solid black;border-bottom: 1px solid black;" class="text-center"><b>Costo  de  Salidas</b></th>
+										<th style="border-top: 1px solid black;border-bottom: 1px solid black;" class="text-center"><b>Total  Bolivares</b></th>
+										<th style="border-top: 1px solid black;border-bottom: 1px solid black;" class="text-center"><b>Stock  Final</b></th>
+										<th style="border-top: 1px solid black;border-bottom: 1px solid black;" class="text-center"><b>Costo  Promedio</b></th>
+										<th style="border-top: 1px solid black;border-bottom: 1px solid black;" class="text-center"><b>Total  Bolivares</b></th>
+									</tr>
+								</thead>
+
+								<t t-set="categoria" t-value=""/>
+								<t t-set="validar"   t-value="True"/>
+								<tbody class="sale_tbody">
+								<t t-foreach="o.libro" t-as="k">
+									<t t-if="len(k.line_id) > 0">
+										<tr>
+											<th class="text-center"><b>LÍNEA:</b></th>
+											<th class="text-center"><b><span t-esc="k.name.name"/> </b></th>
+											
+										</tr>
+										<tr>
+											<th colspan="14" style="border-bottom: 1px solid black; border-style: dotted; color: white">
+											---
+											</th>
+										</tr>
+										<t t-set="total_bolivares_inicial" t-value="0"/>
+										<t t-set="total_bolivares_entradas" t-value="0"/>
+										<t t-set="total_bolivares_salida" t-value="0"/>
+										<t t-set="total_bolivares" t-value="0"/>
+
+										<t t-set="linea_bolivares_inicial" t-value="0"/>
+										<t t-set="linea_bolivares_entradas" t-value="0"/>
+										<t t-set="linea_bolivares_salida" t-value="0"/>
+										<t t-set="linea_bolivares" t-value="0"/>
+
+
+										<tr t-foreach="k.line_id" t-as="l">
+											<t t-if="l.cantidad_inicial == 0 and l.cantidad_entradas == 0 and l.cantidad_salidas == 0">
+											
+											</t>
+											<t t-else="">
+
+												<th class="text-left"><span t-esc="l.name.default_code"/></th>
+												<th class="text-left"><span t-esc="l.name.name"/></th>
+
+												<th class="text-right"><span t-esc="o.float_format(l.cantidad_inicial)"/></th>
+												<th class="text-right"><span t-esc="o.float_format(l.costo_intradas)"/></th>
+												<th class="text-right"><span t-esc="o.float_format(l.total_bolivares_inicial)"/></th>
+
+												<th class="text-right"><span t-esc="o.float_format(l.cantidad_entradas)"/></th>
+												<th class="text-right"><span t-esc="o.float_format(l.costo_entradas)"/></th>
+												<th class="text-right"><span t-esc="o.float_format(l.total_bolivares_entradas)"/></th>
+
+												<th class="text-right"><span t-esc="o.float_format(l.cantidad_salidas)"/></th>
+												<th class="text-right"><span t-esc="o.float_format(l.costo_salidas)"/></th>
+												<th class="text-right"><span t-esc="o.float_format(l.total_bolivares_salida)"/></th>
+
+												<th class="text-right"><span t-esc="o.float_format(l.total)"/></th>
+												<th class="text-right"><span t-esc="o.float_format(l.promedio)"/></th>
+												<th class="text-right"><span t-esc="o.float_format(l.total_bolivares)"/></th>
+
+												<t t-set="total_bolivares_inicial" t-value="l.total_bolivares_inicial  + total_bolivares_inicial"/>
+												<t t-set="total_bolivares_entradas" t-value="l.total_bolivares_entradas + total_bolivares_entradas "/>
+												<t t-set="total_bolivares_salida" t-value="l.total_bolivares_salida + total_bolivares_salida  "/>
+												<t t-set="total_bolivares" t-value="l.total_bolivares + total_bolivares  "/>
+												
+												<t t-set="linea_bolivares_inicial" t-value=" linea_bolivares_inicial + l.cantidad_inicial "/>
+												<t t-set="linea_bolivares_entradas" t-value="linea_bolivares_entradas + l.cantidad_entradas"/>
+												<t t-set="linea_bolivares_salida" t-value="linea_bolivares_salida + l.cantidad_salidas"/>
+												<t t-set="linea_bolivares" t-value="linea_bolivares + l.total "/>
+
+												<t t-set="total_general_inicial" t-value="total_bolivares_inicial  + total_general_inicial"/>
+												<t t-set="total_general_entradas" t-value=" total_general_entradas + total_bolivares_entradas"/>
+												<t t-set="total_general_salida" t-value="total_bolivares_salida +  total_general_salida"/>
+												<t t-set="total_general" t-value="total_general + total_bolivares "/>
+
+												<t t-set="cat_general_inicial" t-value="cat_general_inicial + l.cantidad_inicial "/>
+												<t t-set="cat_general_entradas" t-value=" cat_general_entradas  + l.cantidad_entradas"/>
+												<t t-set="cat_general_salida" t-value="cat_general_salida + l.cantidad_salidas"/>
+												<t t-set="cat_general" t-value="cat_general + l.total "/>
+											</t>
+										</tr>
+										<tr>
+											<th colspan="2" style="border-top: 1px solid black;" class="text-center"><b>TOTAL  LÍNEA:</b></th>
+											<th  style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(linea_bolivares_inicial)"/></b></th>
+											<th colspan="2" style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(total_bolivares_inicial)"/></b></th>
+
+											<th  style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(linea_bolivares_entradas)"/></b></th>
+											<th colspan="2" style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(total_bolivares_entradas)"/></b></th>
+
+											<th  style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(linea_bolivares_salida)"/></b></th>
+											<th  colspan="2" style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(total_bolivares_salida)"/></b></th>
+
+											<th style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(linea_bolivares)"/></b></th>
+											<th  colspan="2" style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(total_bolivares)"/></b></th>
+										</tr>
+										<tr>
+											<th colspan="14" style="color: white;" class="text-center">
+											--------------------------------------------------------------------------------------------------------------------------------------
+											--------------------------------------------------------------------------------------------------------------------------------------
+											--------------------------------------------------------------------------------------------------------------------------------------
+											</th>
+										</tr>
+									</t>
+									
+								</t>
+								
+								<tr>
+									<th colspan="2" style="border-top: 1px solid black;" class="text-right"><b>TOTAL  GENERAL:</b></th>
+									<th  style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(cat_general_inicial)"/></b></th>
+									<th colspan="2" style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(total_general_inicial)"/></b></th>
+									<th  style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(cat_general_entradas)"/></b></th>
+									<th colspan="2" style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(total_general_entradas)"/></b></th>
+									<th  style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(cat_general_salida)"/></b></th>
+									<th colspan="2" style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(total_general_salida)"/></b></th>
+									<th  style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(cat_general)"/></b></th>
+									<th  colspan="2" style="border-top: 1px solid black;" class="text-right"><b><span t-esc="o.float_format(total_general)"/></b></th> 
+								</tr>
+								<tr>
+									<th colspan="14" style="color: white;" class="text-center">
+									--------------------------------------------------------------------------------------------------------------------------------------
+									--------------------------------------------------------------------------------------------------------------------------------------
+									--------------------------------------------------------------------------------------------------------------------------------------
+									</th>
+								</tr>
+								</tbody>
+
+
+							</table>
+						</center>
+					</div>
+				</t>
+			</t>
+		</t>
+	</template>
+
+	<report
+          id="movimientos_categoria_libro"
+          string="Libro de Inventario"
+          model="stock.move.report.categoria"
+          report_type="qweb-pdf"
+          file="libro_inventario.sales_daybook_template"
+          name="libro_inventario.sales_daybook_template"
+          paperformat="libro_inventario.paperformat_libro_inventario"
+          />
+</odoo>

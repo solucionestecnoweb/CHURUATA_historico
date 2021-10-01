@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        
+        <!-- Sequences for VAT retention purchase or suppliers-->
+        <record id="seq_vat_retention_suppliers" model="ir.sequence">
+            <field name="name">VAT Retention Voucher Number</field>
+            <field name="code">purchase.vat.retention.voucher.number</field>
+            <field name="implementation">standard</field>
+            <field name="prefix">%(year)s%(month)s</field>
+            <field name="padding">8</field>
+            <field name="active" eval="1"/>
+            <field name="number_increment">1</field>
+            <field name="number_next_actual">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- Sequences for VAT retention sales or customers-->
+        <!-- <record id="seq_vat_retention_customers" model="ir.sequence">
+            <field name="name">VAT Retention Voucher Number</field>
+            <field name="code">sale.vat.retention.voucher.number</field>
+            <field name="implementation">standard</field>
+            <field name="prefix">%(year)s%(month)s</field>
+            <field name="padding">8</field>
+            <field name="active" eval="1"/>
+            <field name="number_increment">1</field>
+            <field name="number_next_actual">1</field>
+            <field name="company_id" eval="False"/>
+        </record> -->
+
+    </data>
+</odoo>

@@ -1,0 +1,31 @@
+<odoo>
+  <data>
+     <record id="herencia_tasa_iva_formulario" model="ir.ui.view">
+        <field name="name">vista.tipo.formulario</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='active']" position="before">  
+                      
+                <field name="tipo_tasa" string="Tipo de Tasa" invisible="1"/>
+                <field name="tipe_taxe" string="Tipo de Tasa" invisible="1"/>
+              
+            </xpath>
+            
+        </field>
+     </record>   
+
+     <record id="herencia_tasa_iva_arbol" model="ir.ui.view">
+        <field name="name">vista.tipo.arbol</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='description']" position="after">                         
+                <field name="aliquot" string="Tipo de Tasa" invisible="0"/>              
+            </xpath>
+            
+        </field>
+     </record>      	 
+
+  </data>
+</odoo>

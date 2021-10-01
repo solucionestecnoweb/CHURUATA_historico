@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<templates id="template" xml:space="preserve">
+    <t t-extend="Product">
+        <t t-jquery=".product-img" t-operation="append">
+            <t t-if="widget.pos.config.show_dual_currency">
+                <t t-set="price_other_currency" t-value="0"/>
+                <t t-if="widget.pos.config.rate_company &gt; widget.pos.config.show_currency_rate">
+                    <t t-set="price_other_currency" t-value="product.get_price(pricelist, 1) / widget.pos.config.show_currency_rate_real"/> <!-- modificado darrell -->
+                </t>
+                <t t-elif="widget.pos.config.rate_company &lt; widget.pos.config.show_currency_rate">
+                    <t t-set="price_other_currency" t-value="product.get_price(pricelist, 1) * widget.pos.config.show_currency_rate_real"/> <!-- modificado darrell -->
+                </t>
+                <t t-else="">
+                    <t t-set="price_other_currency" t-value="product.get_price(pricelist, 1)"/>
+                </t>
+
+                <span class="currency">
+                    <t t-if="widget.pos.config.show_currency_position == 'before'">
+                            <t t-esc="widget.pos.config.show_currency_symbol"/>
+                    </t>
+                    <t t-esc="widget.format_currency_no_symbol(price_other_currency)"/>
+                    <t t-if="widget.pos.config.show_currency_position == 'after'">
+                            <t t-esc="widget.pos.config.show_currency_symbol"/>
+                    </t>
+                </span>
+            </t>
+        </t>
+    </t>
+    <t t-extend="Orderline">
+
+        <t t-jquery=".price" t-operation="append">
+            <t t-if="widget.pos.config.show_dual_currency">
+                <t t-set="subtotal_other_currency" t-value="0"/>
+                <t t-if="widget.pos.config.rate_company &gt; widget.pos.config.show_currency_rate">
+                        <t t-set="subtotal_other_currency"
+                           t-value="line.get_display_price() / widget.pos.config.show_currency_rate_real"/><!-- modificado darrell -->
+                </t>
+                <t t-elif="widget.pos.config.rate_company &lt; widget.pos.config.show_currency_rate">
+                        <t t-set="subtotal_other_currency"
+                           t-value="line.get_display_price() * widget.pos.config.show_currency_rate_real"/><!-- modificado darrell -->
+                </t>
+                <t t-else="">
+                        <t t-set="subtotal_other_currency" t-value="line.get_display_price()"/>
+                </t>
+                <span style="color: red; font-size:small">/
+                    <t t-if="widget.pos.config.show_currency_position == 'before'">
+                                <t t-esc="widget.pos.config.show_currency_symbol"/>
+                    </t>
+                    <t t-esc="widget.format_currency_no_symbol(subtotal_other_currency)"/>
+                    <t t-if="widget.pos.config.show_currency_position == 'after'">
+                        <t t-esc="widget.pos.config.show_currency_symbol"/>
+                    </t>
+                </span>
+            </t>
+        </t>
+    </t>
+
+    <t t-extend="OrderWidget">
+        <t t-jquery=".summary" t-operation="replace">
+            <div class="summary clearfix">
+                <div class="line">
+                    <div class='entry total'>
+                        <div class="total_show">
+                            <span class="badge">Total: </span>
+                            <span class="value">0.00 €</span>
+                            <span class="value_currency" style="color: red;font-size: medium"></span>
+                        </div>
+                        <div class='subentry'>Taxes:
+                            <span class="value">0.00€</span>
+                            <span class="value_currency" style="color: red;font-size:small"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </t>
+    <t t-extend="PaymentScreen-Paymentlines">
+        <t t-jquery=".paymentlines-empty" t-operation="replace">
+            <div class='paymentlines-empty'>
+                <div class='total'>
+                    <t t-esc="widget.format_currency(order.get_total_with_tax())"/>
+                    <t t-if="widget.pos.config.show_dual_currency">
+                        <t t-set="total_other_currency" t-value="0"/>
+                        <t t-if="widget.pos.config.rate_company &gt; widget.pos.config.show_currency_rate">
+                                <t t-set="total_other_currency"
+                                   t-value="order.get_total_with_tax() / widget.pos.config.show_currency_rate_real"/>
+                                   <!-- modificado darrell -->
+                        </t>
+                        <t t-elif="widget.pos.config.rate_company &lt; widget.pos.config.show_currency_rate">
+                                <t t-set="total_other_currency"
+                                   t-value="order.get_total_with_tax() * widget.pos.config.show_currency_rate_real"/>
+                                   <!-- modificado darrell -->
+                        </t>
+                        <t t-else="">
+                                <t t-set="subtotal_other_currency" t-value="order.get_total_with_tax()"/>
+                        </t>
+                        <span style="color: red; font-size: xx-large">/
+                            <t t-if="widget.pos.config.show_currency_position == 'before'">
+                                        <t t-esc="widget.pos.config.show_currency_symbol"/>
+                            </t>
+                            <t t-esc="widget.format_currency_no_symbol(total_other_currency)"/>
+                            <t t-if="widget.pos.config.show_currency_position == 'after'">
+                                <t t-esc="widget.pos.config.show_currency_symbol"/>
+                            </t>
+                        </span>
+                    </t>
+                </div>
+                <div class='message'>
+                    Please select a payment method.
+                </div>
+            </div>
+        </t>
+    </t>
+</templates>

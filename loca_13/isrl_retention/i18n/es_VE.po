@@ -1,0 +1,541 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* isrl_retention
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-23 23:31+0000\n"
+"PO-Revision-Date: 2020-06-23 23:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "<b>Dirección Fiscal</b>"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "<b>Dirrecion Fiscal</b>"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "<b>Fecha</b>"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "<b>Nombre o razon social del agente retenido</b>"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "<b>Nombre o razon social del retencion </b>"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "<b>Perido Fiscal</b>"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "<b>Registro de la informacion fiscal del agente de retencion </b>"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "<b>Registro de la informacion fiscal del agente de retenido</b>"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "<b>Teléfono </b>"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid ""
+"<br/>\n"
+"                                        Firma y Sello"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.isrl_retention_view_form
+msgid "<span class=\"o_form_label\">Voucher Number</span>"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__move_id
+msgid "Aciento"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.vat_retention_partner_view
+msgid "Agent ISRL"
+msgstr "Agente ISRL"
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention_invoice_line__base
+msgid "Base"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__amount_untaxed
+msgid "Base Imponible"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.isrl_retention_view_form
+msgid "Base imponible"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention_invoice_line__cantidad
+msgid "Cantidad Porcentual"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.actions.report,name:isrl_retention.action_vat_report
+msgid "Comprobante de ISRL"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "Comprobante de Retencion de ISRL"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "Concepto de la Rentencion"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model,name:isrl_retention.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.isrl_retention_account_view_form2
+msgid "Crear Retencion"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__create_uid
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention_invoice_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__create_date
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention_invoice_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_res_partner__account_isrl_receivable_id
+#: model:ir.model.fields,field_description:isrl_retention.field_res_users__account_isrl_receivable_id
+msgid "Cuenta ISLRRetencion a Cobrar (Clientes)"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_res_partner__account_isrl_payable_id
+#: model:ir.model.fields,field_description:isrl_retention.field_res_users__account_isrl_payable_id
+msgid "Cuenta ISLRRetencion a Pagar (Proveedores)"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__date_isrl
+msgid "Date ISRL"
+msgstr "Fecha ISRL"
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__date_move
+msgid "Date Move"
+msgstr "Fecha movimiento"
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__display_name
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention_invoice_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields.selection,name:isrl_retention.selection__isrl_retention__state__done
+msgid "Done"
+msgstr "Publicado"
+
+#. module: isrl_retention
+#: model:ir.model.fields.selection,name:isrl_retention.selection__isrl_retention__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__invoice_id
+msgid "Factura"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "Fecha Factura"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__id
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention_invoice_line__id
+msgid "ID"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_account_move__isrl_ret_id
+#: model:ir.model.fields,help:isrl_retention.field_account_move__isrl_ret_id
+msgid "ISRL"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention_invoice_line__total
+msgid "ISLRAmount retention"
+msgstr "ISLRmonto retenido"
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_account_move_line__concept_isrl_id
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention_invoice_line__name
+msgid "ISLRConcept"
+msgstr "ISLRConcepto"
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_account_move_line__vat_isrl_line_id
+msgid "ISLRLine"
+msgstr "ISLRLinea"
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "ISLRMonto Retenido"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.isrl_retention_view_form
+#: model_terms:ir.ui.view,arch_db:isrl_retention.vat_retention_partner_view
+msgid "ISLRRetention"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.isrl_retention_view_form
+msgid "ISLRRetention Line"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__vat_retentioned
+msgid "ISl Retentioned"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,help:isrl_retention.field_isrl_retention__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,help:isrl_retention.field_isrl_retention__message_needaction
+#: model:ir.model.fields,help:isrl_retention.field_isrl_retention__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,help:isrl_retention.field_isrl_retention__message_has_error
+#: model:ir.model.fields,help:isrl_retention.field_isrl_retention__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_res_partner__sale_isrl_id
+#: model:ir.model.fields,field_description:isrl_retention.field_res_users__sale_isrl_id
+#: model_terms:ir.ui.view,arch_db:isrl_retention.vat_retention_partner_view
+msgid "Journal"
+msgstr "Diario"
+
+#. module: isrl_retention
+#: model:ir.model,name:isrl_retention.model_account_move
+msgid "Journal Entries"
+msgstr "Diario"
+
+#. module: isrl_retention
+#: model:ir.model,name:isrl_retention.model_account_move_line
+msgid "Journal Item"
+msgstr "Diario"
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention____last_update
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention_invoice_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__write_uid
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention_invoice_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__write_date
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention_invoice_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__lines_id
+msgid "Lines"
+msgstr "Lineas"
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "N de Control"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "N de Factura"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,help:isrl_retention.field_isrl_retention__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,help:isrl_retention.field_isrl_retention__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,help:isrl_retention.field_isrl_retention__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.isrl_retention_view_form
+msgid "Post"
+msgstr "Publicar"
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "Rentencion"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention_invoice_line__retention
+msgid "Retention"
+msgstr "Retencion"
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_res_partner__ret_agent_isrl
+#: model:ir.model.fields,field_description:isrl_retention.field_res_users__ret_agent_isrl
+msgid "Retention agent ISRL"
+msgstr "Agente de Retencion ISRL"
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__state
+msgid "State"
+msgstr "Estado"
+
+#. module: isrl_retention
+#: model:ir.model.fields,help:isrl_retention.field_isrl_retention__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention_invoice_line__sustraendo
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "Sustraendo"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "Total de Impuesto Retenido:"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,help:isrl_retention.field_res_partner__ret_agent_isrl
+#: model:ir.model.fields,help:isrl_retention.field_res_users__ret_agent_isrl
+msgid "True if your partner is retention agent"
+msgstr "Activar si el partner es agente de retencion"
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: isrl_retention
+#: model:ir.model.fields,help:isrl_retention.field_isrl_retention__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention_invoice_line__retention_id
+msgid "Vat retention"
+msgstr "Retecion"
+
+#. module: isrl_retention
+#: model:ir.actions.act_window,name:isrl_retention.action_isrl_vendors_retention
+msgid "Vendor ISLRRetention"
+msgstr "Retecion ISLRProveedores "
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__name
+msgid "Voucher number"
+msgstr "Baucher numero"
+
+#. module: isrl_retention
+#: model:ir.model.fields,help:isrl_retention.field_isrl_retention__state
+msgid "Voucher state"
+msgstr "Estado del baucher"
+
+#. module: isrl_retention
+#: model:ir.model.fields,field_description:isrl_retention.field_isrl_retention__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model.fields,help:isrl_retention.field_isrl_retention__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: isrl_retention
+#: model_terms:ir.ui.view,arch_db:isrl_retention.template_vat_isrl_voucher
+msgid "_______________________________"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model,name:isrl_retention.model_isrl_retention
+msgid "isrl.retention"
+msgstr ""
+
+#. module: isrl_retention
+#: model:ir.model,name:isrl_retention.model_isrl_retention_invoice_line
+msgid "isrl.retention.invoice.line"
+msgstr ""

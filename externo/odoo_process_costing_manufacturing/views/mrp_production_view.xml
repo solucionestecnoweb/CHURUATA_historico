@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    
+    <record id="mrp_production_form_view_inherit_process_costing" model="ir.ui.view">
+        <field name="name">mrp.production.form.inherit</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <field name="bom_id" position="before">
+                <field name="everage_price"/>
+            </field>
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="custom_currency_id" string="Moneda" />
+            </xpath>
+            <xpath expr="//page[last()]" position="after">
+                <!--page name="mrp_material" string="Costo directo de materiales">
+                    <group>
+                        <field name="direct_material_ids" nolabel="1" context="{'default_job_type': 'material'}"/>
+                    </group>
+
+                </page>
+                <page name="mrp_labour" string="Costo laboral directo">
+                    <group>
+                        <field name="labour_cost_ids" nolabel="1" context="{'default_job_type': 'labour'}"/>
+                    </group>
+
+                </page>
+                <page name="mrp_overhead" string="Costos generales de fabricación">
+                    <group>
+                        <field name="overhead_cost_ids" nolabel="1" context="{'default_job_type': 'overhead'}"/>
+                    </group>
+                  
+                </page-->
+                <page name="costing" string="Costeo">
+                    <group>
+                        <group>
+                            <field name="custom_currency_id" invisible="1"/>
+                            <field name="material_total" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                            <field name="labor_total" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                            <field name="overhead_total" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                            <field name="final_total_cost" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                            <field name="precio_venta" string="Precio de Venta Producto" readonly="1" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                        </group>
+                        <group>
+                            <field name="total_actual_material_cost" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                            <field name="total_actual_labour_cost" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                            <field name="total_actual_overhead_cost" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                            <field name="final_total_actual_cost" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                            <field name="unit_cost" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    </data>
+</odoo>

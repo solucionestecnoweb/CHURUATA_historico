@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data noupdate="1"> 
+        <!-- Decimal Precision -->
+        <record id="decimal_retention_islr" model="decimal.precision">
+            <field name="name">Bs per UT</field>
+            <field name="digits">2</field>
+        </record>
+
+        <!-- We add everthing concept for islr in Venezuela -->
+        <record id="islr_concept_1" model="islr.concept">
+            <field name="name">NO APLICA RETENCION</field>
+            <field name="retentioned" eval="0"/>
+        </record>
+       <record id="islr_concept_2" model="islr.concept">
+            <field name="name">Honorarios Profesionales No Mercantiles</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_3" model="islr.concept">
+            <field name="name">Cualquier otra Comisión distintas a Remuneraciones accesorias de los sueldos, 
+            salarios y demás remuneraciones similares</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_4" model="islr.concept">
+            <field name="name">Pagos a Empresas Contratistas o Subcontratistas domiciliadas o no en el país, 
+            por la ejecución de obras o de la prestación de servicios 
+            en base a valuaciones y ordenes de pago</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_5" model="islr.concept">
+            <field name="name">Pagos por Gastos de Transporte conformados por Fletes</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_6" model="islr.concept">
+            <field name="name">Pagos por Servicios de Publicidad y Propaganda y la Cesión de la Venta de Espacios para tales fines</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_7" model="islr.concept">
+            <field name="retentioned" eval="1"/>
+            <field name="name">Pagos de los Administradores de bienes Inmuebles a 
+            los arrendadores de los bienes inmuebles situados en el pais</field>
+        </record>
+        <record id="islr_concept_8" model="islr.concept">
+            <field name="name">Sueldos y Salarios</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_9" model="islr.concept">
+            <field name="name">Honorarios Profesionales Mancomunados No Mercantiles</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_10" model="islr.concept">
+            <field name="name">Honorarios Profesionales Pagados a Jinetes, Veterinarios, Preparadores o Entrenadores</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_11" model="islr.concept">
+            <field name="name">Honorarios Profesionales pagados por Clínicas, Hospitales, 
+            Centros de Salud, Bufetes, Escritorios, Oficinas, Colegios Profesionales u otra 
+            Institución Profesionales No Mercantiles sin Relación de Dependencia</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_12" model="islr.concept">
+            <field name="name">Comisiones pagadas por la venta de bienes inmuebles</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_13" model="islr.concept">
+            <field name="name">Intereses de Capitales tomados en préstamo e invertidos en la producción de renta</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_14" model="islr.concept">
+            <field name="name">Intereses provenientes de préstamos y 
+            otros créditos pagaderos a instituciones financieras constituidas 
+            en el exterior y no domiciliadas en el país</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_15" model="islr.concept">
+            <field name="name">Intereses pagados por las personas jurídicas o comunidades a cualquier otras persona natural, jurídica o comunidad</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_16" model="islr.concept">
+            <field name="name">Enriquecimientos netos de exhibición de películas, cine o la televisión</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_17" model="islr.concept">
+            <field name="name">Enriquecimientos obtenidos por concepto de regalías y demás participaciones análogas</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_18" model="islr.concept">
+            <field name="name">Enriquecimientos obtenidos por las Remuneraciones, Honorarios y Pagos análogos por Asistencia Técnica</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_19" model="islr.concept">
+            <field name="name">Enriquecimientos obtenidos por Servicios Tecnológicos utilizados en el país o cedidos a terceros</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_20" model="islr.concept">
+            <field name="name">Enriquecimientos netos derivados de las primas de seguros y reaseguros</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_21" model="islr.concept">
+            <field name="name">Ganancias obtenidas por juegos y apuestas</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_22" model="islr.concept">
+            <field name="name">Ganancias obtenidas por premios de Loterías y de Hipódromos</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_23" model="islr.concept">
+            <field name="name">Pagos a Propietarios de Animales de Carrera por concepto de Premios</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_24" model="islr.concept">
+            <field name="name">Pagos a los arrendadores de los bienes inmuebles situados en el país</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_25" model="islr.concept">
+            <field name="name">Cánones de arrendamiento de bienes muebles situados en el país</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_26" model="islr.concept">
+            <field name="name">Pagos de las empresas emisoras de tarjetas 
+            de crédito o Consumo por la venta de bienes y 
+            servicios o cualquier otro concepto</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_27" model="islr.concept">
+            <field name="name">Pagos de las empresas emisoras de tarjetas de 
+            crédito por la venta de gasolina en las estaciones de servicio</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_28" model="islr.concept">
+            <field name="name">Pagos de las Empresas de Seguro, 
+            las sociedades de corretaje de seguro y las empresas de reaseguros 
+            por la prestación de los servicios que le son propios</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_29" model="islr.concept">
+            <field name="name">Pagos de las Empresas de seguros a sus contratistas 
+            por la reparación de daños sufridos por los asegurados</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_30" model="islr.concept">
+            <field name="name">Pagos de las empresas de seguros a clínicas, 
+            hospitales y/o centros de salud por la atención médica a sus asegurados</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_31" model="islr.concept">
+            <field name="name">Cantidades que se paguen por la adquisición de fondos de comercio situados en el país</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+        <record id="islr_concept_32" model="islr.concept">
+            <field name="name">Pagos por Servicios de Publicidad Propaganda y la 
+            Cesión de la Venta de los Espacios para tales fines a Emisoras de Radio</field>
+            <field name="retentioned" eval="1"/>
+        </record>
+    </data>
+</odoo>

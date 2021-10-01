@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>    
+
+    <report id="report_nro4"
+        model="dar.doctores"
+        name="sist_hospital_wizard_report.reporte_ejemplo4"
+        file="sist_hospital_wizard_report.reporte_ejemplo4"
+        string="Reporte demo Nro 4 con wizard"
+        report_type="qweb-pdf"/>
+
+    <template id="reporte_ejemplo4">
+
+       <t t-call="web.html_container" ><!-- realiza llamados a template propio de odoo -->
+         <t t-call="web.internal_layout" ><!-- realiza llamados a template propio de odoo -->
+          
+            <div class="article">  
+            <div class="page">
+              
+              reporte con wizard
+
+             <table width="100%"  border="1" align="center">
+                   <tr>
+                     <td>Nombre</td>
+                     <td>Apellido</td>
+                     <td>cedula</td>
+                     <td>telefono</td>
+                     <td>sueldo</td>
+                   </tr>       
+              </table>
+
+            </div>
+           </div>
+          
+         </t>
+       </t>
+
+     </template>
+  
+  </data>
+</odoo>

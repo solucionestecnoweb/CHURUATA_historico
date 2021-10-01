@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template id="inventory_list_template">
+		<t t-call="web.html_container">
+			<t t-foreach="docs" t-as="o">
+				<t t-call="web.basic_layout">
+					<br/>
+					<div class="page">
+						<center>
+							<h2 style="color: #3398db;font-size:20;"><u><b>Listado de Movimiento de Inventario</b></u></h2>
+							<th style="border: 1px solid black;" class="text-center">Desde <span t-esc="o.date_from"/> hasta <span t-esc="o.date_to"/> </th>
+							
+							<table width="30%" class="text-left">
+								<tr>
+									<th style="border: 1px solid black;" class="text-center">Tipo de Inventario...:</th>
+									<th style="border: 1px solid black;" class="text-center">data</th>
+								</tr>
+								<tr>
+									<th style="border: 1px solid black;" class="text-center">Artículo.............:</th>
+									<th style="border: 1px solid black;" class="text-center">data</th>
+								</tr>
+							</table>
+							<br/>
+							<table width='100%'>
+								<tr>
+									<th style="border: 1px solid black;" class="text-center">NÚMERO</th>
+									<th style="border: 1px solid black;" class="text-center">FECHA</th>
+									<th style="border: 1px solid black;" class="text-center">DESCRIPCIÓN DEL MOVIMIENTO</th>
+									<th style="border: 1px solid black;" class="text-center">CANTIDAD </th>
+									<th style="border: 1px solid black;" class="text-center">COSTO UNIT</th>
+									<th style="border: 1px solid black;" class="text-center">COSTO TOTAL</th>
+									<th style="border: 1px solid black;" class="text-center">SOPORTE</th>
+									<th style="border: 1px solid black;" class="text-center">LOTE</th>
+								</tr>
+
+								<tr t-foreach="o.move_id" t-as="t">
+									<th style="border: 1px solid black;" class="text-center"><span t-esc="t.product.name"/></th>
+									<th style="border: 1px solid black;" class="text-center"><span t-esc="t.date"/></th>
+									<th style="border: 1px solid black;" class="text-center"><span t-esc="t.move_id.name"/></th>
+									<th style="border: 1px solid black;" class="text-center"><span t-esc="t.qty_done"/></th>
+									<th style="border: 1px solid black;" class="text-center"></th>
+									<th style="border: 1px solid black;" class="text-center"></th>
+									<th style="border: 1px solid black;" class="text-center"></th>
+									<th style="border: 1px solid black;" class="text-center"><span t-esc="t.lot_id.name"/></th>
+								</tr>
+
+							</table>
+						</center>
+					</div>
+				</t>
+			</t>
+		</t>
+	</template>
+
+
+	<record id="paperformat_libro_inventario" model="report.paperformat">
+        <field name="default" eval="True"/>
+        <field name="name">Libro Inventario</field>
+        <field name="default" eval="True"/>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">15</field>
+        <field name="margin_bottom">4</field>
+        <field name="margin_left">3</field>
+        <field name="margin_right">3</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">15</field>
+        <field name="dpi">110</field>
+
+    </record>
+
+        <report
+          id="movimientos_producto_libro"
+          model="stock.move.report.venezuela"
+          string="Movimiento de Producto"
+          report_type="qweb-pdf"
+          name="libro_inventario.inventory_list_template"
+          paperformat="libro_inventario.paperformat_libro_inventario"
+          />
+
+</odoo>

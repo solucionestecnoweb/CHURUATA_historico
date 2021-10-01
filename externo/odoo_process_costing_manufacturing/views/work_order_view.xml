@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    
+    <record id="workorder_job_costing_form_view" model="ir.ui.view">
+        <field name="name">mrp.workorder.form.inherit</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[last()]" position="after">
+                <page string="Direct Materials Cost">
+                    <group>
+                        <field name="direct_material_ids" nolabel="1" context="{'default_job_type': 'material'}">
+                            <tree editable="bottom">
+                                <field name="job_type" invisible="1" />
+                                <field name="routing_workcenter_id"  />
+                                <field name="product_id"/>
+                                <field name="product_qty"/>
+                                <field name="actual_quantity"/>
+                                <field name="uom_id"/>
+                                <field name="cost_price" sum="Cost Unit" widget="monetary"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="total_cost" sum="Total Cost" widget="monetary"/>
+            <!--                    <field name="actual_quantity"/>-->
+                                <field name="total_actual_cost" sum="Total Actual Cost" widget="monetary"/>
+                            </tree>
+                         </field>
+                    </group>
+                    <!-- <group class="oe_subtotal_footer oe_right">  
+                        <label for="material_total" string="Total Material Cost"/>
+                        <div>
+                            <field name="material_total" class="oe_inline"/>
+                        </div> -->
+<!--                        <label for="total_actual_material_cost" string="Total Material Actual Cost"/>-->
+<!--                        <div>-->
+<!--                            <field name="total_actual_material_cost" class="oe_inline"/>-->
+<!--                        </div>-->
+                   <!-- </group> -->
+                </page>
+                <page string="Direct Labour Cost">
+                    <group>
+                        <field name="labour_cost_ids" nolabel="1" context="{'default_job_type': 'labour'}">
+                            <tree editable="bottom">
+                                <field name="job_type" invisible="1" />
+                                <field name="routing_workcenter_id" />
+                                <field name="product_id"/>
+                                <field name="product_qty"/>
+                                <field name="actual_quantity"/>
+                                <field name="uom_id"/>
+                                <field name="cost_price" sum="Cost Unit" widget="monetary"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="total_cost" sum="Total Cost" widget="monetary"/>
+            <!--                    <field name="actual_quantity"/>-->
+                                <field name="total_actual_cost" sum="Total Actual Cost" widget="monetary"/>
+                            </tree>
+                         </field>
+                   </group>
+                   <!-- <group class="oe_subtotal_footer oe_right"> 
+                        <label for="labor_total" string="Total Labour Cost"/>
+                        <div>
+                            <field name="labor_total" class="oe_inline"/>
+                        </div> -->
+<!--                        <label for="total_actual_labour_cost" string="Total Labour Actual Cost"/>-->
+<!--                        <div>-->
+<!--                            <field name="total_actual_labour_cost" class="oe_inline"/>-->
+<!--                        </div>-->
+                  <!--  </group> -->
+                </page>
+                <page string="Overhead Cost">
+                    <group>
+                        <field name="overhead_cost_ids" nolabel="1" context="{'default_job_type': 'overhead'}">
+                            <tree editable="bottom">
+                                    <field name="job_type" invisible="1" />
+                                    <field name="routing_workcenter_id"  />
+                                    <field name="product_id"/>
+                                    <field name="product_qty"/>
+                                    <field name="actual_quantity"/>
+                                    <field name="uom_id"/>
+                                    <field name="cost_price" sum="Cost Unit" widget="monetary"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="total_cost" sum="Total Cost" widget="monetary"/>
+                <!--                    <field name="actual_quantity"/>-->
+                                    <field name="total_actual_cost" sum="Total Actual Cost" widget="monetary"/>
+                            </tree>
+                         </field>
+                    </group>
+                  <!--  <group class="oe_subtotal_footer oe_right"> 
+                        <label for="overhead_total" string="Total Overhead Cost"/>
+                        <div class="oe_inline">
+                            <field name="overhead_total" class="oe_inline"/>
+                        </div> -->
+<!--                        <label for="total_actual_overhead_cost" string="Total Overhead Actual Cost"/>-->
+<!--                        <div>-->
+<!--                            <field name="total_actual_overhead_cost" class="oe_inline"/>-->
+<!--                        </div>-->
+                  <!--  </group> -->
+                </page>
+                <page name="work_costing" string="Costing">
+                    <group>
+                        <group>
+                            <field name="custom_currency_id" invisible="1"/>
+                            <field name="material_total" widget="monetary"  options="{'currency_field': 'custom_currency_id'}"/>
+                            <field name="labor_total" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                            <field name="overhead_total" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                            <field name="final_total_cost" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                        </group>
+                        <group>
+                            <field name="total_actual_material_cost" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                            <field name="total_actual_labour_cost" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                            <field name="total_actual_overhead_cost" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                            <field name="final_total_actual_cost" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    </data>
+</odoo>

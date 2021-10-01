@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data> 
+  <record id="paperformat_vale_entrega_agro" model="report.paperformat">
+
+      <field name="default" eval="True"/>
+        <field name="name">A4 vale Entrega</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">279</field>
+        <field name="page_width">216</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">52</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <template id="report_vale_entrega">
+            <t t-call="web.html_container">
+              <t t-call="web.basic_layout" >
+                <div class="header">
+                  <table width="100%">
+
+                    <tr>
+                      <td style="width:30%;text-align:center;">
+                        <t t-if="docs.company_id.logo">  
+                            <img t-attf-src="data:image/*;base64,{{docs.company_id.logo}}" style="width:auto; height:80px;"/>
+                        </t>
+                      </td>
+                      <td style="font-size:13px;"><t t-esc="docs.company_id.street"/>
+                      <br/>
+                      CÓDIGO POSTAL: <t t-esc="docs.company_id.zip"/>
+                     <br/>
+                     RIF: <t t-esc="docs.doc_cedula(docs.company_id.partner_id.id)"/>
+                    </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div class="page">
+                  <table width="100%"><!--table table-bordered /table table-condensed -->
+                    <tr>
+                      <td colspan="4" align="center">
+                        <h2><t t-esc="docs.name"/></h2>
+                      </td>
+                      <td colspan="2" align="right">Orden Nro: 
+                        <!--t t-if="docs.state == 'purchase' "-->
+                        <t t-esc="docs.origin"/>
+                        <!--/t-->
+                      </td>
+                    </tr>
+                    <tr><td colspan="6">&amp;nbsp;</td></tr>
+                    <tbody class="table table-bordered">
+                    <tr style="font-size:14px;">
+                      <td colspan="6" width="100">
+                        FECHA DE ENVÍO: <t t-esc="docs.formato_fecha(docs.scheduled_date)"/>
+                        <br/>
+                        <t t-if="docs.partner_id.id">
+                          <t t-esc="docs.partner_id.name"/>
+                          <br/>
+                          <t t-esc="docs.partner_id.street"/>
+                        </t>
+                      </td>
+                    </tr>
+                    
+                    <tr align="center" style="font-size:12px; background-color:#BDD7EE">
+                        <td colspan="2">ITEM/COD</td>
+                        <td colspan="2">DESCRIPCIÓN</td>
+                        <td colspan="2">CANT.</td>
+                    </tr>
+                    <t t-foreach="docs.move_line_ids_without_package" t-as="o">
+                      <tr style="font-size:12px;">
+                        <td colspan="2" align="center"><t t-esc="o.product_id.default_code"/></td>
+                        <td colspan="2" align="center"><t t-esc="o.product_id.name"/></td>
+                        <td colspan="2" align="center"><t t-esc="o.qty_done"/> <t t-esc="o.product_id.uom_id.name"/></td>
+                      </tr>
+                    </t>
+                  </tbody>
+                </table>
+                </div>
+
+              </t>
+            </t>
+    </template>
+
+    
+
+    <report
+            id="picking_vale_entrega"
+            model="stock.picking"
+            string="Vale de Entrega Agro"
+            report_type="qweb-pdf"
+            name="ext_agro_rep_inventario.report_vale_entrega"
+            file="ext_agro_rep_inventario.report_vale_entrega"
+            paperformat="ext_agro_rep_inventario.paperformat_vale_entrega_agro"
+        />
+
+        <!--
+          attachment="(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')"
+            print_report_name="(object._get_report_base_filename())"
+            groups="account.group_account_invoice"
+          -->
+  
+  </data>
+</odoo>

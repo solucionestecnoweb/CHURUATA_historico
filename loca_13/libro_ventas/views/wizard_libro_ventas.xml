@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+            <record id="account_wizard_libro_ventas" model="ir.ui.view">
+                <field name="name">Asistente para factura de Clientes </field>
+                <field name="model">account.wizard.libro.ventas</field>
+                <field name="arch" type="xml">
+                    <form string="Facturas de clientes">
+                        <field invisible="1" name="state"/>
+                        <div states="choose">
+                            <group >
+                                <field name="date_from" string="Fecha Inicio" required="1"/>
+                                <field name="date_to" string="Fecha Fin" required="1"/>
+                            </group>
+                        </div>
+                        <div states="get">
+                            <group>
+                                <field name="name" colspan="4" invisible="1"/>
+                                <field name="report" filename="name" colspan="4"/>
+                            </group>
+                        </div>
+                        <footer states="choose">
+                            <button name="generate_xls_report" string="Exportar Excel" type="object" class="oe_highlight" /> 
+                            <button name="print_facturas" string="Exportar PDF" type="object" class="oe_highlight" />
+                            <button special="cancel" string="Cancel" class="oe_highlight" />
+                        </footer>
+                        <footer states="get">
+                            <button special="cancel" string="Cancel" class="oe_highlight" />
+                        </footer>
+                    </form>
+                </field>
+            </record>
+            <record id="action_account_common_menu_libro_ventas" model="ir.actions.act_window">
+                <field name="name">Libro ventas</field>
+                <field name="res_model">account.wizard.libro.ventas</field>
+                <field name="view_mode">form</field>
+                <field name="view_id" ref="account_wizard_libro_ventas"/>
+                <field name="target">new</field>
+            </record>
+
+            <menuitem name="Libro Ventas" parent="account.menu_finance_reports" id="account.libro_ventas" action="action_account_common_menu_libro_ventas"/>
+
+            <!-- account.wizard.pdf.ventas form view -->
+            <record id="model_name_view_form" model="ir.ui.view">
+                <field name="name">account.wizard.pdf.ventas.view.form</field>
+                <field name="model">account.wizard.pdf.ventas</field>
+                <field name="arch" type="xml">
+                    <form string="">
+                        <sheet>
+                            <group>
+                                <!-- Add your fields here -->
+                                <field name="name"/>
+                                
+                                <field name="document"/>
+                                <field name="partner"/>
+                                <field name="invoice_number"/>
+                                <field name="tipo_doc"/>
+                                <field name="invoice_ctrl_number"/>
+                                <field name="sale_total"/>
+
+                                <field name="base_imponible"/>
+                                <field name="iva"/>
+                                <field name="iva_retenido"/>
+                                <field name="retenido"/>
+                                <field name="retenido_date"/>
+                                
+                            </group>
+                        </sheet>
+                    </form>
+                </field>
+            </record>
+            
+                <!-- account.wizard.pdf.ventas tree view -->
+                <record id="model_name_view_tree" model="ir.ui.view">
+                    <field name="name">account.wizard.pdf.ventas.view.tree</field>
+                    <field name="model">account.wizard.pdf.ventas</field>
+                    <field name="arch" type="xml">
+                        <tree>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <field name="document"/>
+                                <field name="partner"/>
+                                <field name="invoice_number"/>
+                                <field name="tipo_doc"/>
+                                <field name="invoice_ctrl_number"/>
+                                <field name="sale_total"/>
+
+                                <field name="base_imponible"/>
+                                <field name="iva"/>
+                                <field name="iva_retenido"/>
+                                <field name="retenido"/>
+                                <field name="retenido_date"/>
+                        </tree>
+                    </field>
+                </record>
+
+
+            <record id="res_partner_pac_action" model="ir.actions.act_window">
+                <field name="name"> Libro Ventas linea</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">account.wizard.pdf.ventas</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+                <record forcecreate="True" id="decimal_payroll" model="decimal.precision">
+                    <field name="name">Libro Compras</field>
+                    <field name="digits">2</field>
+                </record>
+            <!-- #<menuitem name="Libro Ventas linea" parent="account.menu_finance_reports" id="account_libro_ventas_pdf" action="res_partner_pac_action"/> -->
+
+    </data>
+</odoo>
