@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <template id="assets" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_stocks/static/src/js/widget_base.js"></script>
+                <script type="text/javascript" src="/pos_stocks/static/src/js/screens.js"></script>
+                <script type="text/javascript" src="/pos_stocks/static/src/js/models.js"></script>
+                <script type="text/javascript" src="/pos_stocks/static/src/js/popups.js"></script>
+                <link rel="stylesheet" href="/pos_stocks/static/src/css/pos_stocks.css" />
+            </xpath>
+        </template>
+    </data>
+</odoo>
