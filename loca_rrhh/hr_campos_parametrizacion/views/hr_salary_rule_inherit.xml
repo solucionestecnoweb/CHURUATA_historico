@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_salary_rule_inherit" model="ir.ui.view">
+            <field name="name">hr.salary.rule.inherit</field>
+            <field name="model">hr.salary.rule</field>
+            <field name="inherit_id" ref="hr_payroll.hr_salary_rule_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='active']" position="after">
+                    <field name="desc_ley" string="Articulo o ley"/>
+                </xpath>
+
+                <!--xpath expr="//field[@name='name']" position="before"-->
+                
+            </field>
+        </record>
+
+        <record id="hr_salary_rule_lista_inherit" model="ir.ui.view">
+            <field name="name">hr.salary.rule.lista.inherit</field>
+            <field name="model">hr.salary.rule</field>
+            <field name="inherit_id" ref="hr_payroll.hr_salary_rule_list"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='code']" position="before">
+                    <field name="desc_ley" string="Articulo o ley"/>
+                </xpath>
+
+                <!--xpath expr="//field[@name='name']" position="before"-->
+                
+            </field>
+        </record>
+
+    </data>
+</odoo>

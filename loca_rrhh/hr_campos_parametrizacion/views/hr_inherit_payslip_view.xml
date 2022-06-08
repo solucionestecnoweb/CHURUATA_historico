@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_payslip_especial_days_form" model="ir.ui.view">
+            <field name="name">hr.payslip.holidays</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook" position="attributes">
+                    <attribute name="name">identification_employee</attribute>
+                </xpath>
+
+                <!--xpath expr="//field[@name='name']" position="before"-->
+                <xpath expr="//form/sheet/notebook[@name='identification_employee']" position="before">
+
+                    <h3><a><b>Dias Especiales</b></a></h3>
+                    <newline/>
+                    <group col="4">
+                        <group col="2">
+                        <field name="mondays"/>
+                        <field name="holydays"/>
+                        <field name="workdays" invisible="0"/>
+                        <field name="hollydays_str" nolabel="1" readonly="1" invisible="1 "/>
+                        </group>
+                        <group col="2">
+                        <field name="saturdays"/>
+                        <field name="sundays"/>
+                        <field name="days_attended" readonly="1" invisible="0"/>
+                        <field name="days_inasisti" readonly="1" invisible="0"/>
+                        <field name="monto_bono_alimenticio" invisible="1"/>
+                        </group>
+                    </group>
+
+                    <h3><a><b>Tiempo Laborados</b></a></h3>
+                    <newline/>
+                    <group col="4">
+                        <group col="2">
+                            <field name="horas_extras_diurnas" string="Total Horas Extras Diurnas" readonly="1"/>
+                            <field name="horas_extras_nocturnas" string="Total Horas Extras Nocturnas" readonly="1"/>
+                            <field name="hollydays_str" string="Dias Feriados Laborados" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <h3><a><b>Tiempo de Vacaciones</b></a></h3>
+                    <newline/>
+                    <group col="4">
+                        <group col="2">
+                            <field name="tiempo_antiguedad" string="Antiguedad (años)" readonly="1"/>
+                        </group>
+                        <group col="2">
+                            <field name="dias_vacaciones" string="Dias a Disfrutar" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <h3><a><b>Otros</b></a></h3>
+                    <newline/>
+                    <group col="4">
+                        <group col="2">
+                            <field name="sueldo_anterior_mes" string="Sueldo Mensual mes pasado" readonly="1"/>
+                            <field name="sueldo_minimo_actual" string="Sueldo Minimo Actual" readonly="1"/>
+                        </group>
+                        <group col="2">
+                            <field name="dias_utilidades" string="Dias de Utilidades" readonly="1"/>
+                            <field name="dias_por_antiguedad" string="Dias por Año de Antiguedad" readonly="1"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

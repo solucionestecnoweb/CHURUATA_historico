@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+hr_payroll_hollydays,hr.payroll.hollydays,model_hr_payroll_hollydays,base.group_user,1,1,1,1
+hr_payroll_dias_vacaciones,hr.payroll.dias.vacaciones,model_hr_payroll_dias_vacaciones,base.group_user,1,1,1,1
+hr_payroll_indicadores_economicos,hr.payroll.indicadores.economicos,model_hr_payroll_indicadores_economicos,base.group_user,1,1,1,1
+hr_payroll_prestaciones,hr.payroll.prestaciones,model_hr_payroll_prestaciones,base.group_user,1,1,1,1
+hr_banda_incremento,hr.banda.incremento,model_hr_banda_incremento,base.group_user,1,1,1,1
+hr_banda_empleado,hr.banda.empleado,model_hr_banda_empleado,base.group_user,1,1,1,1

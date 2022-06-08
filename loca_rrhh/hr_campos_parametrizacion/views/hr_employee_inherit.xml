@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_employee_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                    <page string="Datos del Uniforme" name="page_eALy2">
+                        <group name="group_eALy2">
+                            <group name="group_eALy2_left">
+                                <field name="zapatos" string="Zapatos:"/>
+                                <field name="camisas" string="Camisa:"/>
+                            </group>
+                            <group name="group_eALy2_right">
+                                <field name="pantalon" string="Pantalón">%</field>
+                                <field name="chemise" string="Chemise"/>
+                            </group>
+                        </group>
+                    </page>
+                    
+                    <page string="Control de días de Vacaciones" name="page_eALy1">
+                        <separator string="Control dias de Vacaciónes"/>
+                        <group name="group_eALy1">
+                            <group name="group_eALy1_left">
+                                <field name="dias_vacaciones" string="Dias de disfrutes por tiempo de servicios"/>
+                                <field name="tiempo_antiguedad" string="Años de antiguedad:"/>
+                            </group>
+                            <group name="group_eALy1_right">
+                                <field name="dias_totales_disfrutados" string="Dias solicitados totales a disfrutar:"/>
+                                <field name="dias_restantes_disfrutar"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Información de Prestaciones Sociales" name="page_eALy0">
+                        <group name="group_eALy0">
+                            <group name="group_eALy0_left">
+                                <field name="acumulado" string="Acumulado en prestaciones Sociales:" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                                <field name="disponible" string="75% Disponible:" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                                <field name="acumulado_gps" string="Acumulado dias adicionales gps" options="{'currency_field': 'custom_currency_id'}"/>
+                                <field name="salario_integral_diario"/>
+                            </group>
+                            <group name="group_eALy0_right">
+                                <field name="tasa_int" string="Ultima tasa de Interes BCV (%):">%</field>
+                                <field name="acumulado_int" string="Monto Acumulado Intereses:" widget="monetary" options="{'currency_field': 'custom_currency_id'}"/>
+                                <field name="custom_currency_id" invisible="1"/>
+                                <field name="tiempo_antiguedad_dias" string="Timpo antiguedad en dias" readonly="1"/>
+                                <field name="tiempo_fraccion_dias" string="Dias fraccionados del empleado" readonly="1"/>
+                                <field name="tiempo_fraccion_meses" string="Meses fraccionados del empleado" readonly="1"/>
+                            </group>
+                        </group>
+                    </page>
+
+                </xpath>
+                <!--xpath expr="//field[@name='tasa_int']" position="attributes">
+                    <attribute name="widget">percentage</attribute>
+                </xpath-->
+            </field>
+        </record>
+    </data>
+</odoo>
